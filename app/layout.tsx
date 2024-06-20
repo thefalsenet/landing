@@ -1,4 +1,4 @@
-import "@/styles/globals.css"
+import "@/app/globals.css"
 import { Metadata, Viewport } from "next"
 
 import { siteConfig } from "@/config/site"
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
+  authors: [
+    {
+      name: "bkhtdev",
+      url: "https://bkhtdev.com",
+    },
+  ],
+  creator: "bkhtdev",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -33,6 +40,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
+    creator: "@yusupovbg",
   },
   icons: {
     icon: "/favicon.ico",
@@ -56,16 +64,19 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning className="dark" style={{ colorScheme: "dark" }}>
+      <html lang="en" suppressHydrationWarning className="dark">
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased ",
+            "min-h-screen bg-background font-sans antialiased",
             fontSans.variable
           )}
         >
           <div vaul-drawer-wrapper="">
-            <div className="relative flex min-h-screen flex-col bg-background">
+            <div className="flex-none h-screen pointer-events-none fixed top-0 w-full z-[200]">
+              <div className="noise" />
+            </div>
+            <div className="relative flex min-h-screen flex-col bg-background w-full">
               {children}
             </div>
           </div>
