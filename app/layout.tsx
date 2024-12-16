@@ -1,9 +1,9 @@
-import "@/app/globals.css"
-import { Metadata, Viewport } from "next"
+import "@/app/globals.css";
+import { Metadata, Viewport } from "next";
 
-import { siteConfig } from "@/config/site"
-import { fontSans } from "@/lib/font"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/config/site";
+import { fontSans } from "@/lib/font";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: {
@@ -48,17 +48,17 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-}
+};
 
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
-}
+};
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -73,7 +73,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <div vaul-drawer-wrapper="">
-            <div className="flex-none h-screen pointer-events-none fixed top-0 w-full z-[200]">
+            <div className="flex-none h-screen pointer-events-none fixed left-[calc(50.00000000000002%-100%/2)] top-[calc(50.00000000000002%-100%/2)] w-full z-[200]">
               <div className="noise" />
             </div>
             <div className="relative flex min-h-screen flex-col bg-background w-full">
@@ -83,5 +83,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </body>
       </html>
     </>
-  )
+  );
 }

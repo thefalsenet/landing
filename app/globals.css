@@ -57,7 +57,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
 
     --card: 240 10% 3.9%;
@@ -124,11 +124,11 @@
     background-size: 64px;
     background-repeat: repeat;
     background-image: url(/noise.png);
-    opacity: 0.1;
+    opacity: 0.08;
     border-radius: 0;
   }
 
   .dark .noise {
-    @apply opacity-5
+    @apply opacity-5;
   }
 }
