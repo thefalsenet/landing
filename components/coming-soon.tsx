@@ -93,7 +93,7 @@ export default function ComingSoon() {
               <br />
               soon.
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg">
               a new way to read and discover books. join the waitlist to be the
               first to know when we launch.
             </p>
