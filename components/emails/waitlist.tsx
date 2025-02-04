@@ -35,16 +35,19 @@ export default function WaitlistWelcomeEmail({
             style={logo}
           />
 
-          <Heading style={heading}>You're on the list!</Heading>
+          <Heading style={heading}>You&apos;re on the list!</Heading>
 
           <Text style={greeting}>Hi {username} 👋</Text>
 
           <Text style={paragraph}>
-            Thank you for joining the waitlist for thefalse.net. We're excited
-            to have you as part of our growing community of book enthusiasts!
+            Thank you for joining the waitlist for thefalse.net. We&apos;re
+            excited to have you as part of our growing community of book
+            enthusiasts!
           </Text>
 
-          <Text style={paragraph}>Here's what you can look forward to:</Text>
+          <Text style={paragraph}>
+            Here&apos;s what you can look forward to:
+          </Text>
 
           <ul style={list}>
             <li style={listItem}>Early access to our platform</li>
@@ -58,9 +61,10 @@ export default function WaitlistWelcomeEmail({
           </ul>
 
           <Text style={paragraph}>
-            We're working hard to create the best possible experience for book
-            lovers like you. We'll keep you updated on our progress and let you
-            know as soon as we're ready to welcome you to thefalse.net.
+            We&apos;re working hard to create the best possible experience for
+            book lovers like you. We&apos;ll keep you updated on our progress
+            and let you know as soon as we&apos;re ready to welcome you to
+            thefalse.net.
           </Text>
 
           <Text style={paragraph}>
@@ -76,7 +80,7 @@ export default function WaitlistWelcomeEmail({
 
           <Text style={paragraph}>
             If you have any questions or suggestions, feel free to reply to this
-            email. We'd love to hear from you!
+            email. We&apos;d love to hear from you!
           </Text>
 
           <Section style={divider} />
