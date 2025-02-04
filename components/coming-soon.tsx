@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { siteConfig } from "@/config/site"
-import { LoginForm } from "@/components/login-form"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { siteConfig } from "@/config/site";
 
 export default function ComingSoon() {
   const [timeLeft, setTimeLeft] = useState({
@@ -14,31 +13,34 @@ export default function ComingSoon() {
     hours: 0,
     minutes: 0,
     seconds: 0,
-  })
+  });
 
   useEffect(() => {
-    const launchDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+    const launchDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
 
     const timer = setInterval(() => {
-      const now = new Date()
-      const difference = launchDate.getTime() - now.getTime()
+      const now = new Date();
+      const difference = launchDate.getTime() - now.getTime();
 
       setTimeLeft({
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
-      })
-    }, 1000)
+      });
+    }, 1000);
 
-    return () => clearInterval(timer)
-  }, [])
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="grid min-h-screen w-full lg:grid-cols-12 bg-black dark">
       <div className="flex flex-col gap-4 p-6 md:p-10 col-span-3">
         <div className="flex justify-center gap-2 md:justify-start">
-          <Link href="/" className="flex items-center gap-2 self-center text-xl font-bold text-white">
+          <Link
+            href="/"
+            className="flex items-center gap-2 self-center text-xl font-bold text-white"
+          >
             <svg
               width="24"
               height="24"
@@ -57,85 +59,76 @@ export default function ComingSoon() {
         </div>
         <div className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-sm absolute bottom-12 left-12 space-y-8 z-20">
-          <h1 className="text-8xl font-bold tracking-tighter text-white">
-            coming
-            <br />
-            soon.
-          </h1>
+            <h1 className="text-8xl font-bold tracking-tighter text-white">
+              coming
+              <br />
+              soon.
+            </h1>
 
-          <div className="grid grid-cols-4 gap-4">
-            {Object.entries(timeLeft).map(([label, value]) => (
-              <div key={label} className="text-center">
-                <div className="text-3xl font-bold text-white">{String(value).padStart(2, "0")}</div>
-                <div className="text-sm text-muted-foreground">{label}</div>
-              </div>
-            ))}
-          </div>
+            <div className="grid grid-cols-4 gap-4">
+              {Object.entries(timeLeft).map(([label, value]) => (
+                <div key={label} className="text-center">
+                  <div className="text-3xl font-bold text-white">
+                    {String(value).padStart(2, "0")}
+                  </div>
+                  <div className="text-sm text-muted-foreground">{label}</div>
+                </div>
+              ))}
+            </div>
 
-          <div className="flex max-w-md gap-2">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="flex h-10 w-full rounded-none border border-dashed border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-            />
-            <Button variant="outline" className="inline-flex items-center justify-center whitespace-nowrap rounded-none text-sm font-medium border-none transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90">
-              Notify Me
-            </Button>
-          </div>
-
+            <div className="flex max-w-md gap-2">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="flex h-10 w-full rounded-none border border-dashed border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+              />
+              <Button className="inline-flex items-center justify-center whitespace-nowrap rounded-none text-sm font-medium border-none transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90">
+                Notify Me
+              </Button>
+            </div>
           </div>
         </div>
       </div>
       <div className="relative hidden lg:block col-span-9">
-      <div className="flex h-full w-full justify-center gap-2 md:gap-3">
-      <div
-        className="pointer-events-none flex h-full flex-1 self-stretch"
-      >
-      <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/figure-1-aQQB4IU8mwoO1L3iYLcPn9Kt38inad.png"
-            alt="Background section 1"
-            width={400}
-            height={600}
-            className="!relative h-full w-full object-cover"
-          />
+        <div className="flex h-full w-full justify-center gap-2 md:gap-3">
+          <div className="pointer-events-none flex h-full flex-1 self-stretch">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/figure-1-aQQB4IU8mwoO1L3iYLcPn9Kt38inad.png"
+              alt="Background section 1"
+              width={400}
+              height={600}
+              className="!relative h-full w-full object-cover"
+            />
           </div>
-          <div
-        className="pointer-events-none flex h-full flex-1 self-stretch"
-      >
-      <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/figure-2-Joj1tRUxuYflMO4MgGrymwWpyhIq9c.png"
-            alt="Background section 2"
-            width={400}
-            height={600}
-            className="!relative h-full w-full object-cover"
-          />
+          <div className="pointer-events-none flex h-full flex-1 self-stretch">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/figure-2-Joj1tRUxuYflMO4MgGrymwWpyhIq9c.png"
+              alt="Background section 2"
+              width={400}
+              height={600}
+              className="!relative h-full w-full object-cover"
+            />
           </div>
-          <div
-        className="pointer-events-none flex h-full flex-1 self-stretch"
-      >
-      <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/figure-3-cjh9NQcxeOsSl6WtvIFBHgz3jTapPQ.png"
-            alt="Background section 3"
-            width={400}
-            height={600}
-            className="!relative h-full w-full object-cover"
-          />
-          </div><div
-        className="pointer-events-none flex h-full flex-1 self-stretch"
-      >
-      <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/figure-4-TcVarEdNf8wlqNRcVJcoSb9128WjVi.png"
-            alt="Background section 4"
-            width={400}
-            height={600}
-            className="!relative h-full w-full object-cover"
-          />
+          <div className="pointer-events-none flex h-full flex-1 self-stretch">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/figure-3-cjh9NQcxeOsSl6WtvIFBHgz3jTapPQ.png"
+              alt="Background section 3"
+              width={400}
+              height={600}
+              className="!relative h-full w-full object-cover"
+            />
           </div>
-    
-  </div>
-        
+          <div className="pointer-events-none flex h-full flex-1 self-stretch">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/figure-4-TcVarEdNf8wlqNRcVJcoSb9128WjVi.png"
+              alt="Background section 4"
+              width={400}
+              height={600}
+              className="!relative h-full w-full object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
-  )
+  );
 }
-
