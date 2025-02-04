@@ -6,7 +6,10 @@ export const siteConfig = {
     "a social network for book lovers. share your reading experience with friends and family. keep track of your reading progress. discover new books and authors.",
   links: {
     twitter: "https://twitter.com/thefalsedotnet",
+    twitterauthor: "https://twitter.com/thebkht",
     github: "https://github.com/",
+    buymeacoffee: "https://www.buymeacoffee.com/bkhtdev",
+    githubsponsor: "https://github.com/sponsors/thebkht",
   },
 };
 
