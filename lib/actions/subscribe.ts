@@ -29,6 +29,10 @@ export async function subscribe(formData: FormData) {
       to: validatedEmail,
       subject: "welcome to thefalse waitlist!",
       react: WaitlistWelcomeEmail({ username: "book lover" }),
+      headers: {
+        Name: "X-Entity-Ref-ID",
+        Value: new Date().getTime() + "",
+      },
     });
 
     return { success: true, message: "You're on the list! Check your email." };
