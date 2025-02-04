@@ -63,7 +63,7 @@ export default function ComingSoon() {
   }
 
   return (
-    <div className="grid lg:grid-cols-12 max-w-sm bg-black dark min-h-screen">
+    <div className="grid lg:grid-cols-12 max-w-sm bg-black dark min-h-screen w-full">
       <div className="flex flex-col gap-4 p-4 md:p-10 lg:col-span-3 justify-between">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link
