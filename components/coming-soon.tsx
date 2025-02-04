@@ -63,8 +63,8 @@ export default function ComingSoon() {
   }
 
   return (
-    <div className="grid min-h-screen w-full lg:grid-cols-12 bg-black dark">
-      <div className="flex flex-col gap-4 p-6 md:p-10 col-span-3">
+    <div className="grid lg:grid-cols-12 max-w-sm bg-black dark min-h-screen">
+      <div className="flex flex-col gap-4 p-4 md:p-10 lg:col-span-3 justify-between">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link
             href="/"
@@ -87,8 +87,8 @@ export default function ComingSoon() {
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="w-full max-w-sm absolute bottom-12 left-12 space-y-8 z-20">
-            <h1 className="text-9xl font-bold tracking-tighter leading-[6rem] text-white">
+          <div className="lg:w-full lg:max-w-sm px-4 lg:p-0 lg:absolute bottom-12 lg:left-12 space-y-8 z-20">
+            <h1 className="lg:text-9xl text-6xl lg:text-left text-center font-bold tracking-tighter lg:leading-[6rem] text-white">
               coming
               <br />
               soon.
@@ -98,7 +98,7 @@ export default function ComingSoon() {
               first to know when we launch.
             </p>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 md:gap-4 gap-2">
               {Object.entries(timeLeft).map(([label, value]) => (
                 <div key={label} className="text-center">
                   <div className="text-3xl font-bold text-white">
@@ -112,7 +112,7 @@ export default function ComingSoon() {
             <form
               id="subscribe-form"
               action={handleSubscribe}
-              className="flex max-w-md gap-2"
+              className="flex lg:max-w-md gap-2 max-w-screen-sm"
             >
               <Input
                 type="email"
