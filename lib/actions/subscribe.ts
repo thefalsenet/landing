@@ -20,7 +20,7 @@ export async function subscribe(formData: FormData) {
     await resend.contacts.create({
       email: validatedEmail,
       unsubscribed: false,
-      audienceId: process.env.RESEND_AUDIENCE_ID,
+      audienceId: process.env.RESEND_AUDIENCE_ID!,
     });
 
     // Send confirmation email
