@@ -88,11 +88,15 @@ export default function ComingSoon() {
         </div>
         <div className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-sm absolute bottom-12 left-12 space-y-8 z-20">
-            <h1 className="text-8xl font-bold tracking-tighter text-white">
+            <h1 className="text-9xl font-bold tracking-tighter leading-[6rem] text-white">
               coming
               <br />
               soon.
             </h1>
+            <p className="text-lg text-muted-foreground">
+              a new way to read and discover books. join the waitlist to be the
+              first to know when we launch.
+            </p>
 
             <div className="grid grid-cols-4 gap-4">
               {Object.entries(timeLeft).map(([label, value]) => (
