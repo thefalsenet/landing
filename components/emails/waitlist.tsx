@@ -14,17 +14,17 @@ import {
 
 interface WaitlistWelcomeEmailProps {
   username?: string;
+  email: string;
 }
 
 export default function WaitlistWelcomeEmail({
   username = "book lover",
+  email,
 }: WaitlistWelcomeEmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>
-        Welcome to thefalse.net waitlist - Your book journey is about to begin!
-      </Preview>
+      <Preview>Welcome to thefalse.net waitlist!</Preview>
       <Body style={main}>
         <Container style={container}>
           <Img
@@ -94,6 +94,20 @@ export default function WaitlistWelcomeEmail({
               style={signatureImage}
             />
           </Section>
+
+          {/*unsubscribe*/}
+          <Text style={footer}>
+            You are receiving this email because you signed up for the waitlist
+            at thefalse.net. If you no longer wish to receive emails from us,
+            you can{" "}
+            <Link
+              href={`https://thefalse.net/unsubscribe?email=${email}`}
+              style={footerLinks}
+            >
+              unsubscribe here
+            </Link>
+            .
+          </Text>
         </Container>
       </Body>
     </Html>

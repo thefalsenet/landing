@@ -25,10 +25,14 @@ export async function subscribe(formData: FormData) {
 
     // Send confirmation email
     await resend.emails.send({
-      from: "thefalse team <notifications@thefalse.net>",
+      from: "thefalse team <join@thefalse.net>",
       to: validatedEmail,
       subject: "welcome to thefalse waitlist!",
-      react: WaitlistWelcomeEmail({ username: "book lover" }),
+      react: WaitlistWelcomeEmail({
+        username: "book lover",
+        email: validatedEmail,
+      }),
+      text: "Welcome to the waitlist! We'll let you know when we're ready to launch.",
       headers: {
         Name: "X-Entity-Ref-ID",
         Value: new Date().getTime() + "",
