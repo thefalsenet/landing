@@ -1,6 +1,7 @@
 import { Frame } from "lucide-react";
 import { UnsubscribeForm } from "./unsubscribe-form";
 import { Icons } from "@/components/icons";
+import { Suspense } from "react";
 
 export default function UnsubscribePage() {
   return (
@@ -14,7 +15,9 @@ export default function UnsubscribePage() {
             <h1 className="text-xl font-semibold text-center mb-6">
               Unsubscribe from thefalse
             </h1>
-            <UnsubscribeForm />
+            <Suspense>
+              <UnsubscribeForm />
+            </Suspense>
           </div>
         </div>
       </div>
