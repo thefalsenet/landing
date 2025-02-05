@@ -9,6 +9,7 @@ import { siteConfig } from "@/config/site";
 import { useFormStatus } from "react-dom";
 import { subscribe } from "@/lib/actions/subscribe";
 import { toast } from "sonner";
+import { Icons } from "./icons";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -123,6 +124,19 @@ export default function ComingSoon() {
               />
               <SubmitButton />
             </form>
+
+            <div className="flex justify-between content-center items-center flex-row flex-[0_0_auto] gap-5 h-min relative">
+              <div className="icon">
+                <Link target="_blank" href={siteConfig.links.twitter}>
+                  <Icons.twitter className="h-5 w-auto" />
+                </Link>
+              </div>
+              <div className="icon">
+                <Link target="_blank" href={siteConfig.links.instagram}>
+                  <Icons.instagram className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
