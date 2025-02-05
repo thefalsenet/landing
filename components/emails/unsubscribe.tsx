@@ -29,7 +29,7 @@ thefalse.net
   return (
     <Html>
       <Head />
-      <Preview>You've been unsubscribed from thefalse.net emails</Preview>
+      <Preview>You&apos;ve been unsubscribed from thefalse.net emails</Preview>
       <Body style={main}>
         <Container style={container}>
           <Img
@@ -40,15 +40,15 @@ thefalse.net
             style={logo}
           />
 
-          <Heading style={heading}>You've been unsubscribed</Heading>
+          <Heading style={heading}>You&apos;ve been unsubscribed</Heading>
 
           <Text style={paragraph}>
-            We're sorry to see you go, but we've confirmed that you've been
-            unsubscribed from thefalse.net emails.
+            We&apos;re sorry to see you go, but we&apos;ve confirmed that
+            you&apos;ve been unsubscribed from thefalse.net emails.
           </Text>
 
           <Text style={paragraph}>
-            You won't receive any more emails from us, except for
+            You won&apos;t receive any more emails from us, except for
             account-related notifications that are essential to your
             thefalse.net experience.
           </Text>
