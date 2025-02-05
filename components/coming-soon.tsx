@@ -125,15 +125,15 @@ export default function ComingSoon() {
               <SubmitButton />
             </form>
 
-            <div className="flex justify-between content-center items-center flex-row flex-[0_0_auto] gap-5 h-min relative">
-              <div className="icon">
+            <div className="flex justify-center content-center items-center flex-row flex-[0_0_auto] gap-6 h-min relative">
+              <div className="inline-block align-top w-auto h-full">
                 <Link target="_blank" href={siteConfig.links.twitter}>
-                  <Icons.twitter className="h-5 w-auto" />
+                  <Icons.twitter className="h-6 w-6" />
                 </Link>
               </div>
-              <div className="icon">
+              <div className="inline-block align-top w-auto h-full">
                 <Link target="_blank" href={siteConfig.links.instagram}>
-                  <Icons.instagram className="h-5 w-5" />
+                  <Icons.instagram className="h-6 w-6" />
                 </Link>
               </div>
             </div>
