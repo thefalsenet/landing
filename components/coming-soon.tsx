@@ -33,7 +33,7 @@ export default function ComingSoon() {
   });
 
   useEffect(() => {
-    const launchDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+    const launchDate = new Date("2025-03-15T00:00:00");
 
     const timer = setInterval(() => {
       const now = new Date();
