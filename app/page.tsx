@@ -69,11 +69,19 @@ export default function Home() {
         <div className="sticky top-0 h-screen hidden flex-[.7_0_0px] justify-center items-center lg:flex">
           <div className="px-4 relative">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-iVtwV5HcqoDVD4S0qF0ENCjiifpUAG.png"
+              src="/hero.png"
               alt="thefalse.net typographic design with colored halftone images"
               width={800}
               height={533}
-              className="w-full h-auto"
+              className="w-full h-auto dark:hidden"
+              priority
+            />
+            <Image
+              src="/hero-dark.png"
+              alt="thefalse.net typographic design with colored halftone images"
+              width={800}
+              height={533}
+              className="w-full h-auto hidden dark:block"
               priority
             />
           </div>
