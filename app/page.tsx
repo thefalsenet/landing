@@ -6,6 +6,10 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "it's time to share your story",
+};
+
 export default function Home() {
   return (
     <>
