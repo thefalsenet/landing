@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: {
@@ -78,7 +79,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <div className="flex-none h-screen pointer-events-none fixed left-[calc(50.00000000000002%-100%/2)] top-[calc(50.00000000000002%-100%/2)] w-full z-[200]">
                 <div className="noise" />
               </div>
-              <div className="relative flex min-h-screen flex-col bg-background w-full">
+              <SiteHeader />
+              <div className="relative flex min-h-screen flex-col items-center bg-background w-full">
                 {children}
               </div>
             </div>
