@@ -79,8 +79,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <div className="flex-none h-screen pointer-events-none fixed left-[calc(50.00000000000002%-100%/2)] top-[calc(50.00000000000002%-100%/2)] w-full z-[200]">
                 <div className="noise" />
               </div>
-              <SiteHeader />
+
               <div className="relative flex min-h-screen flex-col items-center bg-background w-full">
+                <SiteHeader />
                 {children}
               </div>
             </div>
