@@ -4,24 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { subscribe } from "@/lib/actions/subscribe";
 import { toast } from "sonner";
+import Form from "./form";
 
 export const metadata = {
   title: "it's time to share your story",
 };
 
 export default function Home() {
-  async function handleSubscribe(formData: FormData) {
-    const result = await subscribe(formData);
-
-    if (result.success) {
-      toast.success(result.message);
-      // Reset form
-      const form = document.getElementById("subscribe-form") as HTMLFormElement;
-      form.reset();
-    } else {
-      toast.error(result.message);
-    }
-  }
   return (
     <>
       {/* Hero Section */}
@@ -42,21 +31,7 @@ export default function Home() {
               </h1>
             </div>
             <div className="flex flex-col gap-4 pt-4">
-              <form
-                className="flex flex-col sm:flex-row gap-2 w-full"
-                id="subscribe-form"
-                action={handleSubscribe}
-              >
-                <Input
-                  type="email"
-                  placeholder="enter your email"
-                  className="h-auto w-full"
-                  required
-                />
-                <Button type="submit" className="py-3 px-6 h-auto">
-                  get early access
-                </Button>
-              </form>
+              <Form />
             </div>
           </div>
           <div className="p-6 pr-24 h-screen gap-16 flex flex-col justify-center items-start flex-none w-full relative">
