@@ -48,10 +48,10 @@ export default function Countdown() {
 
   return (
     <div
-      className="flex flex-col items-center mt-6 text-center absolute bottom-0 p-4 shadow-lg w-full bg-gradient-to-b from-transparent to-background"
+      className="flex flex-col items-center mt-6 text-center absolute bottom-0 p-4 pt-32 shadow-lg w-full bg-gradient-to-b from-transparent to-background"
       style={{
         backgroundImage:
-          "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--background) 100%)",
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.9) 60%, var(--background) 100%)",
       }}
     >
       <p className="text-muted-foreground mb-2">launching in</p>
