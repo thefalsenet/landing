@@ -1,16 +1,27 @@
-import ComingSoon from "@/components/coming-soon";
-import { Button, buttonVariants } from "@/components/ui/button";
+import Countdown from "@/components/countdown";
+import BookCollectionInfinite from "@/components/book-collection-infinite";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
+import { subscribe } from "@/lib/actions/subscribe";
+import { toast } from "sonner";
 
 export const metadata = {
   title: "it's time to share your story",
 };
 
 export default function Home() {
+  async function handleSubscribe(formData: FormData) {
+    const result = await subscribe(formData);
+
+    if (result.success) {
+      toast.success(result.message);
+      // Reset form
+      const form = document.getElementById("subscribe-form") as HTMLFormElement;
+      form.reset();
+    } else {
+      toast.error(result.message);
+    }
+  }
   return (
     <>
       {/* Hero Section */}
@@ -25,13 +36,17 @@ export default function Home() {
                 className="text-4xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter"
                 style={{ lineHeight: "0.9em" }}
               >
-                it&apos;s time to share
+                it&rsquo;s time to share
                 <br />
                 your story.
               </h1>
             </div>
             <div className="flex flex-col gap-4 pt-4">
-              <form className="flex flex-col sm:flex-row gap-2 w-full">
+              <form
+                className="flex flex-col sm:flex-row gap-2 w-full"
+                id="subscribe-form"
+                action={handleSubscribe}
+              >
                 <Input
                   type="email"
                   placeholder="enter your email"
@@ -66,25 +81,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="sticky top-0 h-screen hidden flex-[.7_0_0px] justify-center items-center lg:flex">
-          <div className="px-4 relative">
-            <Image
-              src="/hero.png"
-              alt="thefalse.net typographic design with colored halftone images"
-              width={800}
-              height={533}
-              className="w-full h-auto dark:hidden"
-              priority
-            />
-            <Image
-              src="/hero-dark.png"
-              alt="thefalse.net typographic design with colored halftone images"
-              width={800}
-              height={533}
-              className="w-full h-auto hidden dark:block"
-              priority
-            />
+        <div className="sticky top-0 h-screen hidden flex-[.7_0_0px] justify-center items-center lg:flex flex-col">
+          <div className="px-4 relative h-full w-full">
+            <BookCollectionInfinite />
           </div>
+          <Countdown />
         </div>
       </section>
     </>
