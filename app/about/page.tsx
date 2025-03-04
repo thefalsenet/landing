@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-  title: "About - thefalse.net",
+  title: "about",
   description: "Learn about thefalse.net, a social network for book lovers",
 };
 
@@ -77,8 +77,8 @@ export default function AboutPage() {
           </section>
 
           <div className="pt-12">
-            <Button size="lg" className="text-lg h-12">
-              get early access
+            <Button size="lg" className="text-lg h-12" asChild>
+              <a href="https://app.thefalse.net">get early access</a>
             </Button>
           </div>
         </div>

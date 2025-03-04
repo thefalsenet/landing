@@ -2,7 +2,7 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Terms of Service - thefalse.net",
+  title: "terms of service",
   description: "Terms and conditions for using thefalse.net",
 };
 

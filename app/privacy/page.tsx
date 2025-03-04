@@ -2,7 +2,7 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Privacy Policy - thefalse.net",
+  title: "privacy policy",
   description: "How we collect, use, and protect your information",
 };
 
