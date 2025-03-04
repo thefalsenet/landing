@@ -6,6 +6,7 @@ import { fontSans } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/site-header";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -83,6 +84,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <div className="relative flex min-h-screen flex-col items-center bg-background w-full gap-16">
                 <SiteHeader />
                 {children}
+                {/* Footer */}
+                <Footer />
               </div>
             </div>
           </Providers>

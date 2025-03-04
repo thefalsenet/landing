@@ -1,15 +1,10 @@
 import Countdown from "@/components/countdown";
 import BookCollectionInfinite from "@/components/book-collection-infinite";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { subscribe } from "@/lib/actions/subscribe";
-import { toast } from "sonner";
-import Form from "./form";
 import FeaturesSection from "@/components/features-section";
 import HowItWorks from "@/components/how-it-works";
 import FAQSection from "@/components/faq-section";
 import CTASection from "@/components/cta-section";
-import Footer from "@/components/footer";
 
 export const metadata = {
   title: "it's time to share your story",
@@ -86,9 +81,6 @@ export default function Home() {
 
       {/* CTA Section */}
       <CTASection />
-
-      {/* Footer */}
-      <Footer />
     </>
   );
 }
