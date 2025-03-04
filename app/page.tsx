@@ -31,7 +31,13 @@ export default function Home() {
               </h1>
             </div>
             <div className="flex flex-col gap-4 pt-4">
-              <Form />
+              <Button
+                className="py-4 px-6 h-fit text-xl font-bold"
+                size={"lg"}
+                asChild
+              >
+                <a href="https://app.thefalse.net">join us</a>
+              </Button>
             </div>
           </div>
           <div className="p-6 pr-24 h-screen gap-16 flex flex-col justify-center items-start flex-none w-full relative">
