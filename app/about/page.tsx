@@ -1,10 +1,18 @@
 import Footer from "@/components/footer";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "about",
-  description: "Learn about thefalse.net, a social network for book lovers",
+export const metadata: Metadata = {
+  title: "our story",
+  openGraph: {
+    title: "our story",
+    images: ["/og-about.jpg"],
+  },
+  twitter: {
+    title: "our story",
+    images: ["/og-about.jpg"],
+  },
 };
 
 export default function AboutPage() {

@@ -3,7 +3,14 @@ import Image from "next/image";
 
 export const metadata = {
   title: "privacy policy",
-  description: "How we collect, use, and protect your information",
+  openGraph: {
+    title: "privacy policy",
+    images: ["/og-privacy.jpg"],
+  },
+  twitter: {
+    title: "privacy policy",
+    images: ["/og-privacy.jpg"],
+  },
 };
 
 export default function PrivacyPolicyPage() {

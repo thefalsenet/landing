@@ -3,7 +3,14 @@ import Image from "next/image";
 
 export const metadata = {
   title: "terms of service",
-  description: "Terms and conditions for using thefalse.net",
+  openGraph: {
+    title: "terms of service",
+    images: ["/og-terms.jpg"],
+  },
+  twitter: {
+    title: "terms of service",
+    images: ["/og-terms.jpg"],
+  },
 };
 
 export default function TermsOfServicePage() {
