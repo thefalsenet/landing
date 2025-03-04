@@ -12,6 +12,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/app",
+        destination: "https://app.thefalse.net",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
