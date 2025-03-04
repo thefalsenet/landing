@@ -10,29 +10,40 @@ export default function Countdown() {
     minutes: 0,
     seconds: 0,
   });
+  const [isLaunchDay, setIsLaunchDay] = useState(false);
 
   useEffect(() => {
-    // Set launch date to March 20 of the current year or next year if March 20 has passed
-    const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth(); // 0-indexed, so 2 = March
-    const launchDate = new Date(
-      currentMonth > 2 || (currentMonth === 2 && new Date().getDate() > 20)
-        ? currentYear + 1
-        : currentYear,
-      2, // March (0-indexed)
-      20
-    );
+    // Set launch date to March 20, 2025 KST
+    const launchDate = new Date(2025, 2, 20); // Month is 0-indexed, so 2 = March
 
     const calculateTimeLeft = () => {
-      const difference = launchDate.getTime() - new Date().getTime();
+      const now = new Date();
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
+      // Convert current time to KST for comparison
+      const kstOffset = 9 * 60 * 60 * 1000; // 9 hours in milliseconds
+      const nowKST = new Date(
+        now.getTime() + now.getTimezoneOffset() * 60 * 1000 + kstOffset
+      );
+
+      // Check if it's launch day in KST
+      const isTargetDay =
+        nowKST.getFullYear() === 2025 &&
+        nowKST.getMonth() === 2 && // March (0-indexed)
+        nowKST.getDate() === 20;
+
+      setIsLaunchDay(isTargetDay);
+
+      if (!isTargetDay) {
+        const difference = launchDate.getTime() - now.getTime();
+
+        if (difference > 0) {
+          setTimeLeft({
+            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((difference / 1000 / 60) % 60),
+            seconds: Math.floor((difference / 1000) % 60),
+          });
+        }
       }
     };
 
@@ -45,6 +56,10 @@ export default function Countdown() {
     // Clean up on unmount
     return () => clearInterval(timer);
   }, []);
+
+  if (isLaunchDay) {
+    return null;
+  }
 
   return (
     <div
