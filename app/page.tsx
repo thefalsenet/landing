@@ -5,6 +5,11 @@ import { Input } from "@/components/ui/input";
 import { subscribe } from "@/lib/actions/subscribe";
 import { toast } from "sonner";
 import Form from "./form";
+import FeaturesSection from "@/components/features-section";
+import HowItWorks from "@/components/how-it-works";
+import FAQSection from "@/components/faq-section";
+import CTASection from "@/components/cta-section";
+import Footer from "@/components/footer";
 
 export const metadata = {
   title: "it's time to share your story",
@@ -14,7 +19,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="flex max-w-[1440px] w-full flex-none items-start justify-center ">
+      <section className="flex max-w-[1440px] w-full flex-none items-start justify-center">
         <div className="flex flex-col h-min items-center flex-1 z-0">
           <div className="p-6 pr-24 h-screen gap-16 flex flex-col justify-center items-start flex-none w-full relative">
             <div className="space-y-6">
@@ -69,6 +74,21 @@ export default function Home() {
           <Countdown />
         </div>
       </section>
+
+      {/* Features Section */}
+      <FeaturesSection />
+
+      {/* How it Works Section */}
+      <HowItWorks />
+
+      {/* FAQ Section */}
+      <FAQSection />
+
+      {/* CTA Section */}
+      <CTASection />
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 }

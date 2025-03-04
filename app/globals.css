@@ -192,6 +192,11 @@
   @apply border-border tracking-[-0.5px];
 }
 
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 *:focus-visible {
   @apply outline-none;
 }

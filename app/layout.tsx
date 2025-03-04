@@ -66,11 +66,11 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning className="dark">
+      <html lang="en" suppressHydrationWarning className="dark scroll-smooth">
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen bg-background font-sans antialiased lowercase",
             fontSans.variable
           )}
         >
@@ -80,7 +80,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <div className="noise" />
               </div>
 
-              <div className="relative flex min-h-screen flex-col items-center bg-background w-full">
+              <div className="relative flex min-h-screen flex-col items-center bg-background w-full gap-16">
                 <SiteHeader />
                 {children}
               </div>
