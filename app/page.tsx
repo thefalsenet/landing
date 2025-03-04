@@ -63,7 +63,7 @@ export default function Home() {
           </div>
         </div>
         <div className="sticky top-0 h-screen hidden flex-[.7_0_0px] justify-center items-center lg:flex flex-col">
-          <div className="px-4 relative h-full w-full">
+          <div className="pl-4 relative h-full w-full">
             <BookCollectionInfinite />
           </div>
           <Countdown />
