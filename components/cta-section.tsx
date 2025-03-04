@@ -19,8 +19,12 @@ export default function CTASection() {
         </h1>
       </div>
       <div className="flex flex-col sm:flex-row gap-4 items-center">
-        <Button size="lg" className="min-w-[160px] text-lg py-6">
-          pre-register
+        <Button
+          size="lg"
+          className="min-w-[160px] py-6 font-bold text-xl"
+          asChild
+        >
+          <a href="https://app.thefalse.net/">pre-register</a>
         </Button>
       </div>
     </section>
