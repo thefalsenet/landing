@@ -160,7 +160,7 @@ function BookCover({ imageUrl, alt }: { imageUrl: string; alt: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className="relative aspect-[2/3] rounded-md overflow-hidden shadow-lg bg-gray-100">
+    <div className="relative aspect-[2/3] overflow-hidden shadow-lg bg-muted">
       <Image
         src={imageUrl || "/placeholder.svg"}
         alt={alt}
