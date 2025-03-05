@@ -6,6 +6,7 @@ import HowItWorks from "@/components/how-it-works";
 import FAQSection from "@/components/faq-section";
 import CTASection from "@/components/cta-section";
 import MobileBookCollection from "@/components/mobile-book-collection";
+import Link from "next/link";
 
 export const metadata = {
   title: "it's time to share your story",
@@ -37,7 +38,7 @@ export default function Home() {
                 size={"lg"}
                 asChild
               >
-                <a href="https://app.thefalse.net">join us</a>
+                <Link href="/app">join us</Link>
               </Button>
             </div>
             <div className="lg:hidden w-screen mt-12 -mx-6 touch-scroll overflow-hidden">

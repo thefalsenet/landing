@@ -19,7 +19,7 @@ export function SiteHeader() {
             asChild
             size={"lg"}
           >
-            <a href="https://app.thefalse.net">login to app</a>
+            <Link href="/app">login to app</Link>
           </Button>
         </div>
       </header>

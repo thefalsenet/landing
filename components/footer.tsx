@@ -39,7 +39,7 @@ export default function Footer() {
             })}
           </ul>
         </nav>
-        <div className="flex items-center gap-6">
+        <div className="md:flex items-center gap-6 hidden">
           {socialLinks.map((item) => (
             <Link
               key={item.name}

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -18,13 +19,13 @@ export default function CTASection() {
           the next story
         </h1>
       </div>
-      <div className="flex flex-col sm:flex-row gap-4 items-center">
+      <div className="flex flex-col sm:flex-row gap-4 items-center w-full justify-center">
         <Button
           size="lg"
-          className="min-w-[160px] py-6 font-bold text-xl"
+          className="py-6 font-bold text-xl lg:w-fit w-full"
           asChild
         >
-          <a href="https://app.thefalse.net/">pre-register</a>
+          <Link href="/app">pre-register</Link>
         </Button>
       </div>
     </section>
