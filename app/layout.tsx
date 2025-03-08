@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: {
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </div>
           </Providers>
+          <Analytics />
         </body>
       </html>
     </>
