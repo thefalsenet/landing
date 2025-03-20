@@ -19,6 +19,11 @@ const nextConfig = {
         destination: "https://app.thefalse.net",
         permanent: true,
       },
+      {
+        source: "/app/:path*",
+        destination: "https://app.thefalse.net/:path*",
+        permanent: true,
+      },
     ];
   },
 };
