@@ -73,7 +73,6 @@ export default function Home() {
           <div className="pl-4 relative h-full w-full">
             <BookCollectionInfinite />
           </div>
-          <Countdown />
         </div>
       </section>
 
