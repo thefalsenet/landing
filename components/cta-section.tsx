@@ -6,9 +6,9 @@ export default function CTASection() {
     <section className="flex flex-col max-w-[1440px] w-full items-center justify-center pt-36 pb-24 px-6 text-center border gap-12 mb-32">
       <div className="flex flex-col gap-3 w-full">
         <div>
-          <div className="inline-block border p-2 text-sm text-muted-foreground mb-6">
+          {/* <div className="inline-block border p-2 text-sm text-muted-foreground mb-6">
             launches mar 20
-          </div>
+          </div> */}
         </div>
         <h1
           className="text-4xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter"
@@ -25,7 +25,7 @@ export default function CTASection() {
           className="py-6 font-bold text-xl lg:w-fit w-full"
           asChild
         >
-          <Link href="/app">pre-register</Link>
+          <Link href="/app">register</Link>
         </Button>
       </div>
     </section>

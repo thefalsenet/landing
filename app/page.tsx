@@ -20,9 +20,9 @@ export default function Home() {
         <div className="flex flex-col h-min items-center flex-1 z-0">
           <div className="p-6 lg:pr-24 pt-32 lg:pt-6 lg:h-screen lg:gap-16 gap-12 flex flex-col justify-center items-start flex-none w-full relative">
             <div className="flex flex-col gap-6 lg:items-start items-center w-full lg:w-fit">
-              <div className="inline-block border p-2 text-muted-foreground">
+              {/* <div className="inline-block border p-2 text-muted-foreground">
                 launches mar 20
-              </div>
+              </div> */}
               <h1
                 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter lg:text-left text-center"
                 style={{ lineHeight: "0.9em" }}

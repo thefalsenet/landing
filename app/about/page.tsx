@@ -86,7 +86,7 @@ export default function AboutPage() {
 
           <div className="pt-12">
             <Button size="lg" className="text-lg h-12" asChild>
-              <a href="https://app.thefalse.net">get early access</a>
+              <a href="https://app.thefalse.net">join us on our journey</a>
             </Button>
           </div>
         </div>
