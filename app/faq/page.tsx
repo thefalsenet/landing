@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FaqAccordion } from "@/components/faq-accordion";
+import Footer from "@/components/footer";
 
 export default function FaqPage() {
   return (
@@ -172,16 +173,9 @@ export default function FaqPage() {
             we&apos;ll get back to you as soon as possible.
           </p>
           <Button className="bg-white text-black hover:bg-gray-100 rounded-none">
-            Contact Support
+            <a href="mailto:bkht@thefalse.net">Contact Support</a>
           </Button>
         </section>
-
-        {/* Footer */}
-        <footer className="mt-auto mix-blend-difference">
-          <p className="text-white text-center">
-            © 2023 thefalse. All rights reserved.
-          </p>
-        </footer>
       </div>
     </main>
   );
