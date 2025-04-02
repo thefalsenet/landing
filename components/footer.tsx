@@ -7,6 +7,7 @@ const navigation = [
   { name: "our story", href: "/about" },
   { name: "terms of service", href: "/terms" },
   { name: "privacy", href: "/privacy" },
+  { name: "faq", href: "/faq" },
 ];
 
 const socialLinks = [
