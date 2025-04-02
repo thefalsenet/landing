@@ -76,22 +76,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-
-        {/* About Section */}
-        <div className="max-w-2xl mx-auto mb-16 mix-blend-difference">
-          <h3 className="text-white text-sm tracking-widest uppercase mb-4">
-            About
-          </h3>
-          <p className="text-white mb-4">
-            thefalse.net is a social platform created for readers who want to
-            share their passion for books. Unlike mainstream social networks,
-            we&apos;re focused exclusively on literary experiences and
-            meaningful connections around reading. Our platform is designed to
-            fit seamlessly into your reading life—whether you&apos;re a casual
-            reader or a dedicated bibliophile. Where will your reading journey
-            take you?
-          </p>
-        </div>
       </div>
     </main>
   );
