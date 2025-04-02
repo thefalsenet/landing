@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FaqAccordion } from "@/components/faq-accordion";
 import Footer from "@/components/footer";
+import { SiteHeader } from "@/components/site-header";
 
 export default function FaqPage() {
   return (
@@ -21,25 +22,17 @@ export default function FaqPage() {
       {/* Content Container */}
       <div className="relative z-10 container mx-auto p-4 lg:p-20 flex flex-col min-h-screen">
         {/* Header */}
-        <header className="mix-blend-difference mb-12">
-          <Link href="/" className="inline-block mb-16">
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white/10 rounded-none"
-            >
-              ← Back to home
-            </Button>
-          </Link>
+        <div className="mix-blend-difference my-12">
           <h1 className="text-5xl md:text-7xl font-black text-white mb-4">
             Frequently Asked Questions
           </h1>
           <p className="text-xl text-white max-w-2xl">
             Find answers to common questions about thefalse platform.
           </p>
-        </header>
+        </div>
 
         {/* Main Content */}
-        <div className="bg-black/70 backdrop-blur-sm p-8 mb-16">
+        <div className="bg-black/70 backdrop-blur-sm p-8 my-16 z-10">
           <div className="max-w-4xl mx-auto">
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-white mb-6">
