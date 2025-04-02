@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -39,15 +40,17 @@ export default function Home() {
             <Button
               size="lg"
               className="bg-white text-black hover:bg-gray-100 rounded-none"
+              asChild
             >
-              Get Started
+              <Link href="/app/register">Step in the reality</Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white/10 rounded-none"
+              asChild
             >
-              Learn More
+              <Link href="/about">Learn More</Link>
             </Button>
           </div>
         </div>

@@ -2,6 +2,7 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "our story",
@@ -133,7 +134,7 @@ export default function AboutPage() {
                 Step into something real.
               </h2>
               <Button size="lg" className="text-lg h-12 mb-12" asChild>
-                <a href="https://app.thefalse.net">join us on our journey</a>
+                <Link href="/app">join us on our journey</Link>
               </Button>
             </section>
           </div>
