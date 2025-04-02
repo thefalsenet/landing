@@ -1,92 +1,98 @@
-import Countdown from "@/components/countdown";
-import BookCollectionInfinite from "@/components/book-collection-infinite";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import FeaturesSection from "@/components/features-section";
-import HowItWorks from "@/components/how-it-works";
-import FAQSection from "@/components/faq-section";
-import CTASection from "@/components/cta-section";
-import MobileBookCollection from "@/components/mobile-book-collection";
-import Link from "next/link";
-
-export const metadata = {
-  title: "it's time to share your story",
-};
 
 export default function Home() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="flex max-w-[1440px] w-full flex-none items-start justify-center">
-        <div className="flex flex-col h-min items-center flex-1 z-0">
-          <div className="p-6 lg:pr-24 pt-32 lg:pt-6 lg:h-screen lg:gap-16 gap-12 flex flex-col justify-center items-start flex-none w-full relative">
-            <div className="flex flex-col gap-6 lg:items-start items-center w-full lg:w-fit">
-              {/* <div className="inline-block border p-2 text-muted-foreground">
-                launches mar 20
-              </div> */}
-              <h1
-                className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter lg:text-left text-center"
-                style={{ lineHeight: "0.9em" }}
-              >
-                it&rsquo;s time to share
-                <br />
-                your story.
-              </h1>
-            </div>
-            <div className="flex flex-col gap-4 pt-4 w-full">
-              <Button
-                className="py-4 px-6 h-fit text-xl font-bold lg:w-fit w-full"
-                size={"lg"}
-                asChild
-              >
-                <Link href="/app">join us</Link>
-              </Button>
-            </div>
-            <div className="lg:hidden w-screen mt-12 -mx-6 touch-scroll overflow-hidden">
-              <div className="w-full">
-                <MobileBookCollection />
-              </div>
-            </div>
+    <main className="min-h-screen relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="flex-none h-screen pointer-events-none fixed left-[calc(50.00000000000002%-100%/2)] top-[calc(50.00000000000002%-100%/2)] w-full z-[200]">
+          <div className="noise" />
+        </div>
+        <img
+          src="/Library in Garden Profile.jpeg"
+          alt="Garden Library Background"
+          className="object-cover brightness-90 absolute inset-0 w-full h-full"
+        />
+      </div>
+
+      {/* Content Container */}
+      <div className="relative z-10 container mx-auto p-4 lg:p-20 flex flex-col min-h-screen">
+        {/* Header */}
+        <div className="text-center mb-16 mix-blend-difference">
+          <h1 className="text-6xl md:text-9xl font-black text-white mb-2.5 mix-blend-difference tracking-tighter">
+            thefalse
+          </h1>
+          <h2 className="text-2xl md:text-3xl text-white font-light mix-blend-difference tracking-tighter">
+            Truly Social. The way it was meant to be
+          </h2>
+        </div>
+
+        {/* Main CTA */}
+        <div className="text-center mb-12 mix-blend-difference">
+          <p className="text-white text-lg mb-8 max-w-2xl mx-auto tracking-tighter">
+            A social network for book lovers. Share your reading experience with
+            friends and family. Keep track of your progress and discover new
+            books worth your time.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-white text-black hover:bg-gray-100 rounded-none"
+            >
+              Get Started
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10 rounded-none"
+            >
+              Learn More
+            </Button>
           </div>
-          <div className="p-6 py-16 lg:py-6 lg:pr-24 lg:h-screen gap-12 lg:gap-16 flex flex-col justify-center items-start flex-none w-full relative">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-8 lg:text-left text-center">
-              it all begins with a book. one page at a time.
-            </h2>
-            <p className="text-muted-foreground text-2xl mb-8 max-w-3xl font-medium leading-snug lg:text-left text-center">
-              this is where you&apos;ll discover your next favorite read,
-              connect with fellow book lovers, and build a community around the
-              stories that move you — alongside thousands of other readers.
+        </div>
+
+        {/* Features */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto">
+          <div className="bg-black/70 backdrop-blur-sm rounded-none p-6 text-white">
+            <h3 className="text-xl font-bold mb-2">Track Your Reading</h3>
+            <p>
+              Keep a digital bookshelf of what you&apos;ve read, are currently
+              reading, and want to read next.
             </p>
-            <div className="flex flex-wrap gap-4 lg:flex-row flex-col w-full">
-              <div className="inline-block border !border-red/35 p-3 text-red bg-red/5 lg:text-left text-center text-xl">
-                ai recommendations
-              </div>
-              <div className="inline-block border !border-blue/35 p-3 text-blue bg-blue/5 lg:text-left text-center text-xl">
-                reading tracker
-              </div>
-              <div className="inline-block border !border-green/35 p-3 text-green bg-green/5 lg:text-left text-center text-xl">
-                social notes
-              </div>
-            </div>
+          </div>
+          <div className="bg-black/70 backdrop-blur-sm rounded-none p-6 text-white">
+            <h3 className="text-xl font-bold mb-2">Connect with Friends</h3>
+            <p>
+              Follow friends and see what they&apos;re reading. Share
+              recommendations and discuss your favorite books.
+            </p>
+          </div>
+          <div className="bg-black/70 backdrop-blur-sm rounded-none p-6 text-white">
+            <h3 className="text-xl font-bold mb-2">Discover New Titles</h3>
+            <p>
+              Get personalized recommendations based on your reading history and
+              interests.
+            </p>
           </div>
         </div>
-        <div className="sticky top-0 h-screen hidden flex-[.7_0_0px] justify-center items-center lg:flex flex-col">
-          <div className="pl-4 relative h-full w-full">
-            <BookCollectionInfinite />
-          </div>
+
+        {/* About Section */}
+        <div className="max-w-2xl mx-auto mb-16 mix-blend-difference">
+          <h3 className="text-white text-sm tracking-widest uppercase mb-4">
+            About
+          </h3>
+          <p className="text-white mb-4">
+            thefalse.net is a social platform created for readers who want to
+            share their passion for books. Unlike mainstream social networks,
+            we&apos;re focused exclusively on literary experiences and
+            meaningful connections around reading. Our platform is designed to
+            fit seamlessly into your reading life—whether you&apos;re a casual
+            reader or a dedicated bibliophile. Where will your reading journey
+            take you?
+          </p>
         </div>
-      </section>
-
-      {/* Features Section */}
-      <FeaturesSection />
-
-      {/* How it Works Section */}
-      <HowItWorks />
-
-      {/* FAQ Section */}
-      <FAQSection />
-
-      {/* CTA Section */}
-      <CTASection />
-    </>
+      </div>
+    </main>
   );
 }

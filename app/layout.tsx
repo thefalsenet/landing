@@ -82,19 +82,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <Providers attribute="class" defaultTheme="system" enableSystem>
-            <div vaul-drawer-wrapper="">
-              <div className="flex-none h-screen pointer-events-none fixed left-[calc(50.00000000000002%-100%/2)] top-[calc(50.00000000000002%-100%/2)] w-full z-[200]">
-                <div className="noise" />
-              </div>
-
-              <div className="relative flex min-h-screen flex-col items-center bg-background w-full gap-16">
-                <SiteHeader />
-                {children}
-                {/* Footer */}
-                <Footer />
-              </div>
-            </div>
+          <Providers attribute="class" defaultTheme="dark" enableSystem>
+            {children}
           </Providers>
           <Analytics />
         </body>
