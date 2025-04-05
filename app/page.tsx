@@ -27,8 +27,8 @@ export default function Home() {
               <h1 className="text-4xl md:text-7xl text-white mb-6 tracking-tighter leading-tight text-balance">
                 Make your reading experience truly social
               </h1>
-              <p className="text-white text-xl max-w-2xl mx-auto mb-12 tracking-tighter">
-                theFalse connects book lovers through a genuine social
+              <p className="text-white lg:text-xl max-w-2xl mx-auto mb-12 tracking-tighter">
+                thefalse connects book lovers through a genuine social
                 experience. Share your reading journey, discover new books, and
                 build meaningful connections.
               </p>
