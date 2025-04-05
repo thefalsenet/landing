@@ -2,7 +2,7 @@ import "@/app/globals.css";
 import { Metadata, Viewport } from "next";
 
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/lib/font";
+import { fontSans, fontSerif } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/site-header";
@@ -78,8 +78,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased lowercase",
-            fontSans.variable
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable,
+            fontSerif.variable
           )}
         >
           <Providers attribute="class" defaultTheme="dark" enableSystem>
