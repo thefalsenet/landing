@@ -20,11 +20,11 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 w-full">
       {items.map((item, index) => (
-        <div key={index} className="border border-white/20">
+        <div key={index} className="border border-border w-full">
           <button
-            className="flex justify-between items-center w-full p-4 text-left text-white hover:bg-white/5 transition-colors"
+            className="flex justify-between items-center w-full p-4 text-left text-foreground hover:bg-muted transition-colors"
             onClick={() => toggleItem(index)}
           >
             <span className="font-medium">{item.question}</span>
@@ -33,7 +33,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
             />
           </button>
           {openIndex === index && (
-            <div className="p-4 pt-0 text-gray-300">
+            <div className="p-4 pt-0 text-muted-foreground">
               <p>{item.answer}</p>
             </div>
           )}

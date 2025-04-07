@@ -74,11 +74,11 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <html lang="en" suppressHydrationWarning className="scroll-smooth dark">
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen bg-background font-sans antialiased dark",
             fontSans.variable,
             fontSerif.variable
           )}

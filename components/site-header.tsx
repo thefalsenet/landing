@@ -32,7 +32,7 @@ export function SiteHeader() {
 
   return (
     <div
-      className={`flex-none left-1/2 fixed top-0 -translate-x-1/2 w-full flex items-center content-center z-50 h-16 transition-colors duration-200 ${scrolled ? "bg-background border-b" : "mix-blend-difference"}`}
+      className={`flex-none left-1/2 fixed top-0 -translate-x-1/2 w-full flex items-center content-center z-50 h-16 transition-colors duration-200 ${scrolled ? "bg-background border-b" : "dark:mix-blend-difference text-white"}`}
     >
       <header className="container mx-auto px-4 md:px-6 flex items-center justify-between max-w-[1440px]">
         <div>
@@ -45,7 +45,10 @@ export function SiteHeader() {
           asChild
           size={"lg"}
           variant={scrolled ? "default" : "link"}
-          className="rounded-none font-semibold text-base"
+          className={cn(
+            "rounded-none font-semibold text-base",
+            scrolled ? "" : "text-inherit"
+          )}
         >
           <Link href="/app">Step Into Reality</Link>
         </Button>

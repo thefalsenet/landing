@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden dark">
       <SiteHeader />
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -20,11 +20,14 @@ export default function Home() {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto p-4 lg:p-20 flex flex-col min-h-screen">
-        <div className="flex-grow flex flex-col justify-end items-center text-center px-4 pb-16">
+      <div className="relative z-10 container mx-auto p-4 lg:p-16 flex flex-col min-h-screen">
+        <div className="flex-grow flex flex-col justify-end items-center text-center px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16 mix-blend-difference">
-              <h1 className="text-4xl md:text-7xl text-white mb-6 tracking-tighter leading-tight text-balance">
+              <h1
+                className="text-4xl md:text-7xl text-white mb-6 tracking-tighter leading-tighter text-balance font-bold"
+                style={{ lineHeight: "0.9em" }}
+              >
                 Make your reading experience truly social
               </h1>
               <p className="text-white lg:text-xl max-w-2xl mx-auto mb-12 tracking-tighter">
@@ -45,7 +48,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-background/60 backdrop-blur-3xl hover:bg-background rounded-none"
+                className="bg-background/80 backdrop-blur-3xl hover:bg-background rounded-none"
                 asChild
               >
                 <Link href="/about">Learn More</Link>
