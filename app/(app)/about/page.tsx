@@ -22,7 +22,7 @@ export default function AboutPage() {
       {/* Background Image */}
       <div className="fixed top-0 z-10 w-full h-[60vh] flex flex-col items-center justify-center ">
         <div className="flex flex-[1_0_0px] gap-10 flex-col w-full">
-          <div className="flex flex-[1_0_0px] gap-6 flex-col justify-center w-full relative">
+          <div className="flex flex-[1_0_0px] gap-6 flex-col justify-center w-full relative text-white">
             <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
               <img
                 src="/Library in Garden Profile.jpeg"
@@ -31,7 +31,7 @@ export default function AboutPage() {
               />
             </div>
             <h1
-              className="text-6xl sm:text-7xl z-10 md:text-8xl font-extrabold tracking-tighter text-center"
+              className="text-6xl sm:text-7xl z-10 md:text-8xl font-bold tracking-tighter text-center"
               style={{ lineHeight: "0.9em" }}
             >
               our story.
