@@ -1,8 +1,8 @@
 import {
   JetBrains_Mono as FontMono,
   Manrope as FontSans,
-  Playfair_Display as FontSerif,
 } from "next/font/google";
+import localFont from "next/font/local";
 // import { GeistMono } from "geist/font/mono"
 
 export const fontSans = FontSans({
@@ -15,7 +15,18 @@ export const fontMono = FontMono({
   variable: "--font-mono",
 });
 
-export const fontSerif = FontSerif({
-  subsets: ["latin"],
+export const fontSerif = localFont({
+  src: [
+    {
+      path: "../public/fonts/InstrumentSerif-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/InstrumentSerif-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
   variable: "--font-serif",
 });

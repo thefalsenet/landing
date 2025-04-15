@@ -20,31 +20,42 @@ export default function TermsOfServicePage() {
       <div className="fixed top-0 z-10 w-full h-[60vh] flex flex-col items-center justify-center ">
         <div className="flex flex-[1_0_0px] gap-10 flex-col w-full">
           <div className="flex flex-[1_0_0px] gap-6 flex-col justify-center w-full relative text-white">
-            <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
-              <img
-                src="/Library in Garden Profile.jpeg"
-                alt="Garden Library Background"
-                className="object-cover brightness-90 absolute inset-0 w-full h-full"
-              />
-            </div>
-            <h1
-              className="text-6xl sm:text-7xl z-10 md:text-8xl font-bold tracking-tighter text-center"
-              style={{ lineHeight: "0.9em" }}
-            >
-              terms of service.
-            </h1>
-            <div className="flex gap-2.5 items-center justify-center z-10">
-              <Image
-                src="/profile.png"
-                alt="thefalse.net"
-                width={36}
-                height={36}
-              />
-              <span>thefalse</span>
-              <span>•</span>
-              <span>apr 2, 2025</span>
-              <span>•</span>
-              <span>1 min read</span>
+            <div className="flex flex-[1_0_0px] gap-6 flex-col justify-around w-full relative text-white">
+              <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
+                <img
+                  alt="A woman with her mind expanding into the universe as she accumulates knowledge."
+                  className="absolute size-full object-cover transition-opacity duration-500 xl:hidden brightness-90"
+                  width="1071"
+                  height="800"
+                  src="/feel-it-all.png"
+                />
+                <img
+                  alt="A woman with her mind expanding into the universe as she accumulates knowledge."
+                  className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block brightness-90 scale-105"
+                  width="1071"
+                  height="800"
+                  src="/feel-it-all-xl.png"
+                />
+              </div>
+              <h1
+                className="text-6xl sm:text-7xl z-10 md:text-8xl font-serif tracking-tighter text-center mt-20"
+                style={{ lineHeight: "0.9em" }}
+              >
+                Terms of Service
+              </h1>
+              <div className="flex gap-2.5 items-center justify-center z-10 mb-auto">
+                <Image
+                  src="/profile.png"
+                  alt="thefalse.net"
+                  width={36}
+                  height={36}
+                />
+                <span>thefalse</span>
+                <span>•</span>
+                <span>apr 2, 2025</span>
+                <span>•</span>
+                <span>1 min read</span>
+              </div>
             </div>
           </div>
         </div>
@@ -127,7 +138,7 @@ export default function TermsOfServicePage() {
               <p>if you need to reach us, email bkht@thefalse.net</p>
             </div>
             <div className="pt-8 font-bold text-foreground">
-              <p>Be real. Be responsible. That’s TheFalse.</p>
+              <p>Be real. Be responsible. That&apos;s thefalse.</p>
             </div>
           </div>
         </div>

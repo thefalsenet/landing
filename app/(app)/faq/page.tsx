@@ -10,21 +10,30 @@ export default function FaqPage() {
       {/* Background Image */}
       <div className="fixed top-0 z-10 w-full h-[60vh] flex flex-col items-center justify-center ">
         <div className="flex flex-[1_0_0px] gap-10 flex-col w-full">
-          <div className="flex flex-[1_0_0px] gap-6 flex-col justify-center w-full relative text-white">
+          <div className="flex flex-[1_0_0px] gap-6 flex-col justify-around w-full relative text-white">
             <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
               <img
-                src="/Library in Garden Profile.jpeg"
-                alt="Garden Library Background"
-                className="object-cover brightness-90 absolute inset-0 w-full h-full"
+                alt="A woman with her mind expanding into the universe as she accumulates knowledge."
+                className="absolute size-full object-cover transition-opacity duration-500 xl:hidden brightness-90"
+                width="1071"
+                height="800"
+                src="/feel-it-all.png"
+              />
+              <img
+                alt="A woman with her mind expanding into the universe as she accumulates knowledge."
+                className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block brightness-90 scale-105"
+                width="1071"
+                height="800"
+                src="/feel-it-all-xl.png"
               />
             </div>
             <h1
-              className="text-6xl sm:text-7xl z-10 md:text-8xl font-bold tracking-tighter text-center"
+              className="text-6xl sm:text-7xl z-10 md:text-8xl font-serif tracking-tighter text-center mt-20"
               style={{ lineHeight: "0.9em" }}
             >
-              faq
+              FAQ
             </h1>
-            <div className="flex justify-center z-10">
+            <div className="flex justify-center z-10 mb-auto">
               <p className="text-xl max-w-2xl text-center">
                 Find answers to common questions about thefalse platform.
               </p>
