@@ -50,7 +50,7 @@ export function SiteHeader() {
             scrolled ? "" : "text-inherit"
           )}
         >
-          <Link href="/app">Step Into Reality</Link>
+          <Link href="/app">Explore Now</Link>
         </Button>
       </header>
     </div>
