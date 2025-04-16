@@ -17,7 +17,7 @@ export default function Home() {
         />
         <img
           alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-          className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block"
+          className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block scale-105"
           width="1071"
           height="800"
           src="/feel-it-all-xl.png"
