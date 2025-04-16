@@ -70,15 +70,17 @@ export default function SupportPage() {
   async function onSubmit(values: FormValues) {
     try {
       setIsSubmitting(true);
-      
+
       const formData = new FormData();
-      Object.entries(values).forEach(([key, value]) => {
-        if (key === "screenshot" && value) {
-          formData.append(key, value);
-        } else {
-          formData.append(key, value as string);
-        }
-      });
+      formData.append("name", values.name);
+      formData.append("email", values.email);
+      formData.append("issueType", values.issueType);
+      formData.append("subject", values.subject);
+      formData.append("description", values.description);
+
+      if (values.screenshot) {
+        formData.append("screenshot", values.screenshot);
+      }
 
       const response = await fetch("/api/support", {
         method: "POST",
@@ -86,14 +88,19 @@ export default function SupportPage() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit form");
+        const error = await response.json();
+        throw new Error(error.error || "Failed to submit form");
       }
 
       toast.success("Your support request has been submitted!");
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Failed to submit form. Please try again.");
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Failed to submit form. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -112,17 +119,24 @@ export default function SupportPage() {
           <CardHeader>
             <CardTitle>Report an Issue</CardTitle>
             <CardDescription>
-              Please provide as much detail as possible about the issue you&apos;re
-              experiencing.
+              Please provide as much detail as possible about the issue
+              you&apos;re experiencing.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={form.control}
                   name="name"
-                  render={({ field }: { field: ControllerRenderProps<FormValues, "name"> }) => (
+                  render={({
+                    field,
+                  }: {
+                    field: ControllerRenderProps<FormValues, "name">;
+                  }) => (
                     <FormItem>
                       <FormLabel>Your Name</FormLabel>
                       <FormControl>
@@ -136,7 +150,11 @@ export default function SupportPage() {
                 <FormField
                   control={form.control}
                   name="email"
-                  render={({ field }: { field: ControllerRenderProps<FormValues, "email"> }) => (
+                  render={({
+                    field,
+                  }: {
+                    field: ControllerRenderProps<FormValues, "email">;
+                  }) => (
                     <FormItem>
                       <FormLabel>Email Address</FormLabel>
                       <FormControl>
@@ -154,7 +172,11 @@ export default function SupportPage() {
                 <FormField
                   control={form.control}
                   name="issueType"
-                  render={({ field }: { field: ControllerRenderProps<FormValues, "issueType"> }) => (
+                  render={({
+                    field,
+                  }: {
+                    field: ControllerRenderProps<FormValues, "issueType">;
+                  }) => (
                     <FormItem>
                       <FormLabel>Issue Type</FormLabel>
                       <Select
@@ -168,7 +190,9 @@ export default function SupportPage() {
                         </FormControl>
                         <SelectContent>
                           <SelectItem value="bug">Bug Report</SelectItem>
-                          <SelectItem value="feature">Feature Request</SelectItem>
+                          <SelectItem value="feature">
+                            Feature Request
+                          </SelectItem>
                           <SelectItem value="account">Account Issue</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
                         </SelectContent>
@@ -181,7 +205,11 @@ export default function SupportPage() {
                 <FormField
                   control={form.control}
                   name="subject"
-                  render={({ field }: { field: ControllerRenderProps<FormValues, "subject"> }) => (
+                  render={({
+                    field,
+                  }: {
+                    field: ControllerRenderProps<FormValues, "subject">;
+                  }) => (
                     <FormItem>
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
@@ -198,7 +226,11 @@ export default function SupportPage() {
                 <FormField
                   control={form.control}
                   name="description"
-                  render={({ field }: { field: ControllerRenderProps<FormValues, "description"> }) => (
+                  render={({
+                    field,
+                  }: {
+                    field: ControllerRenderProps<FormValues, "description">;
+                  }) => (
                     <FormItem>
                       <FormLabel>Description</FormLabel>
                       <FormControl>
@@ -216,8 +248,10 @@ export default function SupportPage() {
                 <FormField
                   control={form.control}
                   name="screenshot"
-                  render={({ field: { value, onChange, ...field } }: { 
-                    field: ControllerRenderProps<FormValues, "screenshot"> 
+                  render={({
+                    field: { value, onChange, ...field },
+                  }: {
+                    field: ControllerRenderProps<FormValues, "screenshot">;
                   }) => (
                     <FormItem>
                       <FormLabel>Screenshot (Optional)</FormLabel>
@@ -236,7 +270,11 @@ export default function SupportPage() {
                   )}
                 />
 
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Submitting..." : "Submit Report"}
                 </Button>
               </form>
@@ -245,7 +283,7 @@ export default function SupportPage() {
         </Card>
 
         <div className="mt-8 text-center text-muted-foreground">
-          <p>For urgent issues, please contact us at support@example.com</p>
+          <p>For urgent issues, please contact us at bkht@thefalse.net</p>
         </div>
       </div>
     </div>
