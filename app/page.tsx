@@ -7,20 +7,21 @@ import { Icons } from "@/components/icons";
 export default function Home() {
   return (
     <main className="min-h-screen relative overflow-hidden dark">
+      {/* Hero Section */}
       <div className="fixed inset-0 flex size-full flex-grow flex-col bg-[#100E12] z-10">
         <img
           alt="A woman with her mind expanding into the universe as she accumulates knowledge."
           className="absolute size-full object-cover transition-opacity duration-500 xl:hidden"
           width="1071"
           height="800"
-          src="/feel-it-all.png"
+          src="/feel-it-all.jpeg"
         />
         <img
           alt="A woman with her mind expanding into the universe as she accumulates knowledge."
           className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block scale-105"
           width="1071"
           height="800"
-          src="/feel-it-all-xl.png"
+          src="/feel-it-all-xl.jpeg"
         />
         <div
           className="flex h-full flex-col transition-opacity delay-500"
@@ -73,55 +74,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/*       
-      
-      <div className="absolute inset-0 z-0">
-        <div className="flex-none h-screen pointer-events-none fixed left-[calc(50.00000000000002%-100%/2)] top-[calc(50.00000000000002%-100%/2)] w-full z-[200]">
-          <div className="noise" />
-        </div>
-        <img
-          src="/Softly Lit Person.png"
-          alt="Garden Library Background"
-          className="object-cover brightness-90 absolute inset-0 w-full h-full"
-        />
-      </div>
-
-      
-      <div className="relative z-10 container mx-auto p-4 lg:p-16 flex flex-col min-h-screen">
-        <div className="flex-grow flex flex-col justify-end items-center text-center px-4">
-          <div className="max-w-4xl mx-auto flex flex-col justify-between h-full self-stretch">
-            <div className="text-center mb-16 mix-blend-difference">
-              <h1
-                className="mb-sm mt-6 text-center font-serif text-[88px] leading-none tracking-[-0.05em] drop-shadow-md white font-display font-[475] dark:font-[450] text-2xl md:text-3xl text-white selection:bg-super/50 selection:text-textMain dark:selection:bg-superDuper/10 dark:selection:text-superDark"
-                style={{ lineHeight: "0.9em" }}
-              >
-                Feel it <span className="italic">all</span>
-              </h1>
-              <p className="text-white lg:text-xl max-w-2xl mx-auto mb-12 tracking-tighter">
-                Express. Connect. Reflect.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-black hover:bg-gray-100 rounded-none"
-                asChild
-              >
-                <Link href="/app/register">Step in the reality</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-background/80 backdrop-blur-3xl hover:bg-background rounded-none"
-                asChild
-              >
-                <Link href="/about">Learn More</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </main>
   );
 }

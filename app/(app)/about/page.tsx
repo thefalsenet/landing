@@ -29,14 +29,14 @@ export default function AboutPage() {
                 className="absolute size-full object-cover transition-opacity duration-500 xl:hidden brightness-90"
                 width="1071"
                 height="800"
-                src="/feel-it-all.png"
+                src="/feel-it-all.jpeg"
               />
               <img
                 alt="A woman with her mind expanding into the universe as she accumulates knowledge."
                 className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block brightness-90 scale-105"
                 width="1071"
                 height="800"
-                src="/feel-it-all-xl.png"
+                src="/feel-it-all-xl.jpeg"
               />
             </div>
             <h1
