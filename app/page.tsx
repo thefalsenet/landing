@@ -55,7 +55,7 @@ export default function Home() {
           </div>
           <div className="p-6 py-16 lg:py-6 lg:pr-24 lg:h-screen gap-12 lg:gap-16 flex flex-col justify-center items-start flex-none w-full relative">
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium font-serif tracking-tighter mb-8 lg:text-left text-center">
-              It all begins with a book. one page at a time.
+              It all begins with a book. One page at a time.
             </h2>
             <p className="text-2xl text-muted-foreground mb-8 max-w-3xl leading-snug lg:text-left text-center">
               This is where you&apos;ll discover your next favorite read,
