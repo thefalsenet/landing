@@ -25,11 +25,11 @@ export default function HowItWorks() {
     <section className="py-24 px-6 max-w-[1440px] w-full border">
       <div className="flex flex-col flex-none items-center justify-center">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            how it works
+          <h2 className="text-3xl md:text-5xl font-medium font-serif tracking-tight mb-4">
+            How it works
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            getting started with thefalse.net is easy and takes just a few
+            Getting started with thefalse.net is easy and takes just a few
             minutes
           </p>
         </div>

@@ -11,12 +11,12 @@ export default function CTASection() {
           </div> */}
         </div>
         <h1
-          className="text-4xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter"
+          className="text-4xl md:text-7xl lg:text-8xl font-medium font-serif tracking-tighter"
           style={{ lineHeight: "0.9em" }}
         >
-          I wanna dive into
+          Tell us what you love,
           <br />
-          the next story
+          we’ll do the rest.
         </h1>
       </div>
       <div className="flex flex-col sm:flex-row gap-4 items-center w-full justify-center">
@@ -25,7 +25,7 @@ export default function CTASection() {
           className="py-6 font-bold text-xl lg:w-fit w-full"
           asChild
         >
-          <Link href="/app">register</Link>
+          <Link href="/app">Get Personalized Picks</Link>
         </Button>
       </div>
     </section>
