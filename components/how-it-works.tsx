@@ -22,7 +22,7 @@ function Step({ number, title, description }: StepProps) {
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 px-6 max-w-[1440px] w-full border">
+    <section className="py-24 px-6 max-w-[1440px] w-full border mx-auto">
       <div className="flex flex-col flex-none items-center justify-center">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-medium font-serif tracking-tight mb-4">
