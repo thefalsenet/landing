@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function CTASection() {
   return (
-    <section className="flex flex-col max-w-[1440px] w-full items-center justify-center pt-36 pb-24 px-6 text-center border gap-12 mb-32">
+    <section className="flex flex-col max-w-[1440px] w-full items-center justify-center pt-36 pb-24 px-6 text-center border gap-12 mb-32 mx-auto">
       <div className="flex flex-col gap-3 w-full">
         <div>
           {/* <div className="inline-block border p-2 text-sm text-muted-foreground mb-6">
