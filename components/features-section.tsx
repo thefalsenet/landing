@@ -29,11 +29,11 @@ export default function FeaturesSection() {
     <section className="py-24 px-6 max-w-[1440px] w-full border">
       <div className="flex flex-col flex-none items-center justify-center">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            features you&apos;ll love
+          <h2 className="text-3xl md:text-5xl tracking-tight mb-4 font-serif">
+            Features you&apos;ll love
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            discover all the ways thefalse.net helps you connect with books and
+            Discover all the ways thefalse.net helps you connect with books and
             fellow readers
           </p>
         </div>
