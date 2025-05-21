@@ -40,7 +40,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-4 pt-4 w-full">
               <Button
-                className="py-4 px-6 h-fit text-xl font-bold lg:w-fit w-full"
+                className="text-xl font-bold lg:w-fit w-full"
                 size={"lg"}
                 asChild
               >
