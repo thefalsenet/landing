@@ -82,6 +82,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
 a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
           twq("config", "ph0w1");`}
           </script>
+          <link
+            rel="search"
+            type="application/opensearchdescription+xml"
+            title="thefalse Search"
+            href="https://app.thefalse.net/opensearch.xml"
+          />
         </head>
         <body
           className={cn(
