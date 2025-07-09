@@ -82,6 +82,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
           twq("config", "ph0w1");`}
           </script>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6923394810941229"
+            crossOrigin="anonymous"></script>
           <link
             rel="search"
             type="application/opensearchdescription+xml"
