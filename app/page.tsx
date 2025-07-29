@@ -9,9 +9,10 @@ import MobileBookCollection from "@/components/mobile-book-collection";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
+import Image from "next/image";
 
 export const metadata = {
-  title: "it's time to share your story",
+  title: "Feel your next favorite book",
 };
 
 export default function Home() {
@@ -30,12 +31,12 @@ export default function Home() {
                 className="text-5xl md:text-7xl lg:text-8xl font-display font-medium font-serif tracking-tighter lg:text-left text-center"
                 style={{ lineHeight: "0.9em" }}
               >
-                Meet your next
+                Feel your next
                 <br />
                 <span className="italic">favorite book</span>
               </h1>
               <div className="text-2xl max-w-3xl text-muted-foreground leading-snug lg:text-left text-center">
-                Find and read more books you&apos;ll love
+                Not just a library. A living space for books, ideas, and emotions.
               </div>
             </div>
             <div className="flex flex-col gap-4 pt-4 w-full">
@@ -78,6 +79,24 @@ export default function Home() {
         <div className="sticky top-0 h-screen hidden flex-[.7_0_0px] justify-center items-center lg:flex flex-col">
           <div className="pl-4 relative h-full w-full">
             <BookCollectionInfinite />
+          </div>
+        </div>
+      </section>
+
+      <section className="relative after:w-full after:h-full after:absolute after:left-0 after:top-0 after:border after:border-border max-w-[1440px] mx-auto w-full">
+        <div className="flex w-full min-h-[700px]">
+          <div className="p-20 flex justify-center flex-[1_0_0px] flex-col gap-12 w-px">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium font-serif tracking-tighter text-center">
+              Talk Beyond the Page
+            </h2>
+            <p className="text-2xl text-muted-foreground max-w-3xl leading-snug text-center">
+              Your bookmarks, thoughts, and questions deserve an audience. thefalse helps them find one.
+            </p>
+          </div>
+          <div className="flex flex-[1_0_0px] flex-col w-px">
+            <div className="relative w-full h-px flex-[1_0_0px] after:h-full after:absolute after:left-0 after:top-0 after:border after:border-border">
+              <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/screenshot.png"} className="object-left-top object-cover grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" alt="" fill />
+            </div>
           </div>
         </div>
       </section>
