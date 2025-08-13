@@ -5,7 +5,7 @@ import FeedbackConfirmationEmail from "@/components/emails/feedbacks";
 import FeedbackAdminNotificationEmail from "@/components/emails/feedback-admin-notification-email";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "bkht@thefalse.net";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "b.yusupoff001@gmail.com";
 
 const feedbackSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
