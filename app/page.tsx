@@ -10,12 +10,18 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
 import Image from "next/image";
+import axios from "axios";
+import { TestimonialCard } from "@/components/testimonial-card";
 
 export const metadata = {
   title: "Feel your next favorite book",
 };
 
-export default function Home() {
+export default async function Home() {
+  const testimonialData = await axios
+    .get("https://app.thefalse.net/api/feedbacks/top").then((res) => res.data) as any
+  const { feedback: testimonial } = testimonialData
+
   return (
     <>
       <SiteHeader />
@@ -47,8 +53,11 @@ export default function Home() {
               >
                 <Link href="/app">Join free</Link>
               </Button>
+              {
+                testimonial && <TestimonialCard testimonial={testimonial} />
+              }
             </div>
-            <div className="lg:hidden w-screen mt-12 -mx-6 touch-scroll overflow-hidden">
+            <div className="lg:hidden w-screen -mx-6 touch-scroll overflow-hidden">
               <div className="w-full">
                 <MobileBookCollection />
               </div>
@@ -84,8 +93,8 @@ export default function Home() {
       </section>
 
       <section className="relative after:w-full after:h-full after:absolute after:left-0 after:top-0 after:border after:border-border max-w-[1440px] mx-auto w-full">
-        <div className="flex w-full min-h-[700px]">
-          <div className="p-20 flex justify-center flex-[1_0_0px] flex-col gap-12 w-px">
+        <div className="flex w-full min-h-[700px] flex-col xl:flex-row">
+          <div className="p-20 flex justify-center flex-[1_0_0px] flex-col gap-12 xl:w-px w-full">
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-medium font-serif tracking-tighter text-center">
               Talk Beyond the Page
             </h2>
@@ -93,7 +102,7 @@ export default function Home() {
               Your bookmarks, thoughts, and questions deserve an audience. thefalse helps them find one.
             </p>
           </div>
-          <div className="flex flex-[1_0_0px] flex-col w-px">
+          <div className="flex flex-none xl:flex-[1_0_0px] flex-col xl:w-px w-full h-[400px] lg:h-[700px] xl:h-auto p-6 lg:p-0">
             <div className="relative w-full h-px flex-[1_0_0px] after:h-full after:absolute after:left-0 after:top-0 after:border after:border-border">
               <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/screenshot.png"} className="object-left-top object-cover grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" alt="" fill />
             </div>

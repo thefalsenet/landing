@@ -98,6 +98,9 @@ a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,
             fontSerif.variable
           )}
         >
+          <div className="flex-none h-screen pointer-events-none fixed top-0 w-full z-[200]">
+            <div className="noise" />
+          </div>
           <Providers attribute="class" defaultTheme="dark" enableSystem>
             {children}
           </Providers>
