@@ -226,7 +226,7 @@ export default function FeedbackConfirmationEmail({
                                                                                 textDecoration: "none",
                                                                            }}
                                                                       >
-                                                                           We've received your feedback and appreciate you taking the time to share your thoughts
+                                                                           We&apos;ve received your feedback and appreciate you taking the time to share your thoughts
                                                                            with us.
                                                                       </td>
                                                                  </tr>
@@ -322,7 +322,7 @@ export default function FeedbackConfirmationEmail({
                                                                                 borderLeft: "3px solid #1da1f2",
                                                                            }}
                                                                       >
-                                                                           "{testimonial}"
+                                                                           &quot;{testimonial}&quot;
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
@@ -550,7 +550,7 @@ export default function FeedbackConfirmationEmail({
      return (
           <Html>
                <Head />
-               <Preview>Thank you for your feedback! We've received your {rating}/5 rating and testimonial.</Preview>
+               <Preview>Thank you for your feedback! We&apos;ve received your {rating.toString()}/5 rating and testimonial.</Preview>
                {emailContent}
           </Html>
      )
