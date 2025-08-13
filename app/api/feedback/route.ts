@@ -82,7 +82,7 @@ export async function POST(request: Request) {
         rating: validatedData.rating,
         role: validatedData.role,
         testimonial: validatedData.testimonial,
-        submittedAt: new Date().toISOString(),
+        submittedAt: new Date().toLocaleString(),
       }),
     });
 
