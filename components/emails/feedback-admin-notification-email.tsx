@@ -385,7 +385,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                                 borderLeft: "3px solid #1da1f2",
                                                                            }}
                                                                       >
-                                                                           "{testimonial}"
+                                                                           &quot;{testimonial}&quot;
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
