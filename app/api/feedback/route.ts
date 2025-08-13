@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
+import FeedbackConfirmationEmail from "@/components/emails/feedbacks";
+import FeedbackAdminNotificationEmail from "@/components/emails/feedback-admin-notification-email";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "bkht@thefalse.net";
@@ -59,19 +61,12 @@ export async function POST(request: Request) {
         from: "thefalse <feedback@mail.thefalse.net>",
         to: validatedData.email,
         subject: "Thank you for your feedback!",
-        html: `
-          <h1>Thank you for your feedback!</h1>
-          <p>Dear ${validatedData.name},</p>
-          <p>We've received your feedback and appreciate you taking the time to share your thoughts with us.</p>
-          <p>Your rating: ${validatedData.rating}/5</p>
-          <p>Your testimonial: "${validatedData.testimonial}"</p>
-          ${
-            validatedData.allowPublicDisplay
-              ? "<p>Your testimonial will be displayed publicly on our website.</p>"
-              : ""
-          }
-          <p>Best regards,<br>thefalse Team</p>
-        `,
+        react: FeedbackConfirmationEmail({
+          allowPublicDisplay: validatedData.allowPublicDisplay,
+          name: validatedData.name,
+          rating: validatedData.rating,
+          testimonial: validatedData.testimonial,
+        }),
       });
     }
 
@@ -80,18 +75,15 @@ export async function POST(request: Request) {
       from: "thefalse <feedback@mail.thefalse.net>",
       to: ADMIN_EMAIL,
       subject: "New Feedback Received",
-      html: `
-        <h1>New Feedback Submission</h1>
-        <p><strong>Name:</strong> ${validatedData.name}</p>
-        <p><strong>Email:</strong> ${validatedData.email || "Not provided"}</p>
-        <p><strong>Role:</strong> ${validatedData.role}</p>
-        <p><strong>Rating:</strong> ${validatedData.rating}/5</p>
-        <p><strong>Testimonial:</strong> ${validatedData.testimonial}</p>
-        <p><strong>Public Display:</strong> ${
-          validatedData.allowPublicDisplay ? "Yes" : "No"
-        }</p>
-        <p><strong>Submitted at:</strong> ${new Date().toLocaleString()}</p>
-      `,
+      react: FeedbackAdminNotificationEmail({
+        allowPublicDisplay: validatedData.allowPublicDisplay,
+        email: validatedData.email,
+        name: validatedData.name,
+        rating: validatedData.rating,
+        role: validatedData.role,
+        testimonial: validatedData.testimonial,
+        submittedAt: new Date().toISOString(),
+      }),
     });
 
     return NextResponse.json(
