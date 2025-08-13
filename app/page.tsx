@@ -10,12 +10,18 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
 import Image from "next/image";
+import axios from "axios";
+import { TestimonialCard } from "@/components/testimonial-card";
 
 export const metadata = {
   title: "Feel your next favorite book",
 };
 
-export default function Home() {
+export default async function Home() {
+  const testimonialData = await axios
+    .get("https://app.thefalse.net/api/feedbacks/top").then((res) => res.data) as any
+  const { feedback: testimonial } = testimonialData
+
   return (
     <>
       <SiteHeader />
@@ -47,8 +53,11 @@ export default function Home() {
               >
                 <Link href="/app">Join free</Link>
               </Button>
+              {
+                testimonial && <TestimonialCard testimonial={testimonial} />
+              }
             </div>
-            <div className="lg:hidden w-screen mt-12 -mx-6 touch-scroll overflow-hidden">
+            <div className="lg:hidden w-screen -mx-6 touch-scroll overflow-hidden">
               <div className="w-full">
                 <MobileBookCollection />
               </div>
