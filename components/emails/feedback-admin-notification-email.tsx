@@ -22,30 +22,29 @@ export default function FeedbackAdminNotificationEmail({
      isPreview = false,
 }: FeedbackAdminNotificationEmailProps) {
      const emailContent = (
-          <div style={{ margin: 0, padding: 0 }} bgcolor="#ffffff">
+          <div style={{ margin: 0, padding: 0, backgroundColor: "#fff" }}>
                <table
                     cellPadding="0"
                     cellSpacing="0"
-                    border="0"
+
                     width="100%"
                     bgcolor="#F5F8FA"
-                    style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}
+                    style={{ padding: 0, margin: 0, fontSize: "1px" }}
                >
                     <tbody>
                          <tr>
-                              <td align="center" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}>
+                              <td align="center" style={{ padding: 0, margin: 0, fontSize: "1px" }}>
                                    <table
                                         align="center"
                                         width="448"
-                                        style={{ width: "448px", padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}
+                                        style={{ width: "448px", padding: 0, margin: 0, fontSize: "1px" }}
                                         bgcolor="#ffffff"
                                         cellPadding="0"
                                         cellSpacing="0"
-                                        border="0"
                                    >
                                         <tbody>
                                              <tr>
-                                                  <td style={{ minWidth: "448px", padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}>
+                                                  <td style={{ minWidth: "448px", padding: 0, margin: 0, fontSize: "1px" }}>
                                                        <img
                                                             src="https://pic.thefalse.net/logo.png"
                                                             style={{
@@ -66,7 +65,7 @@ export default function FeedbackAdminNotificationEmail({
                               </td>
                          </tr>
                          <tr>
-                              <td align="center" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}>
+                              <td align="center" style={{ padding: 0, margin: 0, fontSize: "1px" }}>
                                    <table
                                         align="center"
                                         width="448"
@@ -75,34 +74,33 @@ export default function FeedbackAdminNotificationEmail({
                                              backgroundColor: "#ffffff",
                                              padding: 0,
                                              margin: 0,
-                                             lineHeight: "1px",
-                                             fontSize: "1px",
+
+
                                         }}
                                         bgcolor="#ffffff"
                                         cellPadding="0"
                                         cellSpacing="0"
-                                        border="0"
+
                                    >
                                         <tbody>
                                              <tr>
                                                   <td
                                                        colSpan={3}
                                                        height="24"
-                                                       style={{ height: "24px", padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}
+                                                       style={{ height: "24px", padding: 0, margin: 0, fontSize: "1px" }}
                                                   >
                                                        &nbsp;
                                                   </td>
                                              </tr>
-                                             <tr align="right">
-                                                  <td width="24" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
-                                                  <td align="right" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}>
+                                             <tr>
+                                                  <td width="24" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
+                                                  <td align="right" style={{ padding: 0, margin: 0, fontSize: "1px" }}>
                                                        <a
                                                             href="#"
                                                             style={{ textDecoration: "none", borderStyle: "none", border: 0, padding: 0, margin: 0 }}
                                                        >
                                                             <img
                                                                  width="32"
-                                                                 align="right"
                                                                  src="https://pic.thefalse.net/logo.png"
                                                                  style={{
                                                                       width: "32px",
@@ -116,13 +114,13 @@ export default function FeedbackAdminNotificationEmail({
                                                             />
                                                        </a>
                                                   </td>
-                                                  <td width="24" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                  <td width="24" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                              </tr>
                                              <tr>
                                                   <td
                                                        colSpan={4}
                                                        height="24"
-                                                       style={{ height: "24px", padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}
+                                                       style={{ height: "24px", padding: 0, margin: 0, fontSize: "1px" }}
                                                   >
                                                        <img
                                                             width="1"
@@ -150,23 +148,23 @@ export default function FeedbackAdminNotificationEmail({
                                              backgroundColor: "#ffffff",
                                              padding: 0,
                                              margin: 0,
-                                             lineHeight: "1px",
-                                             fontSize: "1px",
+
+
                                         }}
                                         bgcolor="#ffffff"
                                         cellPadding="0"
                                         cellSpacing="0"
-                                        border="0"
+
                                    >
                                         <tbody>
-                                             <tr align="left">
-                                                  <td width="24" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
-                                                  <td align="left" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}>
+                                             <tr>
+                                                  <td width="24" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
+                                                  <td align="left" style={{ padding: 0, margin: 0, fontSize: "1px" }}>
                                                        <table
                                                             cellPadding="0"
                                                             cellSpacing="0"
-                                                            border="0"
-                                                            style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}
+
+                                                            style={{ padding: 0, margin: 0, fontSize: "1px" }}
                                                        >
                                                             <tbody>
                                                                  <tr>
@@ -175,8 +173,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "24px",
                                                                                 lineHeight: "32px",
@@ -190,7 +188,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="24" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="24" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
                                                                  <tr>
                                                                       <td
@@ -198,8 +196,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "16px",
                                                                                 lineHeight: "20px",
@@ -213,7 +211,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="24" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="24" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
 
                                                                  {/* Submission Details */}
@@ -223,8 +221,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "16px",
                                                                                 lineHeight: "20px",
@@ -238,7 +236,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="16" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="16" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
 
                                                                  {/* Name */}
@@ -248,8 +246,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "14px",
                                                                                 lineHeight: "20px",
@@ -263,7 +261,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="8" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="8" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
 
                                                                  {/* Email */}
@@ -273,8 +271,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "14px",
                                                                                 lineHeight: "20px",
@@ -288,7 +286,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="8" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="8" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
 
                                                                  {/* Role */}
@@ -298,8 +296,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "14px",
                                                                                 lineHeight: "20px",
@@ -313,7 +311,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="8" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="8" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
 
                                                                  {/* Rating */}
@@ -323,8 +321,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "14px",
                                                                                 lineHeight: "20px",
@@ -339,7 +337,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="8" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="8" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
 
                                                                  {/* Testimonial */}
@@ -349,8 +347,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "14px",
                                                                                 lineHeight: "20px",
@@ -364,7 +362,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="8" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="8" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
                                                                  <tr>
                                                                       <td
@@ -372,8 +370,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: "12px",
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "14px",
                                                                                 lineHeight: "20px",
@@ -389,7 +387,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="16" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="16" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
 
                                                                  {/* Public Display */}
@@ -399,8 +397,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "14px",
                                                                                 lineHeight: "20px",
@@ -417,7 +415,7 @@ export default function FeedbackAdminNotificationEmail({
                                                                       </td>
                                                                  </tr>
                                                                  <tr>
-                                                                      <td height="8" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="8" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
 
                                                                  {/* Submitted At */}
@@ -427,8 +425,8 @@ export default function FeedbackAdminNotificationEmail({
                                                                            style={{
                                                                                 padding: 0,
                                                                                 margin: 0,
-                                                                                lineHeight: "1px",
-                                                                                fontSize: "1px",
+
+
                                                                                 fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
                                                                                 fontSize: "14px",
                                                                                 lineHeight: "20px",
@@ -443,12 +441,12 @@ export default function FeedbackAdminNotificationEmail({
                                                                  </tr>
 
                                                                  <tr>
-                                                                      <td height="36" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                      <td height="36" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                                                  </tr>
                                                             </tbody>
                                                        </table>
                                                   </td>
-                                                  <td width="24" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                  <td width="24" style={{ padding: 0, margin: 0, fontSize: "1px" }}></td>
                                              </tr>
                                         </tbody>
                                    </table>
@@ -461,22 +459,22 @@ export default function FeedbackAdminNotificationEmail({
                                              backgroundColor: "#ffffff",
                                              padding: 0,
                                              margin: 0,
-                                             lineHeight: "1px",
-                                             fontSize: "1px",
+
+
                                         }}
                                         cellPadding="0"
                                         cellSpacing="0"
-                                        border="0"
+
                                    >
                                         <tbody>
                                              <tr>
                                                   <td
                                                        height="36"
-                                                       style={{ height: "36px", padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}
+                                                       style={{ height: "36px", padding: 0, margin: 0, fontSize: "1px" }}
                                                   ></td>
                                              </tr>
                                              <tr>
-                                                  <td align="center" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}>
+                                                  <td align="center" style={{ padding: 0, margin: 0, fontSize: "1px" }}>
                                                        <span
                                                             style={{
                                                                  fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
@@ -491,7 +489,6 @@ export default function FeedbackAdminNotificationEmail({
                                                             <a
                                                                  href="https://thefalse.net/admin"
                                                                  style={{
-                                                                      textDecoration: "none",
                                                                       borderStyle: "none",
                                                                       border: 0,
                                                                       padding: 0,
@@ -522,7 +519,6 @@ export default function FeedbackAdminNotificationEmail({
                                                                       fontWeight: "600",
                                                                       color: "#1da1f2",
                                                                       textAlign: "left",
-                                                                      textDecoration: "none",
                                                                  }}
                                                             >
                                                                  View All Feedback
@@ -535,15 +531,15 @@ export default function FeedbackAdminNotificationEmail({
                                                        height="12"
                                                        style={{
                                                             height: "12px",
-                                                            lineHeight: "1px",
-                                                            fontSize: "1px",
+
+
                                                             padding: 0,
                                                             margin: 0,
                                                        }}
                                                   ></td>
                                              </tr>
                                              <tr>
-                                                  <td align="center" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}>
+                                                  <td align="center" style={{ padding: 0, margin: 0, fontSize: "1px" }}>
                                                        <span
                                                             style={{
                                                                  fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
@@ -564,15 +560,15 @@ export default function FeedbackAdminNotificationEmail({
                                                        height="6"
                                                        style={{
                                                             height: "6px",
-                                                            lineHeight: "1px",
-                                                            fontSize: "1px",
+
+
                                                             padding: 0,
                                                             margin: 0,
                                                        }}
                                                   ></td>
                                              </tr>
                                              <tr>
-                                                  <td align="center" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}>
+                                                  <td align="center" style={{ padding: 0, margin: 0, fontSize: "1px" }}>
                                                        <span
                                                             style={{
                                                                  fontFamily: "'Helvetica Neue Light',Helvetica,Arial,sans-serif",
@@ -592,7 +588,7 @@ export default function FeedbackAdminNotificationEmail({
                                              <tr>
                                                   <td
                                                        height="72"
-                                                       style={{ height: "72px", padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}
+                                                       style={{ height: "72px", padding: 0, margin: 0, fontSize: "1px" }}
                                                   ></td>
                                              </tr>
                                         </tbody>
@@ -612,7 +608,7 @@ export default function FeedbackAdminNotificationEmail({
           <Html>
                <Head />
                <Preview>
-                    New feedback submission from {name} - {rating}/5 stars
+                    New feedback submission from {name} - {rating.toString()}/5 stars
                </Preview>
                {emailContent}
           </Html>
