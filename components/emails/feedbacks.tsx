@@ -297,8 +297,36 @@ export default function FeedbackConfirmationEmail({
                                                                                 textDecoration: "none",
                                                                            }}
                                                                       >
-                                                                           <strong>Your testimonial:</strong> "{testimonial}"
+                                                                           <strong>Your testimonial:</strong>
                                                                       </td>
+                                                                 </tr>
+                                                                 <tr>
+                                                                      <td height="8" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
+                                                                 </tr>
+                                                                 <tr>
+                                                                      <td
+                                                                           align="left"
+                                                                           style={{
+                                                                                padding: "12px",
+                                                                                margin: 0,
+                                                                                lineHeight: "1px",
+                                                                                fontSize: "1px",
+                                                                                fontFamily: "'HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif",
+                                                                                fontSize: "14px",
+                                                                                lineHeight: "20px",
+                                                                                fontWeight: "400",
+                                                                                color: "#292f33",
+                                                                                textAlign: "left",
+                                                                                textDecoration: "none",
+                                                                                backgroundColor: "#f8f9fa",
+                                                                                borderLeft: "3px solid #1da1f2",
+                                                                           }}
+                                                                      >
+                                                                           "{testimonial}"
+                                                                      </td>
+                                                                 </tr>
+                                                                 <tr>
+                                                                      <td height="16" style={{ padding: 0, margin: 0, lineHeight: "1px", fontSize: "1px" }}></td>
                                                                  </tr>
                                                                  {allowPublicDisplay && (
                                                                       <>

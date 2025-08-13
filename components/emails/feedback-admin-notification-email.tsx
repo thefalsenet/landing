@@ -103,7 +103,7 @@ export default function FeedbackAdminNotificationEmail({
                                                             <img
                                                                  width="32"
                                                                  align="right"
-                                                                 src="https://app.thefalse.net/profile-og.png"
+                                                                 src="https://pic.thefalse.net/logo.png"
                                                                  style={{
                                                                       width: "32px",
                                                                       margin: 0,
