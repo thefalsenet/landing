@@ -27,7 +27,7 @@ export function TestimonialCard({ testimonial, ...props }: React.ComponentPropsW
                </CardContent>
                <CardFooter className="px-0 gap-2 lg:flex-row flex-col">
                     <CardTitle>
-                         - {testimonial.name}
+                         {testimonial.name}
                     </CardTitle>
                     <CardDescription>
                          {testimonial.role}
