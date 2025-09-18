@@ -18,7 +18,7 @@ const socialLinks = [
 export default function Footer({ className }: { className?: string }) {
   const pathname = usePathname();
   return (
-    <footer className={cn("bottom-0 left-0 right-0 z-50 bg-background w-full border-t absolute", className)}>
+    <footer className={cn("bottom-0 left-0 right-0 z-50 bg-background w-full border-t", className)}>
       <div className="max-w-[1440px] mx-auto flex h-16 px-6 items-center justify-between grow">
         <nav>
           <ul className="flex gap-8">

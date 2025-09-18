@@ -103,6 +103,7 @@ export default async function Home() {
       {/* CTA Section */}
       <CTASection />
 
+      <Footer />
     </>
   );
 }
