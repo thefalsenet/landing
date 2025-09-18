@@ -236,3 +236,16 @@ body {
   opacity: 0.08;
   border-radius: 0;
 }
+
+.frame-outer {
+  @apply relative w-full p-2 border border-white/[0.08] transform-gpu;
+
+  /* Custom properties that don't have Tailwind equivalents */
+  max-width: min(1204px, calc(100vw + 19px));
+  height: clamp(500px, calc(100vw * 0.6 + 274.436px), 740px);
+  background: radial-gradient(85.77% 49.97% at 51% 5.12%, hsla(0, 0%, 100%, 0.11) 0%, rgba(222, 226, 255, 0.08) 45.83%, rgba(241, 242, 255, 0.02) 100%), rgba(0, 0, 0, 0.44);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0 0 40px 20px hsla(0, 0%, 100%, 0.03), inset 0 0.5px 0 0 hsla(0, 0%, 100%, 0.3);
+
+}
