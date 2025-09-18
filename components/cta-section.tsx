@@ -12,7 +12,7 @@ export default function CTASection() {
           >
             Rethink reading.
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-snug text-center">
+          <p className="text-lg md:text-xl max-w-3xl leading-snug text-center">
             Track, annotate, and share your books effortlessly.
           </p>
         </div>
