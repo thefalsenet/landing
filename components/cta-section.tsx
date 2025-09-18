@@ -32,7 +32,7 @@ export default function CTASection() {
           </Button>
         </div>
       </div>
-      <div className="absolute inset-0 z-[-1] w-full overflow-hidden">
+      <div className="absolute inset-0 z-[-1] w-full overflow-hidden mask-t-from-50%">
         <Image src={"/cta-bg.png"} className="object-cover object-top grayscale" alt="" fill /></div>
       <Footer className="bg-background/25 backdrop-blur-xl mt-20" />
     </section>
