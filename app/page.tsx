@@ -87,7 +87,7 @@ export default async function Home() {
           <div className="relative select-none">
             <div className="frame-outer">
               <div className="relative h-full overflow-hidden bg-background border shadow">
-                <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/screenshot.png"} className="object-cover grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" alt="" width={1302} height={1011} />
+                <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/screenshot.png"} alt="" width={1302} height={1011} />
               </div>
             </div>
           </div>
