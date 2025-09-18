@@ -15,10 +15,10 @@ const socialLinks = [
   { name: "instagram", href: "https://instagram.com/thefalsenet" },
 ];
 
-export default function Footer() {
+export default function Footer({ className }: { className?: string }) {
   const pathname = usePathname();
   return (
-    <footer className="bottom-0 left-0 right-0 z-50 bg-background w-full after:block after:h-px after:bg-muted-foreground/10 border-t">
+    <footer className={cn("bottom-0 left-0 right-0 z-50 bg-background w-full border-t absolute", className)}>
       <div className="max-w-[1440px] mx-auto flex h-14 px-6 items-center justify-between grow">
         <nav>
           <ul className="flex gap-8">
