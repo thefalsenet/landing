@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function CTASection() {
   return (
     <section className="flex flex-col items-center justify-center mx-auto relative">
-      <div className="flex py-40 md:py-56 px-6 flex-col items-center justify-center gap-12 max-w-[1440px] border w-full text-center mb-32">
+      <div className="flex py-40 md:py-56 px-6 flex-col items-center justify-center gap-12 max-w-[1440px] border w-full text-center mb-32 relative overflow-hidden">
         <div className="flex flex-col items-center max-w-96">
           <h1
             className="text-xl md:text-2xl font-display font-bold font-serif"
@@ -24,9 +24,10 @@ export default function CTASection() {
             <Link href="/app">Try thefalse</Link>
           </Button>
         </div>
+        <div className="absolute inset-0 z-[-1] w-full overflow-hidden max-w-[1440px] mx-auto">
+          <Image src={"/cta-bg.png"} className="object-cover object-top grayscale" alt="" fill /></div>
       </div>
-      <div className="absolute inset-0 z-[-1] w-full overflow-hidden max-w-[1440px] mx-auto">
-        <Image src={"/cta-bg.png"} className="object-cover object-top grayscale" alt="" fill /></div>
+
     </section>
   );
 }
