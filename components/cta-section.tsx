@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function CTASection() {
@@ -28,6 +29,8 @@ export default function CTASection() {
           <Link href="/app">Get Personalized Picks</Link>
         </Button>
       </div>
+      <div className="absolute inset-0 z-[-1] w-full">
+        <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/screenshot.png"} className="object-cover grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" alt="" fill /></div>
     </section>
   );
 }

@@ -77,7 +77,7 @@ export default async function Home() {
       <section className="relative max-w-screen overflow-x-hidden px-6 py-40 md:py-56">
         <div className="flex flex-col items-center">
           <div className="text-center mb-16">
-            <h2 className="text-xl md:text-2xl font-display font-medium font-serif">
+            <h2 className="text-xl md:text-2xl font-display font-bold font-serif">
               Talk Beyond the Page
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-snug text-center">
@@ -87,7 +87,7 @@ export default async function Home() {
           <div className="relative select-none">
             <div className="frame-outer">
               <div className="relative h-full overflow-hidden bg-background border shadow">
-                <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/screenshot.png"} className="object-left-top object-cover grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" alt="" width={1793} height={1011} />
+                <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/screenshot.png"} className="object-cover grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" alt="" width={1793} height={1011} />
               </div>
             </div>
           </div>
