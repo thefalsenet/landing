@@ -30,7 +30,7 @@ export default function CTASection() {
         </Button>
       </div>
       <div className="absolute inset-0 z-[-1] w-full">
-        <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/screenshot.png"} className="object-cover grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" alt="" fill /></div>
+        <Image sizes="max((min(100vw - 48px, 1440px) - 48px) / 2, 1px)" src={"/cta-bg.png"} className="object-cover grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" alt="" fill /></div>
     </section>
   );
 }
