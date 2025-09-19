@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 import Link from "next/link";
+import CTASection from "@/components/cta-section";
 
 export const metadata: Metadata = {
   title: "our story",
@@ -142,6 +143,8 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      <CTASection />
     </>
   );
 }
