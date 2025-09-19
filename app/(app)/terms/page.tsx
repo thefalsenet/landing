@@ -23,18 +23,10 @@ export default function TermsOfServicePage() {
             <div className="flex flex-[1_0_0px] gap-6 flex-col justify-around w-full relative text-white">
               <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
                 <img
-                  alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                  className="absolute size-full object-cover transition-opacity duration-500 xl:hidden brightness-90"
+                  className="absolute size-full object-cover transition-opacity duration-500 brightness-90"
                   width="1071"
                   height="800"
-                  src="/feel-it-all.jpeg"
-                />
-                <img
-                  alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                  className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block brightness-90 scale-105"
-                  width="1071"
-                  height="800"
-                  src="/feel-it-all-xl.jpeg"
+                  src="/cta-bg.png"
                 />
               </div>
               <h1
