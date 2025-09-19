@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function CTASection() {
   return (
     <section className="flex flex-col items-center justify-center mx-auto relative overflow-hidden">
-      <div className="flex py-40 md:py-56 px-6 flex-col items-center justify-center gap-12 max-w-[1440px] w-full text-center mb-32 relative overflow-hidden">
+      <div className="flex py-20 md:py-28 px-6 flex-col items-center justify-center gap-12 max-w-[1440px] w-full text-center mb-32 relative overflow-hidden">
         <div className="flex flex-col items-center max-w-96">
           <h1
             className="text-xl md:text-2xl font-display font-bold font-serif"
