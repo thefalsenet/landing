@@ -1,6 +1,7 @@
 import {
   JetBrains_Mono as FontMono,
   Manrope as FontSans,
+  Lora as FontSerif,
 } from "next/font/google";
 import localFont from "next/font/local";
 // import { GeistMono } from "geist/font/mono"
@@ -15,18 +16,14 @@ export const fontMono = FontMono({
   variable: "--font-mono",
 });
 
-export const fontSerif = localFont({
-  src: [
-    {
-      path: "../public/fonts/InstrumentSerif-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/InstrumentSerif-Italic.ttf",
-      weight: "400",
-      style: "italic",
-    },
+export const fontSerif = FontSerif({
+  subsets: [
+    "cyrillic",
+    "cyrillic-ext",
+    "latin",
+    "latin-ext",
+    "symbols",
+    "vietnamese",
   ],
   variable: "--font-serif",
 });

@@ -1,3 +1,4 @@
+import CTASection from "@/components/cta-section";
 import Footer from "@/components/footer";
 import Image from "next/image";
 
@@ -23,17 +24,10 @@ export default function PrivacyPolicyPage() {
             <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
               <img
                 alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                className="absolute size-full object-cover transition-opacity duration-500 xl:hidden brightness-90"
+                className="absolute size-full object-cover transition-opacity duration-500 brightness-90"
                 width="1071"
                 height="800"
-                src="/feel-it-all.jpeg"
-              />
-              <img
-                alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block brightness-90 scale-105"
-                width="1071"
-                height="800"
-                src="/feel-it-all-xl.jpeg"
+                src="/cta-bg.png"
               />
             </div>
             <h1
@@ -44,7 +38,7 @@ export default function PrivacyPolicyPage() {
             </h1>
             <div className="flex gap-2.5 items-center justify-center z-10 mb-auto">
               <Image
-                src="/profile.png"
+                src="https://pic.thefalse.net/u/f1207d83-9311-49a9-b41a-addf2631a45f/493832554.jpeg"
                 alt="thefalse.net"
                 width={36}
                 height={36}
@@ -152,6 +146,10 @@ export default function PrivacyPolicyPage() {
 
             <div className="pt-8">
               <p>questions about privacy? email bkht@thefalse.net</p>
+            </div>
+
+            <div className="-mx-6">
+              <CTASection />
             </div>
           </div>
         </div>

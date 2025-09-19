@@ -4,7 +4,6 @@ import { Resend } from "resend";
 import FeedbackConfirmationEmail from "@/components/emails/feedbacks";
 import FeedbackAdminNotificationEmail from "@/components/emails/feedback-admin-notification-email";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "b.yusupoff001@gmail.com";
 
 const feedbackSchema = z.object({
@@ -18,6 +17,9 @@ const feedbackSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    // Initialize Resend client
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     // Check if request body exists
     if (!request.body) {
       return NextResponse.json(

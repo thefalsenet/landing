@@ -43,14 +43,13 @@ export function SiteHeader() {
         </div>
         <Button
           asChild
-          size={"lg"}
           variant={scrolled ? "default" : "link"}
           className={cn(
-            "rounded-none font-semibold text-base",
+            "rounded-none font-semibold",
             scrolled ? "" : "text-inherit"
           )}
         >
-          <Link href="/app">Explore Now</Link>
+          <Link href="/app">Sign in</Link>
         </Button>
       </header>
     </div>

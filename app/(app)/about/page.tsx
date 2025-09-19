@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 import Link from "next/link";
+import CTASection from "@/components/cta-section";
 
 export const metadata: Metadata = {
   title: "our story",
@@ -26,17 +27,10 @@ export default function AboutPage() {
             <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
               <img
                 alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                className="absolute size-full object-cover transition-opacity duration-500 xl:hidden brightness-90"
+                className="absolute size-full object-cover transition-opacity duration-500 brightness-90"
                 width="1071"
                 height="800"
-                src="/feel-it-all.jpeg"
-              />
-              <img
-                alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                className="absolute size-full object-cover transition-opacity duration-500 hidden xl:block brightness-90 scale-105"
-                width="1071"
-                height="800"
-                src="/feel-it-all-xl.jpeg"
+                src="/cta-bg.png"
               />
             </div>
             <h1
@@ -47,7 +41,7 @@ export default function AboutPage() {
             </h1>
             <div className="flex gap-2.5 items-center justify-center z-10 mb-auto">
               <Image
-                src="/profile.png"
+                src="https://pic.thefalse.net/u/f1207d83-9311-49a9-b41a-addf2631a45f/493832554.jpeg"
                 alt="thefalse.net"
                 width={36}
                 height={36}
@@ -138,14 +132,9 @@ export default function AboutPage() {
               </p>
             </section>
 
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">
-                Step into something real.
-              </h2>
-              <Button size="lg" className="text-lg h-12 mb-12" asChild>
-                <Link href="/app">join us on our journey</Link>
-              </Button>
-            </section>
+            <div className="-mx-6">
+              <CTASection />
+            </div>
           </div>
         </div>
       </div>

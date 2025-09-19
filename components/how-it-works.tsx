@@ -22,14 +22,14 @@ function Step({ number, title, description }: StepProps) {
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 px-6 max-w-[1440px] w-full border mx-auto">
+    <section className="py-24 px-6 max-w-[1440px] w-full mx-auto">
       <div className="flex flex-col flex-none items-center justify-center">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-medium font-serif tracking-tight mb-4">
+          <h2 className="text-xl md:text-2xl font-display font-bold font-serif">
             How it works
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Getting started with thefalse.net is easy and takes just a few
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-snug text-center">
+            Getting started with thefalse is easy and takes just a few
             minutes
           </p>
         </div>

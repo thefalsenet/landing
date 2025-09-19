@@ -107,22 +107,15 @@ export default function SupportPage() {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="container mx-auto py-32 px-4 min-h-[calc(100vh-4rem)]">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">Support Center</h1>
+        <h1 className="text-4xl font-bold mb-6 font-serif">Support Center</h1>
         <p className="text-lg text-muted-foreground mb-8">
           We&apos;re here to help! Please fill out the form below to report any
           issues you&apos;re experiencing with our platform.
         </p>
 
         <Card>
-          <CardHeader>
-            <CardTitle>Report an Issue</CardTitle>
-            <CardDescription>
-              Please provide as much detail as possible about the issue
-              you&apos;re experiencing.
-            </CardDescription>
-          </CardHeader>
           <CardContent>
             <Form {...form}>
               <form
