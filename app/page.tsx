@@ -86,10 +86,8 @@ export default async function Home() {
           </div>
           <div className="relative select-none">
             <div className="frame-outer">
-              <div className="relative h-full overflow-hidden bg-background border shadow">
-                <div className="w-full max-w-full h-full pb-[102px]">
-                  <Image sizes="100vw" src={"/screenshot.png"} className="object-cover" alt="" fill />
-                </div>
+              <div className="relative h-full overflow-hidden bg-background border shadow w-screen lg:w-full">
+                <Image sizes="100vw" src={"/screenshot.png"} alt="" width={1302} height={1011} />
               </div>
             </div>
           </div>
