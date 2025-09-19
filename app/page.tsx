@@ -17,7 +17,7 @@ import GradientBlinds from "@/components/GradientBlinds";
 import Silk from "@/components/Silk";
 
 export const metadata = {
-  title: "Feel your next favorite book",
+  title: "thefalse · Rethink reading.",
 };
 
 export default async function Home() {
