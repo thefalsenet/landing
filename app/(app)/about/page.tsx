@@ -41,7 +41,7 @@ export default function AboutPage() {
             </h1>
             <div className="flex gap-2.5 items-center justify-center z-10 mb-auto">
               <Image
-                src="/profile.png"
+                src="https://pic.thefalse.net/u/f1207d83-9311-49a9-b41a-addf2631a45f/493832554.jpeg"
                 alt="thefalse.net"
                 width={36}
                 height={36}
@@ -132,19 +132,12 @@ export default function AboutPage() {
               </p>
             </section>
 
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">
-                Step into something real.
-              </h2>
-              <Button size="lg" className="text-lg h-12 mb-12" asChild>
-                <Link href="/app">join us on our journey</Link>
-              </Button>
-            </section>
+            <div className="-mx-6">
+              <CTASection />
+            </div>
           </div>
         </div>
       </div>
-
-      <CTASection />
     </>
   );
 }

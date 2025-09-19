@@ -104,9 +104,9 @@ export default function FeedbackPage() {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="container mx-auto py-32 px-4 min-h-[calc(100vh-4rem)]">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">Share Your Experience</h1>
+        <h1 className="text-4xl font-bold mb-6 font-serif">Share Your Experience</h1>
         <p className="text-lg text-muted-foreground mb-8">
           We value your feedback! Please share your experience using our
           platform. Your testimonial helps us improve and lets others know about
@@ -114,13 +114,6 @@ export default function FeedbackPage() {
         </p>
 
         <Card>
-          <CardHeader>
-            <CardTitle>Submit Your Feedback</CardTitle>
-            <CardDescription>
-              Tell us about your experience with our platform. We appreciate
-              your time!
-            </CardDescription>
-          </CardHeader>
           <CardContent>
             <Form {...form}>
               <form

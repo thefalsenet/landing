@@ -1,3 +1,4 @@
+import CTASection from "@/components/cta-section";
 import Footer from "@/components/footer";
 import Image from "next/image";
 
@@ -37,7 +38,7 @@ export default function TermsOfServicePage() {
               </h1>
               <div className="flex gap-2.5 items-center justify-center z-10 mb-auto">
                 <Image
-                  src="/profile.png"
+                  src="https://pic.thefalse.net/u/f1207d83-9311-49a9-b41a-addf2631a45f/493832554.jpeg"
                   alt="thefalse.net"
                   width={36}
                   height={36}
@@ -129,8 +130,8 @@ export default function TermsOfServicePage() {
             <div className="pt-8">
               <p>if you need to reach us, email bkht@thefalse.net</p>
             </div>
-            <div className="pt-8 font-bold text-foreground">
-              <p>Be real. Be responsible. That&apos;s thefalse.</p>
+            <div className="-mx-6">
+              <CTASection />
             </div>
           </div>
         </div>
