@@ -61,7 +61,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-12 text-xl text-muted-foreground font-medium">
             <div>
-              <p className="text-2xl text-foreground mb-8">Truly Social.</p>
+              <p className="text-2xl text-foreground mb-8 font-serif">Truly Social.</p>
               <p className="mb-4">
                 The internet was supposed to bring us together. Instead, it
                 built walls. Algorithms decide what you see. Engagement is
@@ -77,7 +77,7 @@ export default function AboutPage() {
             </div>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">why we started</h2>
+              <h2 className="text-2xl text-foreground font-serif">Why we started</h2>
               <p>
                 Social media today isn’t social. It’s a machine—optimized for
                 profit, not people. It rewards outrage, not depth. It keeps you
@@ -98,7 +98,7 @@ export default function AboutPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">
+              <h2 className="text-2xl text-foreground font-serif">
                 Rewriting Connection.
               </h2>
               <p>We believe in:</p>
@@ -123,7 +123,7 @@ export default function AboutPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">Are You In?</h2>
+              <h2 className="text-2xl text-foreground font-serif">Are You In?</h2>
               <p>
                 TheFalse is still evolving, but the idea is simple: a truly
                 social experience, built for people, not for profit. No more

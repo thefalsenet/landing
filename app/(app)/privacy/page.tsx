@@ -58,7 +58,7 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-12 text-xl font-medium text-muted-foreground">
             <div>
-              <p className="text-2xl text-foreground mb-8">hey.</p>
+              <p className="text-2xl text-foreground mb-8 font-serif">hey.</p>
               <p className="mb-4">
                 At TheFalse, we believe in privacy, transparency, and giving you
                 control over your data. This Privacy Policy outlines what
@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">what we collect</h2>
+              <h2 className="text-2xl text-foreground font-serif">what we collect</h2>
               <p>Information You Provide</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
@@ -104,7 +104,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">how we use it</h2>
+              <h2 className="text-2xl text-foreground font-serif">how we use it</h2>
               <p>we use your information to:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>To operate, improve, and personalize TheFalse.</li>
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">sharing</h2>
+              <h2 className="text-2xl text-foreground font-serif">sharing</h2>
               <p>we don&apos;t sell your data. we only share it:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>when you choose to make it public</li>

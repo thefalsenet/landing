@@ -59,7 +59,7 @@ export default function TermsOfServicePage() {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-12 text-xl font-medium text-muted-foreground">
             <div>
-              <p className="text-2xl text-foreground mb-8">hey.</p>
+              <p className="text-2xl text-foreground mb-8 font-serif">hey.</p>
               <p className="mb-4">
                 Welcome to TheFalse! These Terms of Service (&quot;Terms&quot;)
                 govern your access to and use of our platform, services, and
@@ -68,7 +68,7 @@ export default function TermsOfServicePage() {
             </div>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">
+              <h2 className="text-2xl text-foreground font-serif">
                 what we&apos;re about
               </h2>
               <p>
@@ -83,7 +83,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">2. your account</h2>
+              <h2 className="text-2xl text-foreground font-serif">2. your account</h2>
               <p>when you create an account with us, you need to:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>be accurate with your information</li>
@@ -94,7 +94,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">3. content rules</h2>
+              <h2 className="text-2xl text-foreground font-serif">3. content rules</h2>
               <p>
                 you can share your thoughts about books, but you can&apos;t:
               </p>
@@ -107,7 +107,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">4. our rights</h2>
+              <h2 className="text-2xl text-foreground font-serif">4. our rights</h2>
               <p>we can:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>change or end services anytime</li>
@@ -117,7 +117,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">5. important stuff</h2>
+              <h2 className="text-2xl text-foreground font-serif">5. important stuff</h2>
               <p>by using thefalse.net, you agree to:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>follow these terms</li>
