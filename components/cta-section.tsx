@@ -24,12 +24,6 @@ export default function CTASection() {
           <Button size="lg" asChild>
             <Link href="/app">Start reading</Link>
           </Button>
-          <Link
-            href="/app"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
-          >
-            Explore without an account
-          </Link>
         </div>
       </div>
     </section>
