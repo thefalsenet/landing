@@ -38,7 +38,7 @@ export default async function Home() {
       <footer className="bottom-0 left-0 right-0 z-50 w-full fixed">
         <div className="max-w-[1440px] mx-auto flex h-16 px-4 items-center justify-between grow">
           <nav>
-            <ul className="flex gap-2">
+            <ul className="md:flex gap-2 hidden">
               {navigation.map((item) => {
                 return (
                   <li key={item.name}>
