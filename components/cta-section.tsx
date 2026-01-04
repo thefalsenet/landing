@@ -1,34 +1,37 @@
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function CTASection() {
   return (
-    <section className="flex flex-col items-center justify-center mx-auto relative overflow-hidden">
-      <div className="flex py-20 md:py-28 px-6 flex-col items-center justify-center gap-12 max-w-[1440px] w-full text-center mb-32 relative overflow-hidden">
-        <div className="flex flex-col items-center max-w-96">
-          <h1
-            className="text-xl md:text-2xl font-display font-bold font-serif"
-          >
-            Rethink reading.
-          </h1>
-          <p className="text-lg md:text-xl max-w-3xl leading-snug text-center">
-            Track, annotate, and share your books effortlessly.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 items-center max-w-96 justify-center">
-          <Button
-            size="lg"
-            asChild
-          >
-            <Link href="/app">Try thefalse</Link>
+    <section className="py-28 px-6 max-w-7xl mx-auto relative">
+      {/* Optional subtle divider line */}
+      <div className="border-t border-border/30 mb-24"></div>
+
+      <div className="flex flex-col items-center text-center space-y-8">
+        {/* Headline */}
+        <h2 className="text-2xl md:text-3xl font-serif font-semibold leading-tight">
+          Start your reading space
+        </h2>
+
+        {/* Supporting text */}
+        <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+          Create a quiet place for your books, thoughts, and conversations. Join
+          readers who care more about meaning than metrics.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+          <Button size="lg" asChild>
+            <Link href="/app">Start reading</Link>
           </Button>
-        </div>
-        <div className="absolute inset-0 z-[-1] max-w-[1440px] overflow-hidden mx-auto px-6">
-          <div className="relative h-full overflow-hidden bg-background border shadow"><Image src={"/cta-bg.png"} className="object-cover object-top grayscale" alt="" fill /></div>
+          <Link
+            href="/app"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
+          >
+            Explore without an account
+          </Link>
         </div>
       </div>
-
     </section>
   );
 }
