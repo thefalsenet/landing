@@ -218,7 +218,7 @@ export default function BookshelfCarousel() {
   };
 
   return (
-    <section className="relative py-24 px-6 max-w-[1440px] w-full mx-auto">
+    <section className="relative py-24 md:px-6 px-2 max-w-[1440px] w-full mx-auto">
       <div className="flex flex-col items-center">
         {/* Section Title */}
         <div className="text-center mb-16">
