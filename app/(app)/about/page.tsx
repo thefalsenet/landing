@@ -1,50 +1,20 @@
-import Footer from "@/components/footer";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Metadata } from "next";
-import Link from "next/link";
-import CTASection from "@/components/cta-section";
-
-export const metadata: Metadata = {
-  title: "our story",
-  openGraph: {
-    title: "our story",
-    images: ["/og-about.jpg"],
-  },
-  twitter: {
-    title: "our story",
-    images: ["/og-about.jpg"],
-  },
-};
+import React from "react";
 
 export default function AboutPage() {
   return (
-    <>
-      {/* Background Image */}
-      <div className="fixed top-0 z-10 w-full h-[60vh] flex flex-col items-center justify-center ">
-        <div className="flex flex-[1_0_0px] gap-10 flex-col w-full">
-          <div className="flex flex-[1_0_0px] gap-6 flex-col justify-around w-full relative text-white">
-            <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
-              <img
-                alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                className="absolute size-full object-cover transition-opacity duration-500 brightness-90"
-                width="1071"
-                height="800"
-                src="/cta-bg.png"
-              />
-            </div>
-            <h1
-              className="text-6xl sm:text-7xl z-10 md:text-8xl tracking-tighter text-center font-serif mt-20"
-              style={{ lineHeight: "0.9em" }}
-            >
+    <div className="min-h-screen bg-white text-foreground font-semibold">
+      {/* Hero Section */}
+      <div className="w-full flex flex-col items-center justify-center py-12">
+        <div className="flex flex-col gap-10 w-full">
+          <div className="flex flex-col gap-6 justify-around w-full">
+            <h1 className="text-6xl sm:text-7xl tracking-tighter text-center font-serif mt-20">
               Our Story
             </h1>
-            <div className="flex gap-2.5 items-center justify-center z-10 mb-auto">
-              <Image
+            <div className="flex gap-2.5 py-3 items-center justify-center mb-auto text-sm text-muted-foreground font-medium">
+              <img
                 src="https://pic.thefalse.net/u/f1207d83-9311-49a9-b41a-addf2631a45f/493832554.jpeg"
                 alt="thefalse.net"
-                width={36}
-                height={36}
+                className="size-7"
               />
               <span>thefalse</span>
               <span>•</span>
@@ -57,87 +27,157 @@ export default function AboutPage() {
       </div>
 
       {/* Content Container */}
-      <div className="flex flex-col gap-16 z-10 relative pt-36 px-6 pb-16 bg-background/80 backdrop-blur-2xl mt-[60vh]">
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-12 text-xl text-muted-foreground font-medium">
-            <div>
-              <p className="text-2xl text-foreground mb-8 font-serif">Truly Social.</p>
-              <p className="mb-4">
-                The internet was supposed to bring us together. Instead, it
-                built walls. Algorithms decide what you see. Engagement is
-                engineered. Conversations are controlled. What if social media
-                was different? What if it was real?
+      <div className="flex flex-col gap-16 z-10 relative py-24 px-6">
+        <div className="max-w-2xl mx-auto">
+          <div className="space-y-12 text-lg leading-relaxed text-muted-foreground font-medium">
+            {/* Opening */}
+            <div className="space-y-6">
+              <p className="text-2xl font-semibold text-foreground font-serif leading-snug">
+                thefalse is a social platform built on a simple idea: you should
+                control what you see.
               </p>
-              <p className="mb-4">
-                TheFalse isn’t just another platform—it’s a movement. A
-                rebellion against the noise, the fake, the manufactured. Here,
-                connection is raw, conversation is unfiltered, and you define
-                your own reality.
+              <p>
+                No algorithmic feed deciding what matters. No engagement
+                optimization. No one telling you who to follow or what to care
+                about.
+              </p>
+              <p>
+                Just people, conversations, and the freedom to shape your own
+                experience.
               </p>
             </div>
 
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">Why we started</h2>
-              <p>
-                Social media today isn’t social. It’s a machine—optimized for
-                profit, not people. It rewards outrage, not depth. It keeps you
-                scrolling, not thinking. We saw what was happening, and we
-                decided to build something different.
-              </p>
-              <p>TheFalse was created for those who want:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>🌀 Authentic conversations, not viral bait.</li>
-                <li>
-                  🔓 Control over their feed, not algorithmic manipulation.
-                </li>
-                <li>🕶 Freedom to be anonymous, without losing their voice.</li>
-                <li>
-                  🌐 A digital space where thoughts matter more than metrics.
-                </li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">
-                Rewriting Connection.
+            {/* Why It Exists */}
+            <section className="space-y-6 border-t  pt-12">
+              <h2 className="text-2xl text-foreground font-semibold font-serif">
+                Why thefalse exists
               </h2>
-              <p>We believe in:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>
-                  🌀 Authenticity — No forced engagement, no empty trends. Just
-                  real thoughts, real voices.
-                </li>
-                <li>
-                  🔓 Freedom — Your feed, your rules. Algorithms don’t dictate
-                  what matters.
-                </li>
-                <li>
-                  🕶 Anonymity (When You Want It) — Be yourself or be nameless.
-                  The choice is yours.
-                </li>
-                <li>
-                  🌐 A New Digital Society — A space built for meaningful
-                  interactions, not just attention.
-                </li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">Are You In?</h2>
               <p>
-                TheFalse is still evolving, but the idea is simple: a truly
-                social experience, built for people, not for profit. No more
-                pretending. No more illusions. Just connection, as it was meant
-                to be.
+                Most social platforms are designed to maximize your time on
+                them, not the quality of that time.
+              </p>
+              <p>
+                Feeds are engineered. Content is ranked. What you see is chosen
+                for you based on what keeps you scrolling.
+              </p>
+              <p>
+                thefalse exists because we believe social media can be built
+                differently — where connection is the goal, not a byproduct.
               </p>
             </section>
 
-            <div className="-mx-6">
-              <CTASection />
-            </div>
+            {/* What Makes It Different */}
+            <section className="space-y-6 border-t  pt-12">
+              <h2 className="text-2xl text-foreground font-semibold font-serif">
+                What makes thefalse different
+              </h2>
+
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-foreground font-semibold mb-2">
+                    Your feed, your rules
+                  </h3>
+                  <p>
+                    Choose chronological or curated. Follow who you want. No
+                    algorithm deciding for you.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-foreground font-semibold mb-2">
+                    Anonymity when you want it
+                  </h3>
+                  <p>
+                    Use your real name or stay anonymous. The choice is yours,
+                    and it can change.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-foreground font-semibold mb-2">
+                    Conversations over reactions
+                  </h3>
+                  <p>
+                    Built for thoughtful discussion, not quick takes and viral
+                    moments.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    No ads, no tracking
+                  </h3>
+                  <p>
+                    Your attention isn&apos;t for sale. Neither is your data.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* What You Can Do */}
+            <section className="space-y-6 border-t pt-12">
+              <h2 className="text-2xl text-foreground font-semibold font-serif">
+                What you can do on thefalse
+              </h2>
+              <ul className="space-y-3">
+                <li>Share thoughts, images, and links</li>
+                <li>Follow people and topics that interest you</li>
+                <li>Join or create communities</li>
+                <li>Have conversations that matter</li>
+                <li>Control who sees your content</li>
+              </ul>
+            </section>
+
+            {/* Who It's For */}
+            <section className="space-y-6 border-t pt-12">
+              <h2 className="text-2xl text-foreground font-semibold font-serif">
+                Who thefalse is for
+              </h2>
+              <p>
+                thefalse is for people who want social media that respects their
+                time and intelligence.
+              </p>
+              <p>
+                People who prefer depth over virality. Who value privacy. Who
+                want to connect with others without being manipulated into it.
+              </p>
+              <p>If that sounds like you, you&apos;re in the right place.</p>
+            </section>
+
+            {/* The Name */}
+            <section className="space-y-6 border-t  pt-12">
+              <h2 className="text-2xl text-foreground font-semibold font-serif">
+                Why &quot;thefalse&quot;
+              </h2>
+              <p>
+                Most of what you see online isn&apos;t real. It&apos;s
+                optimized, filtered, performed.
+              </p>
+              <p>
+                thefalse is a reminder that authenticity starts with
+                acknowledging what isn&apos;t — and choosing something better.
+              </p>
+            </section>
+
+            {/* Closing */}
+            <section className="space-y-6 border-t  pt-12">
+              <p className="text-xl text-foreground font-semibold">
+                TheFalse is still growing.
+              </p>
+              <p>
+                If you&apos;re tired of being optimized, tracked, and
+                algorithmically sorted — you&apos;re welcome here.
+              </p>
+
+              <div className="pt-6">
+                <button className="bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                  Join TheFalse
+                </button>
+              </div>
+            </section>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

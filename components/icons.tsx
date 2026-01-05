@@ -2,21 +2,83 @@ type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
   logo: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M12 12V17H7V22H2V17L4.5 14.5L7 12H9.5H12ZM19.5 2H17V6.998H12V11.998H17L19.5 9.498L22 6.998V2H19.5ZM19.5 12H17L14.5 14.5L12 17V22H17V17H22V12H19.5ZM9.5 2H7V7H2V12H7L9.5 9.5L12 7V2H9.5Z" fill="currentColor" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12 12V17H7V22H2V17L4.5 14.5L7 12H9.5H12ZM19.5 2H17V6.998H12V11.998H17L19.5 9.498L22 6.998V2H19.5ZM19.5 12H17L14.5 14.5L12 17V22H17V17H22V12H19.5ZM9.5 2H7V7H2V12H7L9.5 9.5L12 7V2H9.5Z"
+        fill="currentColor"
+      />
     </svg>
-
-
   ),
   twitter: (props: IconProps) => (
     <svg
-      {...props}
-      height="23"
-      viewBox="0 0 1200 1227"
-      width="23"
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="currentColor"
+      {...props}
     >
-      <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" />
+      <path
+        d="M3 21L10.5484 13.4516M21 3L13.4516 10.5484M13.4516 10.5484L8 3H3L10.5484 13.4516M13.4516 10.5484L21 21H16L10.5484 13.4516"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+      ></path>
+    </svg>
+  ),
+  instagram: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="currentColor"
+      {...props}
+    >
+      <path
+        d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M16.5 12C16.5 14.4853 14.4853 16.5 12 16.5C9.51472 16.5 7.5 14.4853 7.5 12C7.5 9.51472 9.51472 7.5 12 7.5C14.4853 7.5 16.5 9.51472 16.5 12Z"
+        stroke="currentColor"
+        strokeWidth="2"
+      ></path>
+      <path
+        d="M17.5078 6.5L17.4988 6.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  ),
+  linkedin: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="128"
+      height="128"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="currentColor"
+      {...props}
+    >
+      <path d="M6.5 9.5H2V22H6.5V9.5Z" fill="currentColor"></path>
+      <path
+        d="M6.5 4.25C6.5 5.49264 5.49264 6.5 4.25 6.5C3.00736 6.5 2 5.49264 2 4.25C2 3.00736 3.00736 2 4.25 2C5.49264 2 6.5 3.00736 6.5 4.25Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="M14.0001 9.5H9.5V22H14.0001V15.7502C14.0001 14.7837 14.7835 14.0002 15.75 14.0002C16.7165 14.0002 17.5 14.7837 17.5 15.7502V22H21.9987L22.0001 14.0002C22.0001 11.515 19.6364 9.50024 17.2968 9.50024C15.9649 9.50024 14.7767 10.1531 14.0001 11.174V9.5Z"
+        fill="currentColor"
+      ></path>
     </svg>
   ),
   gitHub: (props: IconProps) => (
@@ -1358,26 +1420,75 @@ export const Icons = {
     </svg>
   ),
   checkCircle: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M12 2C6.47805 2 2 6.47805 2 12C2 17.522 6.47805 22 12 22C17.522 22 22 17.522 22 12C22 6.47805 17.522 2 12 2ZM11.2098 16.322L7.20976 13.1317L8.42927 11.6L10.839 13.5317L14.7122 8.19512L16.2927 9.34634L11.2098 16.322Z" fill="currentColor" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12 2C6.47805 2 2 6.47805 2 12C2 17.522 6.47805 22 12 22C17.522 22 22 17.522 22 12C22 6.47805 17.522 2 12 2ZM11.2098 16.322L7.20976 13.1317L8.42927 11.6L10.839 13.5317L14.7122 8.19512L16.2927 9.34634L11.2098 16.322Z"
+        fill="currentColor"
+      />
     </svg>
-
   ),
-  ai: (props: IconProps) => (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M10.5714 4.85714C10.5714 12.4762 5.80952 13.4286 2 13.4286C9.23809 13.4286 10.5714 18.1905 10.5714 22C10.5714 14.381 15.3333 13.4286 19.1429 13.4286C11.5238 13.4286 10.5714 8.66667 10.5714 4.85714Z" stroke="currentColor" strokeWidth="2" />
-    <path d="M19.166 2C19.166 2.54614 19.3403 3.26701 19.7773 3.83887C20.1723 4.35533 20.8011 4.77737 21.7959 4.82812L22 4.83301V5.83301C21.4537 5.83308 20.732 6.00705 20.1602 6.44434C19.6437 6.83933 19.2226 7.46804 19.1719 8.46289L19.166 8.66699H18.166C18.166 8.13575 17.9688 7.41287 17.5117 6.83301C17.0688 6.27123 16.3765 5.83301 15.333 5.83301V4.83301C15.8792 4.83301 16.6 4.6589 17.1719 4.22168C17.7228 3.80038 18.166 3.11406 18.166 2H19.166Z" fill="currentColor" />
-  </svg>
+  ai: (props: IconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M10.5714 4.85714C10.5714 12.4762 5.80952 13.4286 2 13.4286C9.23809 13.4286 10.5714 18.1905 10.5714 22C10.5714 14.381 15.3333 13.4286 19.1429 13.4286C11.5238 13.4286 10.5714 8.66667 10.5714 4.85714Z"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M19.166 2C19.166 2.54614 19.3403 3.26701 19.7773 3.83887C20.1723 4.35533 20.8011 4.77737 21.7959 4.82812L22 4.83301V5.83301C21.4537 5.83308 20.732 6.00705 20.1602 6.44434C19.6437 6.83933 19.2226 7.46804 19.1719 8.46289L19.166 8.66699H18.166C18.166 8.13575 17.9688 7.41287 17.5117 6.83301C17.0688 6.27123 16.3765 5.83301 15.333 5.83301V4.83301C15.8792 4.83301 16.6 4.6589 17.1719 4.22168C17.7228 3.80038 18.166 3.11406 18.166 2H19.166Z"
+        fill="currentColor"
+      />
+    </svg>
   ),
-  bookReview: (props: IconProps) => (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M22 11.5V3L12 6M12 6L2 3V19L12 22V6Z" stroke="currentColor" strokeWidth="2" />
-    <path d="M22 16L20 14L15.5 18.5L15 21L17.5 20.5L22 16Z" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
-  </svg>
+  bookReview: (props: IconProps) => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22 11.5V3L12 6M12 6L2 3V19L12 22V6Z"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M22 16L20 14L15.5 18.5L15 21L17.5 20.5L22 16Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+      />
+    </svg>
   ),
   capture: (props: IconProps) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path d="M4 20H8.62598V22H2V15.375H4V20ZM22.0029 22H15.377V20H20.0029V15.375H22.0029V22ZM16.377 16.375H7.62598V7.625H16.377V16.375ZM9.62598 14.375H14.377V9.625H9.62598V14.375ZM8.62598 4H4V8.625H2V2H8.62598V4ZM22.0029 8.625H20.0029V4H15.377V2H22.0029V8.625Z" fill="currentColor" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M4 20H8.62598V22H2V15.375H4V20ZM22.0029 22H15.377V20H20.0029V15.375H22.0029V22ZM16.377 16.375H7.62598V7.625H16.377V16.375ZM9.62598 14.375H14.377V9.625H9.62598V14.375ZM8.62598 4H4V8.625H2V2H8.62598V4ZM22.0029 8.625H20.0029V4H15.377V2H22.0029V8.625Z"
+        fill="currentColor"
+      />
     </svg>
-
-
-  )
+  ),
 };

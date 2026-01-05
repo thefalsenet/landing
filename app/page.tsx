@@ -15,69 +15,22 @@ import { TestimonialCard } from "@/components/testimonial-card";
 import GradientBlinds from "@/components/GradientBlinds";
 import Silk from "@/components/Silk";
 import { Icons } from "@/components/icons";
+import { SiteHeader } from "@/components/site-header";
+import Footer from "@/components/footer";
 
 export const metadata = {
   title: "thefalse · Rethink reading.",
 };
 
-const navigation = [
-  { name: "about", href: "/about" },
-  { name: "terms of service", href: "/terms" },
-  { name: "privacy", href: "/privacy" },
-  { name: "faq", href: "/faq" },
-];
-
-const socialLinks = [
-  { name: "x (twitter)", href: "https://twitter.com/thefalsenet" },
-  { name: "instagram", href: "https://instagram.com/thefalsenet" },
-];
-
 export default async function Home() {
   return (
     <>
-      <footer className="bottom-0 left-0 right-0 z-50 w-full fixed">
-        <div className="max-w-[1440px] mx-auto flex h-16 px-4 items-center justify-between grow">
-          <nav>
-            <ul className="md:flex gap-2 hidden">
-              {navigation.map((item) => {
-                return (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-foreground/70 hover:text-foreground transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
-          >
-            <Icons.logo className="size-6" />
-            <span className="font-bold text-xl ">thefalse</span>
-          </Link>
-          <div className="md:flex items-center gap-2 hidden">
-            {socialLinks.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm text-foreground/70 hover:text-foreground transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </footer>
+      <SiteHeader />
       {/* Hero Section */}
       <section className="relative min-h-screen overflow-hidden bg-bg-primary text-text-primary">
         {/* Grid background */}
         <div
-          className="pointer-events-none fixed inset-0 invert dark:invert-0"
+          className="pointer-events-none absolute inset-0 invert dark:invert-0"
           style={{
             backgroundImage: "url(/background-image.jpg)",
             backgroundSize: "100% 100%",
@@ -148,7 +101,7 @@ export default async function Home() {
       <HowItWorks />
 
       {/* CTA Section */}
-      <CTASection />
+      <Footer />
     </>
   );
 }
@@ -216,16 +169,16 @@ function FloatingElements() {
       </div>
 
       {/* Bottom-right: Library Card */}
-      <div className="absolute bottom-40 right-24 hidden md:block pointer-events-none">
+      <div className="absolute bottom-12 right-24 hidden md:block pointer-events-none">
         <div
-          className="relative rotate-3"
+          className="relative -rotate-5 book-cover"
           style={{
             animation: "float-slow 7s ease-in-out infinite",
             animationDelay: "1.5s",
           }}
         >
           <Image
-            src="/Open Book Emoji.png"
+            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1317793965i/11468377.jpg"
             alt="Library card"
             width={200}
             height={130}
