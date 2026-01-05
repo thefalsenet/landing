@@ -1,179 +1,277 @@
-import Link from "next/link";
+"use client";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FaqAccordion } from "@/components/faq-accordion";
 import Footer from "@/components/footer";
-import { SiteHeader } from "@/components/site-header";
+import { createSectionId } from "@/lib/utils";
+import React from "react";
 
 export default function FaqPage() {
+  const { copiedValue: copiedSection, copyToClipboard } = useCopyToClipboard();
+
+  const handleCopyLink = (sectionId: string) => {
+    const url = `${window.location.origin}${window.location.pathname}#${sectionId}`;
+    copyToClipboard(url, sectionId);
+  };
+
   return (
-    <main className="min-h-screen relative overflow-hidden">
-      {/* Background Image */}
-      <div className="fixed top-0 z-10 w-full h-[60vh] flex flex-col items-center justify-center ">
-        <div className="flex flex-[1_0_0px] gap-10 flex-col w-full">
-          <div className="flex flex-[1_0_0px] gap-6 flex-col justify-around w-full relative text-white">
-            <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
-              <img
-                alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                className="absolute size-full object-cover transition-opacity duration-500 brightness-90"
-                width="1071"
-                height="800"
-                src="/cta-bg.png"
-              />
+    <div className="relative flex min-h-screen w-full flex-col overflow-auto bg-background">
+      <div className="relative z-10 flex grow flex-col">
+        <div className="container mx-auto max-w-4xl px-4 py-16">
+          <Card className="overflow-hidden rounded-xl border-none bg-muted/30">
+            <CardHeader className="space-y-4 px-8 py-8">
+              <div className="space-y-2 text-center">
+                <CardTitle className="text-3xl font-bold tracking-tight md:text-4xl font-serif">
+                  FAQ
+                </CardTitle>
+                <p className="text-muted-foreground">
+                  Find answers to common questions about TheFalse.
+                </p>
+              </div>
+            </CardHeader>
+
+            <div className="space-y-8 p-8">
+              {sections.map((section) => {
+                const sectionId = createSectionId(section.title);
+                return (
+                  <div key={section.title} id={sectionId} className="p-6">
+                    <div className="mb-4 flex items-center justify-between">
+                      <h2 className="text-xl font-semibold tracking-tight font-serif">
+                        {section.title}
+                      </h2>
+                      <button
+                        onClick={() => handleCopyLink(sectionId)}
+                        className="text-muted-foreground hover:text-foreground"
+                        aria-label={`Copy link to ${section.title} section`}
+                      >
+                        <Link2
+                          className={`h-4 w-4 ${
+                            copiedSection === sectionId ? "text-green-500" : ""
+                          }`}
+                        />
+                      </button>
+                    </div>
+                    <div className="prose prose-sm max-w-none text-muted-foreground font-medium">
+                      {section.content}
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* Still Have Questions */}
+              <div className="mt-12 rounded-lg bg-muted/50 p-8 text-center">
+                <h3 className="text-xl font-semibold text-foreground mb-3 font-serif">
+                  Still Have Questions?
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  TheFalse is evolving. If something isn&apos;t clear or
+                  you&apos;re unsure whether a feature exists yet — that&apos;s
+                  okay. We&apos;d rather be honest than overpromise.
+                </p>
+                <a href="mailto:bkht@thefalse.net">
+                  <Button className="bg-foreground text-background hover:bg-foreground/90">
+                    Contact Support
+                  </Button>
+                </a>
+              </div>
             </div>
-            <h1
-              className="text-6xl sm:text-7xl z-10 md:text-8xl font-serif tracking-tighter text-center mt-20"
-              style={{ lineHeight: "0.9em" }}
-            >
-              FAQ
-            </h1>
-            <div className="flex justify-center z-10 mb-auto">
-              <p className="text-xl max-w-2xl text-center">
-                Find answers to common questions about thefalse platform.
-              </p>
-            </div>
-          </div>
+          </Card>
         </div>
       </div>
-
-      {/* Content Container */}
-      <div className="flex flex-col gap-16 z-10 relative pt-36 px-6 pb-16 bg-background/80 backdrop-blur-2xl mt-[60vh]">
-        <div className="max-w-3xl mx-auto flex flex-col gap-16 w-full">
-          {/* Main Content */}
-          <section className="mb-12 flex-1 flex flex-col">
-            <h2 className="text-2xl font-bold text-foreground mb-6">
-              Getting Started
-            </h2>
-            <FaqAccordion
-              items={[
-                {
-                  question: "How do I create an account?",
-                  answer:
-                    "Creating an account is simple. Click the 'Get Started' button on our homepage, enter your email address, create a password, and choose a username. You'll receive a confirmation email to verify your account, and then you're ready to start building your digital bookshelf.",
-                },
-                {
-                  question: "Is thefalse free to use?",
-                  answer:
-                    "Yes, thefalse is completely free to use. We offer all core features without any subscription fees. We believe in creating a platform that's accessible to all book lovers, regardless of financial means.",
-                },
-                {
-                  question: "Can I use thefalse on my mobile device?",
-                  answer:
-                    "thefalse is fully responsive and works on all devices. We also offer dedicated mobile apps for iOS and Android for an optimized mobile experience.",
-                },
-                {
-                  question: "How do I find friends on thefalse?",
-                  answer:
-                    "You can find friends by searching for their username, connecting your email contacts (with your permission), or exploring community reading groups. We also suggest users with similar reading tastes who you might want to connect with.",
-                },
-              ]}
-            />
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-foreground mb-6">
-              Features & Functionality
-            </h2>
-            <FaqAccordion
-              items={[
-                {
-                  question: "How do I track my reading progress?",
-                  answer:
-                    "You can track your reading progress by adding books to your 'Currently Reading' shelf and updating your page count or percentage complete. You can also set reading goals, track reading time, and mark books as complete when you finish them.",
-                },
-                {
-                  question: "Can I import my books from other platforms?",
-                  answer:
-                    "Yes, we support importing your library from Goodreads, StoryGraph, and other popular reading platforms. Go to Settings > Import Library and follow the instructions to bring your existing collection into thefalse.",
-                },
-                {
-                  question: "How do book recommendations work?",
-                  answer:
-                    "Our recommendations are based on books you've read and enjoyed, as well as recommendations from people you follow. Unlike other platforms, we don't use algorithms to push sponsored content—all recommendations come from real readers in your network.",
-                },
-                {
-                  question: "Can I create private reading groups?",
-                  answer:
-                    "Yes, you can create both public and private reading groups. Private groups are invitation-only and perfect for book clubs, classroom discussions, or friends who want to read together.",
-                },
-              ]}
-            />
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-foreground mb-6">
-              Privacy & Data
-            </h2>
-            <FaqAccordion
-              items={[
-                {
-                  question: "How does thefalse handle my data?",
-                  answer:
-                    "We take your privacy seriously. We only collect the data necessary to provide our service, and we never sell your information to third parties. Your reading habits and preferences remain private unless you explicitly choose to share them.",
-                },
-                {
-                  question: "Can I control who sees my reading activity?",
-                  answer:
-                    "Absolutely. You have granular control over your privacy settings. You can make your profile completely public, visible only to friends, or completely private. You can also set privacy levels for individual books or shelves.",
-                },
-                {
-                  question: "Does thefalse use tracking cookies?",
-                  answer:
-                    "We use only essential cookies necessary for the platform to function. We don't use tracking cookies for advertising or behavioral analysis. You can review our complete cookie policy in our Privacy Policy.",
-                },
-                {
-                  question: "How can I delete my account?",
-                  answer:
-                    "You can delete your account at any time by going to Settings > Account > Delete Account. This will permanently remove all your data from our servers within 30 days, in compliance with data protection regulations.",
-                },
-              ]}
-            />
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-foreground mb-6">
-              Community & Support
-            </h2>
-            <FaqAccordion
-              items={[
-                {
-                  question: "Are there community guidelines?",
-                  answer:
-                    "Yes, we have community guidelines to ensure thefalse remains a positive and respectful environment. These include being respectful to other members, not posting hate speech or harassment, and properly attributing quotes and content. You can read our full guidelines in the Community section.",
-                },
-                {
-                  question: "How can I report inappropriate content?",
-                  answer:
-                    "If you encounter content that violates our community guidelines, you can report it by clicking the three dots next to the content and selecting 'Report'. Our moderation team reviews all reports within 24 hours.",
-                },
-                {
-                  question: "Does thefalse have reading challenges?",
-                  answer:
-                    "Yes! We host seasonal reading challenges and allow users to create custom challenges. These can be personal goals or community events where friends can participate together.",
-                },
-                {
-                  question: "How do I contact support?",
-                  answer:
-                    "You can reach our support team by emailing support@thefalse.net or using the Help Center accessible from your account menu. We typically respond within 24 hours on business days.",
-                },
-              ]}
-            />
-          </section>
-
-          {/* Still Have Questions Section */}
-          <section className="mix-blend-difference max-w-3xl mx-auto mb-16 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Still Have Questions?
-            </h2>
-            <p className="text-white mb-6">
-              We&apos;re here to help. Reach out to our support team and
-              we&apos;ll get back to you as soon as possible.
-            </p>
-            <Button className="bg-white text-black hover:bg-gray-100 rounded-none">
-              <a href="mailto:bkht@thefalse.net">Contact Support</a>
-            </Button>
-          </section>
-        </div>
-      </div>
-    </main>
+    </div>
   );
 }
+
+const sections = [
+  {
+    title: "Getting Started",
+    content: (
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            What is TheFalse?
+          </h3>
+          <p>
+            TheFalse is a social reading platform where people share thoughts,
+            quotes, and reactions to books in a calm, text-focused environment.
+            It&apos;s about ideas, not algorithms.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            How do I create an account?
+          </h3>
+          <p>
+            You can sign up using a username and optional email. No unnecessary
+            information is required.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Is TheFalse free to use?
+          </h3>
+          <p>Yes. TheFalse is completely free during its current stage.</p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Do I need an email to use TheFalse?
+          </h3>
+          <p>
+            An email is optional. Some features (like account recovery or
+            important notifications) may require one.
+          </p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Books & Reading",
+    content: (
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Can I track my reading progress?
+          </h3>
+          <p>
+            You can add books to your library and mark what you&apos;re reading
+            or have finished. Advanced progress tracking is still evolving.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Can I import my books from other platforms?
+          </h3>
+          <p>
+            Not yet. Importing from platforms like Goodreads is planned but not
+            currently available.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            How are books added to TheFalse?
+          </h3>
+          <p>
+            Books are added from our internal database. The catalog is
+            continuously improving.
+          </p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Social & Community",
+    content: (
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            How does interaction work on TheFalse?
+          </h3>
+          <p>
+            You can post text updates, thoughts, and quotes related to books and
+            interact with others through replies and reactions.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Do you have reading groups or voice discussions?
+          </h3>
+          <p>
+            No. TheFalse currently supports text-based interaction only. Voice
+            and live discussions are not part of the platform right now.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Is there an algorithmic feed?
+          </h3>
+          <p>
+            No. TheFalse does not push content using engagement-driven
+            algorithms.
+          </p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Privacy & Data",
+    content: (
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            How does TheFalse handle my data?
+          </h3>
+          <p>
+            We collect only what&apos;s necessary to operate the platform. We
+            don&apos;t sell your data or track you across the web.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Who can see my content?
+          </h3>
+          <p>
+            Anything you post publicly is visible to others. Private content
+            controls are limited for now.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Do you use ads or trackers?
+          </h3>
+          <p>No ads. No third-party ad trackers.</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Support & Safety",
+    content: (
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            Are there community rules?
+          </h3>
+          <p>
+            Yes. We expect respectful behavior and thoughtful discussion. Abuse,
+            harassment, or spam may result in moderation.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            How do I report a problem or content?
+          </h3>
+          <p>
+            You can report issues through the Support / Report page or by
+            emailing us directly.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-2">
+            How can I contact support?
+          </h3>
+          <p>
+            Email:{" "}
+            <a
+              href="mailto:bkht@thefalse.net"
+              className="text-foreground hover:underline"
+            >
+              bkht@thefalse.net
+            </a>
+          </p>
+        </div>
+      </div>
+    ),
+  },
+];
