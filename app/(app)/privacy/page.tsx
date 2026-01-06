@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link2 } from "lucide-react";
 import { createSectionId } from "@/lib/utils";
 
-const LAST_UPDATED = "April 2, 2025";
+const LAST_UPDATED = "January 6, 2026";
 
 export default function PrivacyPolicy() {
   const { copiedValue: copiedSection, copyToClipboard } = useCopyToClipboard();
