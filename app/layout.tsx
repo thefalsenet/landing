@@ -74,7 +74,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning className="scroll-smooth dark">
+      <html lang="en" suppressHydrationWarning className="scroll-smooth light">
         <head>
           <script>
             {`!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
@@ -82,8 +82,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
 a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
           twq("config", "ph0w1");`}
           </script>
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6923394810941229"
-            crossOrigin="anonymous"></script>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6923394810941229"
+            crossOrigin="anonymous"
+          ></script>
           <link
             rel="search"
             type="application/opensearchdescription+xml"
@@ -93,7 +96,7 @@ a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,
         </head>
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased dark",
+            "min-h-screen bg-background font-sans antialiased",
             fontSans.variable,
             fontSerif.variable
           )}
@@ -101,9 +104,7 @@ a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,
           <div className="flex-none h-screen pointer-events-none fixed top-0 w-full z-[200]">
             <div className="noise" />
           </div>
-          <Providers attribute="class" defaultTheme="dark" enableSystem>
-            {children}
-          </Providers>
+          {children}
           <Analytics />
         </body>
       </html>

@@ -1,141 +1,209 @@
-import CTASection from "@/components/cta-section";
+"use client";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowLeft, Link2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Footer from "@/components/footer";
-import Image from "next/image";
+import { createSectionId } from "@/lib/utils";
+import React from "react";
 
-export const metadata = {
-  title: "terms of service",
-  openGraph: {
-    title: "terms of service",
-    images: ["/og-terms.jpg"],
-  },
-  twitter: {
-    title: "terms of service",
-    images: ["/og-terms.jpg"],
-  },
-};
+const LAST_UPDATED = "January 6, 2026";
 
-export default function TermsOfServicePage() {
+export default function TermsOfService() {
+  const { copiedValue: copiedSection, copyToClipboard } = useCopyToClipboard();
+
+  const handleCopyLink = (sectionId: string) => {
+    const url = `${window.location.origin}${window.location.pathname}#${sectionId}`;
+    copyToClipboard(url, sectionId);
+  };
+
   return (
-    <>
-      {/* Background Image */}
-      <div className="fixed top-0 z-10 w-full h-[60vh] flex flex-col items-center justify-center ">
-        <div className="flex flex-[1_0_0px] gap-10 flex-col w-full">
-          <div className="flex flex-[1_0_0px] gap-6 flex-col justify-center w-full relative text-white">
-            <div className="flex flex-[1_0_0px] gap-6 flex-col justify-around w-full relative text-white">
-              <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
-                <img
-                  className="absolute size-full object-cover transition-opacity duration-500 brightness-90"
-                  width="1071"
-                  height="800"
-                  src="/cta-bg.png"
-                />
+    <div className="relative flex min-h-screen w-full flex-col overflow-auto bg-background">
+      <div className="relative z-10 flex grow flex-col">
+        <div className="container mx-auto max-w-4xl px-4 py-16">
+          <Card className="overflow-hidden rounded-xl border-none bg-muted/30">
+            <CardHeader className="space-y-4 px-8 py-8">
+              <div className="space-y-2 text-center">
+                <CardTitle className="text-3xl font-bold tracking-tight md:text-4xl font-serif">
+                  Terms of Service
+                </CardTitle>
+                <div className="flex items-center justify-center gap-2">
+                  <p className="text-sm text-muted-foreground">
+                    Last updated: {LAST_UPDATED}
+                  </p>
+                </div>
               </div>
-              <h1
-                className="text-6xl sm:text-7xl z-10 md:text-8xl font-serif tracking-tighter text-center mt-20"
-                style={{ lineHeight: "0.9em" }}
-              >
-                Terms of Service
-              </h1>
-              <div className="flex gap-2.5 items-center justify-center z-10 mb-auto">
-                <Image
-                  src="https://pic.thefalse.net/u/f1207d83-9311-49a9-b41a-addf2631a45f/493832554.jpeg"
-                  alt="thefalse.net"
-                  width={36}
-                  height={36}
-                />
-                <span>thefalse</span>
-                <span>•</span>
-                <span>apr 2, 2025</span>
-                <span>•</span>
-                <span>1 min read</span>
-              </div>
+            </CardHeader>
+
+            <div className="space-y-8 p-8">
+              {sections.map((section) => {
+                const sectionId = createSectionId(section.title!);
+                return (
+                  <div key={section.title} id={sectionId} className="p-6">
+                    <div className="mb-4 flex items-center justify-between">
+                      <h2 className="text-xl font-semibold tracking-tight font-serif">
+                        {section.title}
+                      </h2>
+                      <button
+                        onClick={() => handleCopyLink(sectionId)}
+                        className="text-muted-foreground hover:text-foreground"
+                        aria-label={`Copy link to ${section.title} section`}
+                      >
+                        <Link2
+                          className={`h-4 w-4 ${
+                            copiedSection === sectionId ? "text-green-500" : ""
+                          }`}
+                        />
+                      </button>
+                    </div>
+                    <div className="prose prose-sm max-w-none text-muted-foreground font-medium">
+                      {section.content}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </div>
+          </Card>
         </div>
       </div>
-
-      {/* Content Container */}
-      <div className="flex flex-col gap-16 z-10 relative pt-36 px-6 pb-16 bg-background/80 backdrop-blur-2xl mt-[60vh]">
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-12 text-xl font-medium text-muted-foreground">
-            <div>
-              <p className="text-2xl text-foreground mb-8 font-serif">hey.</p>
-              <p className="mb-4">
-                Welcome to TheFalse! These Terms of Service (&quot;Terms&quot;)
-                govern your access to and use of our platform, services, and
-                content. By using TheFalse, you agree to these Terms.
-              </p>
-            </div>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">
-                what we&apos;re about
-              </h2>
-              <p>
-                TheFalse is built to challenge the norms of social interaction
-                online. We believe in authenticity, privacy, and meaningful
-                conversations. Our platform is designed to be a space where
-                users can engage freely while maintaining control over their own
-                experience. By using TheFalse, you are part of a movement that
-                prioritizes real connections over algorithms and engagement
-                traps.
-              </p>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">2. your account</h2>
-              <p>when you create an account with us, you need to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>be accurate with your information</li>
-                <li>keep your password secure</li>
-                <li>be responsible for your account activity</li>
-                <li>let us know if something&apos;s wrong</li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">3. content rules</h2>
-              <p>
-                you can share your thoughts about books, but you can&apos;t:
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>post anything illegal or harmful</li>
-                <li>harass other users</li>
-                <li>spam or mislead people</li>
-                <li>infringe on others&apos; rights</li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">4. our rights</h2>
-              <p>we can:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>change or end services anytime</li>
-                <li>remove content that breaks our rules</li>
-                <li>suspend accounts if needed</li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">5. important stuff</h2>
-              <p>by using thefalse.net, you agree to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>follow these terms</li>
-                <li>accept our privacy policy</li>
-                <li>understand we&apos;re not responsible for user content</li>
-                <li>contact us if you have questions</li>
-              </ul>
-            </section>
-
-            <div className="pt-8">
-              <p>if you need to reach us, email bkht@thefalse.net</p>
-            </div>
-            <div className="-mx-6">
-              <CTASection />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    </div>
   );
 }
+
+const sections = [
+  {
+    title: "Overview",
+    content: (
+      <p>
+        Welcome to thefalse. These Terms of Service (&quot;Terms&quot;) govern
+        your access to and use of TheFalse, including our website and related
+        services. By using TheFalse, you agree to these Terms.
+      </p>
+    ),
+  },
+  {
+    title: "1. What we're about",
+    content: (
+      <div className="space-y-4">
+        <p>thefalse is built for readers and thoughtful interaction.</p>
+        <p>
+          We believe in authenticity, privacy, and meaningful conversation. Our
+          platform is designed to be a quieter space — one that values
+          reflection over performance and people over algorithms.
+        </p>
+        <p>
+          By using thefalse, you are part of an early-stage platform focused on
+          reading, thinking, and sharing ideas intentionally.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "2. Your account",
+    content: (
+      <div className="space-y-4">
+        <p>When you create an account, you agree to:</p>
+        <ul className="ml-4 list-disc space-y-2">
+          <li>provide accurate information</li>
+          <li>keep your login credentials secure</li>
+          <li>be responsible for activity under your account</li>
+          <li>notify us if you believe your account has been compromised</li>
+        </ul>
+        <p>
+          You are responsible for anything that happens through your account.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "3. Your content",
+    content: (
+      <div className="space-y-4">
+        <p>
+          thefalse allows users to post content related to books and reading,
+          including thoughts, highlights, and short reflections.
+        </p>
+        <p>You retain ownership of the content you create.</p>
+        <p>
+          By posting content on thefalse, you grant us a limited, non-exclusive
+          license to host and display your content solely for the purpose of
+          operating and improving the platform.
+        </p>
+        <p>
+          This license ends when your content is deleted, except where retention
+          is required for technical or legal reasons.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "4. Content rules",
+    content: (
+      <div className="space-y-4">
+        <p>You may not post content that:</p>
+        <ul className="ml-4 list-disc space-y-2">
+          <li>is illegal or harmful</li>
+          <li>harasses, threatens, or abuses others</li>
+          <li>contains spam or intentionally misleading information</li>
+          <li>infringes on intellectual property or other rights</li>
+        </ul>
+        <p>
+          We expect users to act in good faith and treat others respectfully.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "5. Platform moderation",
+    content: (
+      <div className="space-y-4">
+        <p>thefalse does not actively monitor all content.</p>
+        <p>
+          However, we reserve the right to remove content or restrict accounts
+          if necessary to protect the platform, comply with legal obligations,
+          or respond to clear violations of these Terms.
+        </p>
+        <p>If you encounter a serious issue, you may contact us directly.</p>
+      </div>
+    ),
+  },
+  {
+    title: "6. Our rights",
+    content: (
+      <div className="space-y-4">
+        <p>We may:</p>
+        <ul className="ml-4 list-disc space-y-2">
+          <li>modify, suspend, or discontinue parts of the service</li>
+          <li>update these Terms from time to time</li>
+          <li>take reasonable action to protect thefalse and its users</li>
+        </ul>
+        <p>Any changes will be effective once posted.</p>
+      </div>
+    ),
+  },
+  {
+    title: "7. Important stuff",
+    content: (
+      <div className="space-y-4">
+        <p>By using thefalse, you agree to:</p>
+        <ul className="ml-4 list-disc space-y-2">
+          <li>follow these Terms</li>
+          <li>review and accept our Privacy Policy</li>
+          <li>
+            understand that content posted by users reflects their own views,
+            not those of TheFalse
+          </li>
+        </ul>
+        <p className="pt-4">
+          If you have questions, contact us at:{" "}
+          <a
+            href="mailto:bkht@thefalse.net"
+            className="text-foreground hover:underline"
+          >
+            bkht@thefalse.net
+          </a>
+        </p>
+      </div>
+    ),
+  },
+];

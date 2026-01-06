@@ -199,6 +199,42 @@
       height: 0;
     }
   }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-slow {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes float-fast {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-25px);
+    }
+  }
 }
 
 
@@ -227,24 +263,33 @@ body {
   @apply border-green/35 bg-green/5;
 }
 
-.noise {
-  width: 100%;
-  height: 100%;
-  background-size: 64px;
-  background-repeat: repeat;
-  background-image: url(/noise.png);
-  opacity: 0.08;
-  border-radius: 0;
-}
 
 .frame-outer {
-  @apply relative w-full p-2 border border-white/[0.08] transform-gpu;
+  @apply relative w-full p-2 border border-white transform-gpu;
 
   /* Custom properties that don't have Tailwind equivalents */
   max-width: min(1204px, calc(100vw + 19px));
-  background: radial-gradient(85.77% 49.97% at 51% 5.12%, hsla(0, 0%, 100%, 0.11) 0%, rgba(222, 226, 255, 0.08) 45.83%, rgba(241, 242, 255, 0.02) 100%), rgba(0, 0, 0, 0.44);
+  background: radial-gradient(85.77% 49.97% at 51% 5.12%, hsla(0, 0%, 100%) 0%, rgba(222, 226, 255) 45.83%, rgba(255, 255, 255, 0.993) 100%), rgba(0, 0, 0, 0.44);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   box-shadow: 0 0 40px 20px hsla(0, 0%, 100%, 0.03), inset 0 0.5px 0 0 hsla(0, 0%, 100%, 0.3);
 
+}
+
+.image-border {
+  filter: drop-shadow(5px 0 0 white) drop-shadow(0 5px 0 white) drop-shadow(-5px 0 0 white) drop-shadow(0 -5px 0 white);
+}
+
+.book-cover {
+  position: relative;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+
+.book-cover:before {
+  content: "";
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.3) 1%, transparent 1%, rgba(0, 0, 0, 0.15) 3%, rgba(255, 255, 255, 0.2) 6%, transparent 20%);
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
 }

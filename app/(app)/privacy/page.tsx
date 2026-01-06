@@ -1,159 +1,193 @@
-import CTASection from "@/components/cta-section";
-import Footer from "@/components/footer";
-import Image from "next/image";
+"use client";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link2 } from "lucide-react";
+import { createSectionId } from "@/lib/utils";
 
-export const metadata = {
-  title: "privacy policy",
-  openGraph: {
-    title: "privacy policy",
-    images: ["/og-privacy.jpg"],
-  },
-  twitter: {
-    title: "privacy policy",
-    images: ["/og-privacy.jpg"],
-  },
-};
+const LAST_UPDATED = "January 6, 2026";
 
-export default function PrivacyPolicyPage() {
+export default function PrivacyPolicy() {
+  const { copiedValue: copiedSection, copyToClipboard } = useCopyToClipboard();
+
+  const handleCopyLink = (sectionId: string) => {
+    const url = `${window.location.origin}${window.location.pathname}#${sectionId}`;
+    copyToClipboard(url, sectionId);
+  };
+
   return (
-    <>
-      {/* Background Image */}
-      <div className="fixed top-0 z-10 w-full h-[60vh] flex flex-col items-center justify-center ">
-        <div className="flex flex-[1_0_0px] gap-10 flex-col w-full">
-          <div className="flex flex-[1_0_0px] gap-6 flex-col justify-center w-full relative text-white">
-            <div className="absolute inset-0 top-0 left-0 bottom-0 right-0">
-              <img
-                alt="A woman with her mind expanding into the universe as she accumulates knowledge."
-                className="absolute size-full object-cover transition-opacity duration-500 brightness-90"
-                width="1071"
-                height="800"
-                src="/cta-bg.png"
-              />
+    <div className="relative flex min-h-screen w-full flex-col overflow-auto bg-background">
+      <div className="relative z-10 flex grow flex-col">
+        <div className="container mx-auto max-w-4xl px-4 py-16">
+          <Card className="overflow-hidden rounded-xl border-none bg-muted/30">
+            <CardHeader className="space-y-4 px-8 py-8">
+              <div className="space-y-2 text-center">
+                <CardTitle className="text-3xl font-bold tracking-tight md:text-4xl font-serif">
+                  Privacy Policy
+                </CardTitle>
+                <div className="flex items-center justify-center gap-2">
+                  <p className="text-sm text-muted-foreground">
+                    Last updated: {LAST_UPDATED}
+                  </p>
+                </div>
+              </div>
+            </CardHeader>
+
+            <div className="space-y-8 p-8">
+              {sections.map((section) => {
+                const sectionId = createSectionId(section.title);
+                return (
+                  <div key={section.title} id={sectionId} className="p-6">
+                    <div className="mb-4 flex items-center justify-between">
+                      <h2 className="text-xl font-semibold tracking-tight font-serif">
+                        {section.title}
+                      </h2>
+                      <button
+                        onClick={() => handleCopyLink(sectionId)}
+                        className="text-muted-foreground hover:text-foreground"
+                        aria-label={`Copy link to ${section.title} section`}
+                      >
+                        <Link2
+                          className={`h-4 w-4 ${
+                            copiedSection === sectionId ? "text-green-500" : ""
+                          }`}
+                        />
+                      </button>
+                    </div>
+                    <div className="prose prose-sm max-w-none text-muted-foreground font-medium">
+                      {section.content}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            <h1
-              className="text-6xl sm:text-7xl z-10 md:text-8xl font-serif tracking-tighter text-center mt-20"
-              style={{ lineHeight: "0.9em" }}
-            >
-              Privacy Policy
-            </h1>
-            <div className="flex gap-2.5 items-center justify-center z-10 mb-auto">
-              <Image
-                src="https://pic.thefalse.net/u/f1207d83-9311-49a9-b41a-addf2631a45f/493832554.jpeg"
-                alt="thefalse.net"
-                width={36}
-                height={36}
-              />
-              <span>thefalse</span>
-              <span>•</span>
-              <span>apr 2, 2025</span>
-              <span>•</span>
-              <span>1 min read</span>
-            </div>
-          </div>
+          </Card>
         </div>
       </div>
-
-      {/* Content Container */}
-      <div className="flex flex-col gap-16 z-10 relative pt-36 px-6 pb-16 bg-background/80 backdrop-blur-2xl mt-[60vh]">
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-12 text-xl font-medium text-muted-foreground">
-            <div>
-              <p className="text-2xl text-foreground mb-8 font-serif">hey.</p>
-              <p className="mb-4">
-                At TheFalse, we believe in privacy, transparency, and giving you
-                control over your data. This Privacy Policy outlines what
-                information we collect, how we use it, and your rights.
-              </p>
-            </div>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">what we collect</h2>
-              <p>Information You Provide</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>
-                  When you sign up, you may provide a username, email
-                  (optional), and other profile details.
-                </li>
-                <li>
-                  Any content you create, post, or share is stored securely.
-                </li>
-              </ul>
-              <p>Information We Collect Automatically</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>
-                  Basic analytics: We may collect limited data like page views
-                  and interactions to improve TheFalse. We do not track you
-                  across the web.
-                </li>
-                <li>
-                  Device & browser information: This helps us optimize the
-                  experience for different devices.
-                </li>
-              </ul>
-              <p>Information We Don’t Collect</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>
-                  No invasive tracking: We don’t use third-party ad trackers or
-                  sell your data.
-                </li>
-                <li>
-                  No unnecessary personal details: You’re in control of what you
-                  share.
-                </li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">how we use it</h2>
-              <p>we use your information to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>To operate, improve, and personalize TheFalse.</li>
-                <li>To ensure security and prevent abuse.</li>
-                <li>
-                  To communicate with you (only if necessary—no spam, ever).
-                </li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-2xl text-foreground font-serif">sharing</h2>
-              <p>we don&apos;t sell your data. we only share it:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>when you choose to make it public</li>
-                <li>with service providers who help us run thefalse.net</li>
-                <li>if we&apos;re legally required to</li>
-              </ul>
-            </section>
-            {/* <section className="space-y-4">
-              <h2 className="text-2xl text-foreground">
-                your control & choices
-              </h2>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>
-                  you can delete your account: this removes all your data
-                  permanently
-                </li>
-                <li>
-                  you control your content: your notes, messages, and
-                  interactions remain yours.
-                </li>
-                <li>
-                  privacy-first defaults: We minimize data collection and
-                  maximize user control.
-                </li>
-              </ul>
-            </section> */}
-
-            <div className="pt-8">
-              <p>questions about privacy? email bkht@thefalse.net</p>
-            </div>
-
-            <div className="-mx-6">
-              <CTASection />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    </div>
   );
 }
+
+const sections = [
+  {
+    title: "Overview",
+    content: (
+      <p>
+        At thefalse, we believe in privacy, transparency, and giving you control
+        over your data. This Privacy Policy explains what information we
+        collect, how we use it, and the choices you have.
+      </p>
+    ),
+  },
+  {
+    title: "What we collect",
+    content: (
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-foreground font-semibold mb-3">
+            Information you provide
+          </h3>
+          <ul className="ml-4 list-disc space-y-2">
+            <li>
+              When you sign up, you may provide a username, email address (if
+              you choose to), and basic profile details.
+            </li>
+            <li>
+              Any content you create or post on thefalse is stored so the
+              platform can function.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-3">
+            Information we collect automatically
+          </h3>
+          <ul className="ml-4 list-disc space-y-2">
+            <li>
+              Basic usage data: We may collect limited information such as page
+              views and interactions to understand how TheFalse is used and how
+              to improve it.
+            </li>
+            <li>
+              Device and browser information: This helps us ensure compatibility
+              and performance across devices.
+            </li>
+          </ul>
+          <p className="mt-3">We do not track you across other websites.</p>
+        </div>
+
+        <div>
+          <h3 className="text-foreground font-semibold mb-3">
+            Information we don&apos;t collect
+          </h3>
+          <ul className="ml-4 list-disc space-y-2">
+            <li>
+              No invasive tracking: We do not use third-party advertising
+              trackers.
+            </li>
+            <li>No data selling: We do not sell your personal data.</li>
+            <li>
+              No unnecessary personal details: You decide what to share on your
+              profile and in your content.
+            </li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "How we use your information",
+    content: (
+      <div className="space-y-4">
+        <p>We use your information only to:</p>
+        <ul className="ml-4 list-disc space-y-2">
+          <li>operate and maintain thefalse</li>
+          <li>improve performance and usability</li>
+          <li>keep the platform secure and prevent abuse</li>
+          <li>communicate with you when necessary (no spam)</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    title: "Sharing your information",
+    content: (
+      <div className="space-y-4">
+        <p>We do not sell your data.</p>
+        <p>Your information may be shared only:</p>
+        <ul className="ml-4 list-disc space-y-2">
+          <li>when you choose to make content public</li>
+          <li>
+            with trusted service providers that help us operate the platform
+          </li>
+          <li>when required by law</li>
+        </ul>
+        <p>We share the minimum necessary information in each case.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Your control",
+    content: (
+      <p>
+        You control your content and profile information. You may update or
+        delete your content at any time, subject to technical or legal
+        limitations.
+      </p>
+    ),
+  },
+  {
+    title: "Questions",
+    content: (
+      <p>
+        If you have questions or concerns about privacy, contact us at:{" "}
+        <a
+          href="mailto:bkht@thefalse.net"
+          className="text-foreground hover:underline"
+        >
+          bkht@thefalse.net
+        </a>
+      </p>
+    ),
+  },
+];

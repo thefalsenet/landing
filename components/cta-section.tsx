@@ -1,34 +1,46 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function CTASection() {
   return (
-    <section className="flex flex-col items-center justify-center mx-auto relative overflow-hidden">
-      <div className="flex py-20 md:py-28 px-6 flex-col items-center justify-center gap-12 max-w-[1440px] w-full text-center mb-32 relative overflow-hidden">
-        <div className="flex flex-col items-center max-w-96">
-          <h1
-            className="text-xl md:text-2xl font-display font-bold font-serif"
-          >
-            Rethink reading.
-          </h1>
-          <p className="text-lg md:text-xl max-w-3xl leading-snug text-center">
-            Track, annotate, and share your books effortlessly.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 items-center max-w-96 justify-center">
-          <Button
-            size="lg"
-            asChild
-          >
-            <Link href="/app">Try thefalse</Link>
+    <section className="py-28 px-6 w-full relative">
+      {/* Optional subtle divider line */}
+
+      <div className="flex flex-col items-center text-center space-y-7">
+        {/* Headline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="font-serif leading-tight lg:to-primary inline-block text-center text-2xl font-bold text-white sm:text-4xl md:text-5xl lg:bg-linear-to-b lg:from-[#84878D] lg:via-[#84878D] lg:bg-clip-text lg:text-7xl lg:text-transparent"
+        >
+          <span>Start your </span> <br />
+          reading space
+        </motion.div>
+
+        {/* Supporting text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="hidden flex-col items-center justify-start md:flex"
+        >
+          <div className="justify-start text-center text-lg font-normal leading-7 text-white lg:text-xl">
+            Create a quiet place for your books, thoughts, and conversations.
+            <br />
+            Join readers who care more about meaning than metrics.
+          </div>
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+          <Button size="lg" variant={"secondary"} asChild>
+            <Link href="/app">Start reading</Link>
           </Button>
         </div>
-        <div className="absolute inset-0 z-[-1] max-w-[1440px] overflow-hidden mx-auto px-6">
-          <div className="relative h-full overflow-hidden bg-background border shadow"><Image src={"/cta-bg.png"} className="object-cover object-top grayscale" alt="" fill /></div>
-        </div>
       </div>
-
     </section>
   );
 }

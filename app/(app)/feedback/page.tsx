@@ -1,15 +1,15 @@
 "use client";
 
+import { useState } from "react";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, ControllerRenderProps } from "react-hook-form";
+import { toast } from "sonner";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -19,32 +19,16 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, ControllerRenderProps } from "react-hook-form";
-import * as z from "zod";
-import { toast } from "sonner";
-import { useState } from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z
+  name: z.string().min(2, "Please enter your name."),
+  email: z.string().email("Invalid email address.").optional(),
+  role: z.string().min(2, "Please tell us who you are."),
+  rating: z.string({ required_error: "Select a rating." }),
+  feedback: z
     .string()
-    .email({
-      message: "Please enter a valid email address.",
-    })
-    .optional(),
-  role: z.string().min(2, {
-    message: "Please tell us your role or position.",
-  }),
-  rating: z.string({
-    required_error: "Please select a rating.",
-  }),
-  testimonial: z.string().min(20, {
-    message: "Please provide a detailed testimonial (at least 20 characters).",
-  }),
+    .min(20, "Please share a bit more detail (min 20 characters)."),
   permission: z.boolean(),
 });
 
@@ -60,7 +44,7 @@ export default function FeedbackPage() {
       email: "",
       role: "",
       rating: "",
-      testimonial: "",
+      feedback: "",
       permission: false,
     },
   });
@@ -69,35 +53,24 @@ export default function FeedbackPage() {
     try {
       setIsSubmitting(true);
 
-      const response = await fetch("/api/feedback", {
+      const res = await fetch("/api/feedback", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: values.name,
-          email: values.email || "",
-          role: values.role,
-          rating: parseInt(values.rating),
-          testimonial: values.testimonial,
+          ...values,
+          rating: Number(values.rating),
           allowPublicDisplay: values.permission,
         }),
       });
 
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || "Failed to submit feedback");
+      if (!res.ok) {
+        throw new Error("Failed to send feedback");
       }
 
-      toast.success("Thank you for your feedback!");
+      toast.success("Thanks for helping shape TheFalse.");
       form.reset();
-    } catch (error) {
-      console.error("Error submitting feedback:", error);
-      toast.error(
-        error instanceof Error
-          ? error.message
-          : "Failed to submit feedback. Please try again."
-      );
+    } catch (err) {
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -106,15 +79,14 @@ export default function FeedbackPage() {
   return (
     <div className="container mx-auto py-32 px-4 min-h-[calc(100vh-4rem)]">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 font-serif">Share Your Experience</h1>
-        <p className="text-lg text-muted-foreground mb-8">
-          We value your feedback! Please share your experience using our
-          platform. Your testimonial helps us improve and lets others know about
-          our services.
+        <h1 className="text-4xl font-serif mb-4">Send Feedback</h1>
+        <p className="text-muted-foreground mb-10">
+          TheFalse is still evolving. If something feels right, broken,
+          confusing, or missing — we want to know.
         </p>
 
         <Card>
-          <CardContent>
+          <CardContent className="pt-6">
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
@@ -123,15 +95,11 @@ export default function FeedbackPage() {
                 <FormField
                   control={form.control}
                   name="name"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormValues, "name">;
-                  }) => (
+                  render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your Name</FormLabel>
+                      <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter your name" {...field} />
+                        <Input placeholder="Your name" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -141,17 +109,13 @@ export default function FeedbackPage() {
                 <FormField
                   control={form.control}
                   name="email"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormValues, "email">;
-                  }) => (
+                  render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel>Email (optional)</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="Enter your email"
+                          placeholder="you@example.com"
                           {...field}
                         />
                       </FormControl>
@@ -163,16 +127,12 @@ export default function FeedbackPage() {
                 <FormField
                   control={form.control}
                   name="role"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormValues, "role">;
-                  }) => (
+                  render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your Role/Position</FormLabel>
+                      <FormLabel>Who are you?</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="e.g., Software Engineer, Product Manager"
+                          placeholder="Reader, developer, student, etc."
                           {...field}
                         />
                       </FormControl>
@@ -184,39 +144,30 @@ export default function FeedbackPage() {
                 <FormField
                   control={form.control}
                   name="rating"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormValues, "rating">;
-                  }) => (
+                  render={({ field }) => (
                     <FormItem>
-                      <FormLabel>How would you rate your experience?</FormLabel>
+                      <FormLabel>Overall feeling</FormLabel>
                       <FormControl>
                         <RadioGroup
                           onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          className="flex flex-row space-x-4 flex-wrap"
+                          value={field.value}
+                          className="flex gap-4 flex-wrap"
                         >
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="5" id="5" />
-                            <Label htmlFor="5">Excellent</Label>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="4" id="4" />
-                            <Label htmlFor="4">Good</Label>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="3" id="3" />
-                            <Label htmlFor="3">Average</Label>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="2" id="2" />
-                            <Label htmlFor="2">Fair</Label>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <RadioGroupItem value="1" id="1" />
-                            <Label htmlFor="1">Poor</Label>
-                          </div>
+                          {[
+                            ["5", "Loved it"],
+                            ["4", "Good"],
+                            ["3", "Neutral"],
+                            ["2", "Frustrating"],
+                            ["1", "Didn’t work"],
+                          ].map(([value, label]) => (
+                            <div
+                              key={value}
+                              className="flex items-center gap-2"
+                            >
+                              <RadioGroupItem value={value} id={value} />
+                              <Label htmlFor={value}>{label}</Label>
+                            </div>
+                          ))}
                         </RadioGroup>
                       </FormControl>
                       <FormMessage />
@@ -226,19 +177,15 @@ export default function FeedbackPage() {
 
                 <FormField
                   control={form.control}
-                  name="testimonial"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormValues, "testimonial">;
-                  }) => (
+                  name="feedback"
+                  render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your Testimonial</FormLabel>
+                      <FormLabel>Your thoughts</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Share your experience with our platform..."
-                          className="min-h-[200px]"
                           {...field}
+                          className="min-h-[180px]"
+                          placeholder="What worked? What didn’t? What should change?"
                         />
                       </FormControl>
                       <FormMessage />
@@ -249,26 +196,20 @@ export default function FeedbackPage() {
                 <FormField
                   control={form.control}
                   name="permission"
-                  render={({
-                    field,
-                  }: {
-                    field: ControllerRenderProps<FormValues, "permission">;
-                  }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  render={({ field }) => (
+                    <FormItem className="flex gap-3 items-start">
                       <FormControl>
                         <input
                           type="checkbox"
                           checked={field.value}
                           onChange={(e) => field.onChange(e.target.checked)}
-                          className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                          className="mt-1"
                         />
                       </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel>
-                          I give permission to display my testimonial publicly
-                        </FormLabel>
-                      </div>
-                      <FormMessage />
+                      <FormLabel className="font-normal">
+                        You may quote this feedback publicly (anonymously unless
+                        stated)
+                      </FormLabel>
                     </FormItem>
                   )}
                 />
@@ -278,7 +219,7 @@ export default function FeedbackPage() {
                   className="w-full"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Feedback"}
+                  {isSubmitting ? "Sending…" : "Send feedback"}
                 </Button>
               </form>
             </Form>
