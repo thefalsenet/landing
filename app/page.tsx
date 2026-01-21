@@ -41,6 +41,14 @@ export default async function Home() {
 
         {/* Content */}
         <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 text-center">
+          <a href="https://peerlist.io/thebkht/project/thefalse" target="_blank" rel="noreferrer">
+				<img
+					src="https://peerlist.io/api/v1/projects/embed/PRJHQ7MKNBGR9K8QEH6PDGGODG8QGE?showUpvote=true&theme=light"
+					alt="thefalse"
+					style={{ width: "auto", height: "72px" }}
+				/>
+			</a>
+          
           <h1 className="font-serif text-4xl leading-tight md:text-6xl font-semibold">
             Built for readers.
           </h1>
