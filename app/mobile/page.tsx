@@ -23,7 +23,7 @@ export default function Mobile() {
                </div>
 
                <div>
-                    <h1 className="text-4xl font-bold text-balance text-center">Your Books. Your Thoughts. Anywhere.</h1>
+                    <h1 className="text-4xl font-bold text-balance text-center font-serif">Your Books. Your Thoughts. Anywhere.</h1>
                     <p className="text-2xl text-muted-foreground text-center">sign up for early access and be part of the first wave of readers.</p>
                </div>
 
@@ -74,7 +74,7 @@ export default function Mobile() {
                          </div>
                          <div className="absolute -bottom-8.5 sm:-bottom-5 w-full flex items-center justify-center h-8" aria-live="polite">
                               <div id="error-message" className="flex gap-2 items-center justify-center absolute transition-all duration-300 invisible sm:opacity-0 sm:scale-95 sm:translate-y-0" role="alert" aria-atomic="true">
-                                   <span className="text-[11px] font-semibold text-red-700"></span>
+                                   <span className="text-[11px] font-semibold text-red"></span>
                               </div>
                          </div>
                     </form>
