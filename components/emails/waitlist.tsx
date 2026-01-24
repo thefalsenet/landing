@@ -13,224 +13,178 @@ import {
 } from "@react-email/components";
 
 interface WaitlistWelcomeEmailProps {
-  username?: string;
   email: string;
 }
 
 export default function WaitlistWelcomeEmail({
-  username = "book lover",
   email,
 }: WaitlistWelcomeEmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>Welcome to thefalse.net waitlist!</Preview>
+      <Preview>We’ll email you when a spot opens.</Preview>
       <Body style={main}>
-        <Container style={container}>
+        <Section style={logoSection}>
           <Img
-            src="https://ltord0pu249uzgxe.public.blob.vercel-storage.com/thefalse/Frame%204-Lvv1UdBirhfbifS9QE8CNvP7W8wXR8.png"
-            width="192"
-            height="192"
+            src="https://app.thefalse.net/email/footer-logo.png"
+            width={141}
+            height={32}
             alt="thefalse.net"
             style={logo}
           />
+        </Section>
+        <Container style={container}>
+          <Heading style={heading}>you’re on the list</Heading>
 
-          <Heading style={heading}>You&apos;re on the list!</Heading>
-
-          <Text style={greeting}>Hi {username} 👋</Text>
+          <Text style={greeting}>Hi reader,</Text>
 
           <Text style={paragraph}>
-            Thank you for joining the waitlist for thefalse.net. We&apos;re
-            excited to have you as part of our growing community of book
-            enthusiasts!
+            Thanks for joining the waitlist.
+
+            TheFalse is a quiet place for readers. We’re letting people in gradually so the product stays calm and usable.
+
+            You don’t need to do anything right now. We’ll email you when a spot opens.
           </Text>
 
           <Text style={paragraph}>
-            Here&apos;s what you can look forward to:
-          </Text>
-
-          <ul style={list}>
-            <li style={listItem}>Early access to our platform</li>
-            <li style={listItem}>
-              Exclusive updates on our development progress
-            </li>
-            <li style={listItem}>Special offers for waitlist members</li>
-            <li style={listItem}>
-              The opportunity to shape the future of book sharing
-            </li>
-          </ul>
-
-          <Text style={paragraph}>
-            We&apos;re working hard to create the best possible experience for
-            book lovers like you. We&apos;ll keep you updated on our progress
-            and let you know as soon as we&apos;re ready to welcome you to
-            thefalse.net.
-          </Text>
-
-          <Text style={paragraph}>
-            In the meantime, why not follow us on social media for the latest
-            news and bookish discussions?
-          </Text>
-
-          <Section style={buttonContainer}>
-            <Button style={button} href="https://twitter.com/thefalsedotnet">
-              Follow us on Twitter
-            </Button>
-          </Section>
-
-          <Text style={paragraph}>
-            If you have any questions or suggestions, feel free to reply to this
-            email. We&apos;d love to hear from you!
-          </Text>
-
-          <Section style={divider} />
-
-          <Section style={signatureContainer}>
-            <Img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-A2qq2YFis4gXi7CiHCidWCn9R3n3Dp.png"
-              width="120"
-              height="auto"
-              alt="thefalse.net"
-              style={signatureImage}
-            />
-          </Section>
-
-          {/*unsubscribe*/}
-          <Text style={footer}>
-            You are receiving this email because you signed up for the waitlist
-            at thefalse.net. If you no longer wish to receive emails from us,
-            you can{" "}
-            <Link
-              href={`https://thefalse.net/unsubscribe?email=${email}`}
-              style={footerLinks}
-            >
-              unsubscribe here
-            </Link>
-            .
+            If something’s unclear, you can reply to this email.
           </Text>
         </Container>
+        <Section style={footerSection}>
+          <Link href="https://thefalse.net/help" style={footerLink}>
+            Help Center
+          </Link>{" "}
+          •{" "}
+          <Link href="https://thefalse.net/privacy" style={footerLink}>
+            Privacy Policy
+          </Link>{" "}
+          •{" "}
+
+          <Text style={companyInfo}>
+            You’re receiving this because you joined the waitlist at thefalse.net.{" "}
+            <Link
+              href={`https://thefalse.net/unsubscribe?email=${encodeURIComponent(email)}`}
+              style={footerLink}
+            >
+              Unsubscribe
+            </Link>
+          </Text>
+          <Text style={companyInfo}>
+            Questions? Reach us at{" "}
+            <Link href="mailto:bkht@thefalse.net" style={footerLink}>
+              bkht@thefalse.net
+            </Link>
+          </Text>
+        </Section>
       </Body>
     </Html>
   );
 }
 
+export function generateWaitlistEmailText({
+  email,
+}: {
+  email: string;
+}) {
+  return `Hi reader,
+
+Thanks for joining the waitlist.
+
+TheFalse is a quiet place for readers. We’re letting people in gradually so things stay calm and usable.
+
+You don’t need to do anything right now.
+We’ll email you when a spot opens.
+
+If something’s unclear, you can reply to this email.
+
+Unsubscribe:
+https://thefalse.net/unsubscribe?email=${encodeURIComponent(email)}
+
+— TheFalse team
+
+`;
+}
+
 const main = {
-  backgroundColor: "#ffffff",
+  backgroundColor: "#f6f8fa",
   fontFamily:
     '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
-  textTransform: "lowercase" as "lowercase",
+  padding: "32px",
 };
 
 const container = {
   margin: "0 auto",
-  padding: "40px 20px",
-  maxWidth: "560px",
+  padding: 32,
+  width: "400px",
+  backgroundColor: "#ffffff",
+  marginBottom: "32px",
+  marginTop: "32px",
+  fontSize: "16px",
+};
+
+const logoSection = {
+  margin: "0 auto",
+  width: "400px",
+  marginBottom: "32px",
 };
 
 const logo = {
-  margin: "0 auto",
-  marginBottom: "24px",
+  objectFit: "contain" as const,
 };
 
 const heading = {
-  fontSize: "32px",
+  fontSize: "18px",
   lineHeight: "1.3",
   fontWeight: "700",
   color: "#000",
-  textAlign: "center" as const,
-  margin: "30px 0",
+  marginBottom: "32px",
 };
 
 const greeting = {
-  fontSize: "24px",
+  fontSize: "18px",
   lineHeight: "1.3",
   fontWeight: "700",
   color: "#484848",
-  marginBottom: "20px",
+  marginBottom: "32px",
 };
 
 const paragraph = {
   fontSize: "16px",
   lineHeight: "26px",
   color: "#484848",
+  margin: "12px 0",
 };
 
 const buttonContainer = {
-  marginTop: "32px",
-  marginBottom: "32px",
+  margin: "48px auto",
   textAlign: "center" as const,
 };
 
 const button = {
   backgroundColor: "#000000",
-  borderRadius: "6px",
   color: "#fff",
   fontSize: "16px",
   fontWeight: "600",
   textDecoration: "none",
-  textAlign: "center" as const,
   display: "inline-block",
   padding: "12px 30px",
   cursor: "pointer",
 };
 
-const list = {
-  margin: "24px 0",
-  padding: "0",
-  listStyle: "none",
-};
-
-const listItem = {
-  fontSize: "16px",
-  lineHeight: "24px",
-  color: "#484848",
-  marginBottom: "12px",
-  paddingLeft: "24px",
-  position: "relative" as const,
-  "::before": {
-    content: "•",
-    position: "absolute",
-    left: "0",
-    color: "#dc2626",
-  },
-};
-
-const divider = {
-  borderBottom: "1px solid #E5E7EB",
-  margin: "32px 0",
-};
-
-const signatureContainer = {
-  marginTop: "32px",
-  marginBottom: "32px",
+const footerSection = {
   textAlign: "center" as const,
-};
-
-const signatureImage = {
+  fontSize: "14px",
   margin: "0 auto",
-  width: "120px",
-  height: "auto",
-  opacity: 0.5,
-  filter: "grayscale(100%)",
+  width: "400px",
 };
 
-const footer = {
-  fontSize: "13px",
-  lineHeight: "22px",
-  color: "#9ca3af",
-  marginTop: "32px",
-  textAlign: "center" as const,
-};
-
-const footerLinks = {
-  fontSize: "13px",
-  lineHeight: "22px",
-  color: "#9ca3af",
-  textAlign: "center" as const,
-  marginTop: "12px",
-};
-
-const link = {
-  color: "#9ca3af",
+const footerLink = {
+  color: "#1d9bf0",
   textDecoration: "underline",
+};
+
+const companyInfo = {
+  fontSize: "12px",
+  color: "#536471",
+  margin: "20px 0",
 };

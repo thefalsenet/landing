@@ -65,6 +65,7 @@ export function MobileWaitlistForm() {
         action={handleSubscribe}
         className="relative w-fit max-w-[570px]"
       >
+        <input type="hidden" name="source" value="mobile" />
         <label htmlFor="agent-waitlist-form" className="sr-only">
           Email address for mobile waitlist
         </label>
