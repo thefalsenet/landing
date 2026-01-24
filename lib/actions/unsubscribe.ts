@@ -23,7 +23,7 @@ export async function unsubscribeUser(email: string) {
 
     // Send confirmation email
     await resend.emails.send({
-      from: "TheFalse team <join@mailthefalse.net>",
+      from: "TheFalse team <join@mail.thefalse.net>",
 
       to: email,
       subject: "You’ve been unsubscribed",
