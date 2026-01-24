@@ -27,14 +27,19 @@ export async function subscribe(formData: FormData) {
     }
 
     // Add to Resend audience (best-effort; do not block welcome email)
-    try {
-      await resend.contacts.create({
-        email: validatedEmail,
-        unsubscribed: false,
-        audienceId: RESEND_AUDIENCE_ID,
-      });
-    } catch {
-      // Audience add is optional; welcome email is the main behavior
+    const { error: contactError } = await resend.contacts.create({
+      email: validatedEmail,
+      unsubscribed: false,
+      audienceId: RESEND_AUDIENCE_ID,
+    });
+
+    // If contact already exists in audience, show "already on list" and skip welcome email
+    if (contactError) {
+      const msg = (contactError.message || "").toLowerCase();
+      if (/already|exists|duplicate|already in|already a member|already on|already subscribed/.test(msg)) {
+        return { success: true, message: "You're already on the list." };
+      }
+      // other contact errors: continue and send welcome email (audience add is best-effort)
     }
 
     // Send welcome email to the user
