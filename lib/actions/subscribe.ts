@@ -12,7 +12,7 @@ const subscribeSchema = z.object({
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 
 const RESEND_AUDIENCE_ID =
-  process.env.RESEND_AUDIENCE_ID || "5c616b0d-9278-4b19-98df-a375e1587077";
+  process.env.RESEND_AUDIENCE_ID!;
 
 const RATE_LIMIT_MSG = "Too many requests. Please wait a moment and try again.";
 
