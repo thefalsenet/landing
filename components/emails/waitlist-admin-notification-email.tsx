@@ -41,9 +41,11 @@ export default function WaitlistAdminNotificationEmail({
 
           <Text style={paragraph}>Someone joined the waitlist.</Text>
 
-          <Text style={paragraph}>
-            <strong>Email:</strong> {email}<br />
-            <strong>Source:</strong> {source}<br />
+          <Text style={details}>
+            <strong>Email:</strong> {email}
+            <br />
+            <strong>Source:</strong> {source}
+            <br />
             <strong>Date:</strong> {subscribedAt}
           </Text>
         </Container>
@@ -106,6 +108,15 @@ const paragraph = {
   lineHeight: "26px",
   color: "#484848",
   margin: "12px 0",
+};
+
+const details = {
+  fontSize: "16px",
+  lineHeight: "26px",
+  color: "#484848",
+  margin: "12px 0",
+  padding: "16px",
+  backgroundColor: "#f8fafc",
 };
 
 const footerSection = {
