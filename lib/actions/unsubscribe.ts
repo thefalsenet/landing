@@ -23,9 +23,10 @@ export async function unsubscribeUser(email: string) {
 
     // Send confirmation email
     await resend.emails.send({
-      from: "thefalse <noreply@thefalse.net>",
+      from: "TheFalse team <join@thefalse.net>",
+
       to: email,
-      subject: "Unsubscribe Confirmation",
+      subject: "You’ve been unsubscribed",
       react: UnsubscribeConfirmationEmail(),
       text: UnsubscribeConfirmationEmail.text(),
     });

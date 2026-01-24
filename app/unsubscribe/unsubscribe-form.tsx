@@ -31,7 +31,7 @@ export function UnsubscribeForm() {
     } catch (error) {
       setStatus({
         success: false,
-        message: "An error occurred. Please try again.",
+        message: "Something didn’t work. You can try again.",
       });
     } finally {
       setIsLoading(false);
@@ -50,22 +50,20 @@ export function UnsubscribeForm() {
 
   return (
     <div className="space-y-4">
-      <p className="text-center text-sm text-gray-600">
+      <p className="text-center text-sm text-muted-foreground">
         {email ? (
           <>
-            You are about to unsubscribe
+            You’ll stop receiving emails from TheFalse for
             <br />
-            <span className="font-medium">{email}</span>
-            <br />
-            from all thefalse newsletters.
+            <span className="font-medium">{email}</span>.
           </>
         ) : (
-          "Invalid unsubscribe link. Please check your email."
+          "This unsubscribe link isn’t valid."
         )}
       </p>
       <div className="flex justify-center">
         <Button onClick={handleUnsubscribe} disabled={isLoading || !email}>
-          {isLoading ? "Processing..." : "Confirm Unsubscribe"}
+          {isLoading ? "Updating…" : "Unsubscribe"}
         </Button>
       </div>
     </div>
