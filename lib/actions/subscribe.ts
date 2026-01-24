@@ -70,7 +70,7 @@ export async function subscribe(formData: FormData) {
     if (ADMIN_EMAIL) {
       resend.emails
         .send({
-          from: "thefalse team <join@thefalse.net>",
+          from: "TheFalse team <join@mail.thefalse.net>",
           to: ADMIN_EMAIL,
           subject: "New waitlist signup",
           react: WaitlistAdminNotificationEmail({
