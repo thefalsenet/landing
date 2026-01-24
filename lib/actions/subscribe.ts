@@ -12,7 +12,19 @@ const subscribeSchema = z.object({
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 
 const RESEND_AUDIENCE_ID =
-  process.env.RESEND_AUDIENCE_ID || "5c616b0d-9278-4b19-98df-a375e1587077";
+  process.env.RESEND_AUDIENCE_ID!;
+
+const RATE_LIMIT_MSG = "Too many requests. Please wait a moment and try again.";
+
+function isRateLimitError(err: { name?: string; message?: string } | null): boolean {
+  if (!err) return false;
+  const name = (err.name || "").toLowerCase();
+  const msg = (err.message || "").toLowerCase();
+  return (
+    name === "rate_limit_exceeded" ||
+    /rate limit|rate_limit|too many requests|exceeded.*limit/.test(msg)
+  );
+}
 
 export async function subscribe(formData: FormData) {
   const email = formData.get("email");
@@ -26,15 +38,30 @@ export async function subscribe(formData: FormData) {
       return { success: false, message: "Email is not configured. Please try again later." };
     }
 
-    // Add to Resend audience (best-effort; do not block welcome email)
+    // Add to Resend audience (create only supports audienceId, email, unsubscribed, etc.)
     const { error: contactError } = await resend.contacts.create({
       email: validatedEmail,
       unsubscribed: false,
       audienceId: RESEND_AUDIENCE_ID,
     });
 
+    // Opt in to waitlist topic when RESEND_TOPIC_ID is set (run after response to stay under 2 req/s)
+    const topicId = process.env.RESEND_TOPIC_ID;
+    if (topicId && !contactError) {
+      setTimeout(
+        () =>
+          resend.contacts.topics
+            .update({ email: validatedEmail, topics: [{ id: topicId, subscription: "opt_in" }] })
+            .catch((err) => console.error("[subscribe] topics.update error:", err)),
+        2000
+      );
+    }
+
     // If contact already exists in audience, show "already on list" and skip welcome email
     if (contactError) {
+      if (isRateLimitError(contactError)) {
+        return { success: false, message: RATE_LIMIT_MSG };
+      }
       const msg = (contactError.message || "").toLowerCase();
       if (/already|exists|duplicate|already in|already a member|already on|already subscribed/.test(msg)) {
         return { success: true, message: "You're already on the list." };
@@ -58,6 +85,9 @@ export async function subscribe(formData: FormData) {
 
     if (sendError) {
       console.error("[subscribe] Resend error:", sendError);
+      if (isRateLimitError(sendError)) {
+        return { success: false, message: RATE_LIMIT_MSG };
+      }
       return {
         success: false,
         message: process.env.NODE_ENV === "development"
@@ -66,20 +96,22 @@ export async function subscribe(formData: FormData) {
       };
     }
 
-    // Notify admin of new signup when configured
+    // Notify admin of new signup when configured (delayed to stay under Resend 2 req/s)
     if (ADMIN_EMAIL) {
-      resend.emails
-        .send({
-          from: "TheFalse team <join@mail.thefalse.net>",
-          to: ADMIN_EMAIL,
-          subject: "New waitlist signup",
-          react: WaitlistAdminNotificationEmail({
-            email: validatedEmail,
-            source: source === "mobile" ? "mobile" : "main",
-            subscribedAt: new Date().toLocaleString(),
-          }),
-        })
-        .catch((err) => console.error("[subscribe] Admin notify error:", err));
+      const payload = {
+        from: "TheFalse team <join@mail.thefalse.net>" as const,
+        to: ADMIN_EMAIL,
+        subject: "New waitlist signup" as const,
+        react: WaitlistAdminNotificationEmail({
+          email: validatedEmail,
+          source: source === "mobile" ? "mobile" : "main",
+          subscribedAt: new Date().toLocaleString(),
+        }),
+      };
+      setTimeout(
+        () => resend.emails.send(payload).catch((err) => console.error("[subscribe] Admin notify error:", err)),
+        1500
+      );
     }
 
     return { success: true, message: "You're on the list! Check your email." };
