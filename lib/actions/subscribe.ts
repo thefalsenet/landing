@@ -38,12 +38,24 @@ export async function subscribe(formData: FormData) {
       return { success: false, message: "Email is not configured. Please try again later." };
     }
 
-    // Add to Resend audience (best-effort; do not block welcome email)
+    // Add to Resend audience (create only supports audienceId, email, unsubscribed, etc.)
     const { error: contactError } = await resend.contacts.create({
       email: validatedEmail,
       unsubscribed: false,
       audienceId: RESEND_AUDIENCE_ID,
     });
+
+    // Opt in to waitlist topic when RESEND_TOPIC_ID is set (run after response to stay under 2 req/s)
+    const topicId = process.env.RESEND_TOPIC_ID;
+    if (topicId && !contactError) {
+      setTimeout(
+        () =>
+          resend.contacts.topics
+            .update({ email: validatedEmail, topics: [{ id: topicId, subscription: "opt_in" }] })
+            .catch((err) => console.error("[subscribe] topics.update error:", err)),
+        2000
+      );
+    }
 
     // If contact already exists in audience, show "already on list" and skip welcome email
     if (contactError) {

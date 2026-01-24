@@ -5,21 +5,26 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const RESEND_TOPIC_ID = process.env.RESEND_TOPIC_ID;
+
 export async function unsubscribeUser(email: string) {
   try {
-    // Verify the unsubscribe token (you should implement your own verification logic)
-    // This is a simplified example
     if (!email) {
       throw new Error("Invalid unsubscribe request");
     }
 
-    // Update user preferences in your database
-    // This is where you'd implement your database update logic
-    await resend.contacts.update({
+    if (!RESEND_TOPIC_ID) {
+      throw new Error("RESEND_TOPIC_ID is required for topic-based unsubscribe");
+    }
+
+    const { error: topicError } = await resend.contacts.topics.update({
       email,
-      unsubscribed: false,
-      audienceId: process.env.RESEND_AUDIENCE_ID!,
+      topics: [{ id: RESEND_TOPIC_ID, subscription: "opt_out" }],
     });
+    if (topicError) {
+      console.error("[unsubscribe] topics.update error:", topicError);
+      throw new Error("Failed to unsubscribe");
+    }
 
     // Send confirmation email
     await resend.emails.send({
