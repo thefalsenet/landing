@@ -1,50 +1,92 @@
 "use server";
 
-import WaitlistWelcomeEmail from "@/components/emails/waitlist";
+import WaitlistWelcomeEmail, { generateWaitlistEmailText } from "@/components/emails/waitlist";
+import WaitlistAdminNotificationEmail from "@/components/emails/waitlist-admin-notification-email";
 import { Resend } from "resend";
 import { z } from "zod";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 const subscribeSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
 });
 
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+
+const RESEND_AUDIENCE_ID =
+  process.env.RESEND_AUDIENCE_ID || "5c616b0d-9278-4b19-98df-a375e1587077";
+
 export async function subscribe(formData: FormData) {
   const email = formData.get("email");
+  const source = (formData.get("source") as string) || "main";
 
   try {
-    // Validate email
     const { email: validatedEmail } = subscribeSchema.parse({ email });
 
-    await resend.contacts.create({
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    if (!process.env.RESEND_API_KEY) {
+      return { success: false, message: "Email is not configured. Please try again later." };
+    }
+
+    // Add to Resend audience (best-effort; do not block welcome email)
+    const { error: contactError } = await resend.contacts.create({
       email: validatedEmail,
       unsubscribed: false,
-      audienceId: process.env.RESEND_AUDIENCE_ID!,
+      audienceId: RESEND_AUDIENCE_ID,
     });
 
-    // Send confirmation email
-    await resend.emails.send({
-      from: "thefalse team <join@thefalse.net>",
+    // If contact already exists in audience, show "already on list" and skip welcome email
+    if (contactError) {
+      const msg = (contactError.message || "").toLowerCase();
+      if (/already|exists|duplicate|already in|already a member|already on|already subscribed/.test(msg)) {
+        return { success: true, message: "You're already on the list." };
+      }
+      // other contact errors: continue and send welcome email (audience add is best-effort)
+    }
+
+    // Send welcome email to the user
+    const { error: sendError } = await resend.emails.send({
+      from: "TheFalse team <join@mail.thefalse.net>",
       to: validatedEmail,
-      subject: "welcome to thefalse waitlist!",
-      react: WaitlistWelcomeEmail({
-        username: "book lover",
-        email: validatedEmail,
-      }),
-      text: "Welcome to the waitlist! We'll let you know when we're ready to launch.",
+      subject: "You’re on the waitlist",
+
+      react: WaitlistWelcomeEmail({ email: validatedEmail }),
+      text: generateWaitlistEmailText({ email: validatedEmail }),
       headers: {
         Name: "X-Entity-Ref-ID",
-        Value: new Date().getTime() + "",
+        Value: String(Date.now()),
       },
     });
+
+    if (sendError) {
+      console.error("[subscribe] Resend error:", sendError);
+      return {
+        success: false,
+        message: process.env.NODE_ENV === "development"
+          ? `Email failed: ${sendError.message}`
+          : "Something went wrong sending the confirmation. Please try again.",
+      };
+    }
+
+    // Notify admin of new signup when configured
+    if (ADMIN_EMAIL) {
+      resend.emails
+        .send({
+          from: "TheFalse team <join@mail.thefalse.net>",
+          to: ADMIN_EMAIL,
+          subject: "New waitlist signup",
+          react: WaitlistAdminNotificationEmail({
+            email: validatedEmail,
+            source: source === "mobile" ? "mobile" : "main",
+            subscribedAt: new Date().toLocaleString(),
+          }),
+        })
+        .catch((err) => console.error("[subscribe] Admin notify error:", err));
+    }
 
     return { success: true, message: "You're on the list! Check your email." };
   } catch (error) {
     if (error instanceof z.ZodError) {
       return { success: false, message: error.errors[0].message };
     }
-
     return {
       success: false,
       message: "Something went wrong. Please try again.",

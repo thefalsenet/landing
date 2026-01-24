@@ -7,7 +7,7 @@ export default function UnsubscribePage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="mb-8">
-        <Icons.logo className="w-12 h-12" />
+        <Icons.logo2 className="size-12" />
       </div>
       <div className="w-full max-w-md">
         <div className="bg-background shadow-sm rounded-lg border">

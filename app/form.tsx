@@ -37,6 +37,7 @@ export default function Form() {
     >
       <Input
         type="email"
+        name="email"
         placeholder="enter your email"
         className="h-auto w-full"
         required

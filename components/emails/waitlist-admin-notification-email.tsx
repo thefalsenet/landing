@@ -11,11 +11,21 @@ import {
   Text,
 } from "@react-email/components";
 
-export default function UnsubscribeConfirmationEmail() {
+interface WaitlistAdminNotificationEmailProps {
+  email: string;
+  source?: "mobile" | "main";
+  subscribedAt?: string;
+}
+
+export default function WaitlistAdminNotificationEmail({
+  email,
+  source = "main",
+  subscribedAt = new Date().toLocaleString(),
+}: WaitlistAdminNotificationEmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>You&apos;ve been unsubscribed from thefalse.net emails</Preview>
+      <Preview>New waitlist signup: {email}</Preview>
       <Body style={main}>
         <Section style={logoSection}>
           <Img
@@ -27,20 +37,16 @@ export default function UnsubscribeConfirmationEmail() {
           />
         </Section>
         <Container style={container}>
-          <Heading style={heading}>You’ve been unsubscribed</Heading>
+          <Heading style={heading}>new waitlist signup</Heading>
 
-          <Text style={paragraph}>
-            Users are allowed to leave entirely.
-          </Text>
+          <Text style={paragraph}>Someone joined the waitlist.</Text>
 
-          <Text style={paragraph}>
-            You won’t receive further emails from us.
+          <Text style={details}>
+            <strong>Email:</strong> {email}
             <br />
-            If you unsubscribed by mistake, you can rejoin anytime at thefalse.net.
-          </Text>
-
-          <Text style={paragraph}>
-            Thanks for letting us know.
+            <strong>Source:</strong> {source}
+            <br />
+            <strong>Date:</strong> {subscribedAt}
           </Text>
         </Container>
         <Section style={footerSection}>
@@ -55,28 +61,12 @@ export default function UnsubscribeConfirmationEmail() {
           <Link href="https://thefalse.net/terms" style={footerLink}>
             Terms of Service
           </Link>
-          <Text style={companyInfo}>
-            Questions? Reach us at{" "}
-            <Link href="mailto:bkht@thefalse.net" style={footerLink}>
-              bkht@thefalse.net
-            </Link>
-          </Text>
+          <Text style={companyInfo}>thefalse.net</Text>
         </Section>
       </Body>
     </Html>
   );
 }
-
-UnsubscribeConfirmationEmail.text = () =>
-  `You’ve been unsubscribed from TheFalse emails.
-
-You won’t receive further updates from us.
-
-If this was a mistake, you can rejoin anytime at thefalse.net.
-
-— TheFalse team
-
-`;
 
 const main = {
   backgroundColor: "#f6f8fa",
@@ -118,6 +108,15 @@ const paragraph = {
   lineHeight: "26px",
   color: "#484848",
   margin: "12px 0",
+};
+
+const details = {
+  fontSize: "16px",
+  lineHeight: "26px",
+  color: "#484848",
+  margin: "12px 0",
+  padding: "16px",
+  backgroundColor: "#f8fafc",
 };
 
 const footerSection = {
