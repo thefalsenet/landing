@@ -361,7 +361,14 @@ const sections = [
           >
             thefalse.net
           </a>{" "}
-          or through the application.
+          or by emailing{" "}
+          <a
+            href="mailto:team@thefalse.net"
+            className="text-foreground hover:underline"
+          >
+            team@thefalse.net
+          </a>
+          .
         </p>
       </div>
     ),
