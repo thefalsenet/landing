@@ -25,7 +25,7 @@ export default function TermsOfService() {
             <CardHeader className="space-y-4 px-8 py-8">
               <div className="space-y-2 text-center">
                 <CardTitle className="text-3xl font-bold tracking-tight md:text-4xl font-serif">
-                  Terms of Use
+                  Terms of Service
                 </CardTitle>
                 <div className="flex items-center justify-center gap-2">
                   <p className="text-sm text-muted-foreground">
@@ -78,8 +78,8 @@ const sections = [
         <p>
           Welcome to TheFalse. By accessing or using our website, application,
           or services (collectively, the &quot;Service&quot;), you agree to be
-          bound by these Terms of Use. If you do not agree, please do not use
-          the Service.
+          bound by these Terms of Service. If you do not agree, please do not
+          use the Service.
         </p>
       </div>
     ),
@@ -326,7 +326,7 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p>
-          We may update these Terms of Use from time to time. We will post the
+          We may update these Terms of Service from time to time. We will post the
           updated terms on this page and update the &quot;Last updated&quot;
           date.
         </p>
@@ -366,8 +366,8 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p>
-          Questions about these Terms of Use or the Service can be sent to us
-          via the contact or support options provided on{" "}
+          Questions about these Terms of Service or the Service can be sent to
+          us via the contact or support options provided on{" "}
           <a
             href="https://thefalse.net"
             className="text-foreground hover:underline"
