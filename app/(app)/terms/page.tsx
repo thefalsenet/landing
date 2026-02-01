@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 import { createSectionId } from "@/lib/utils";
 import React from "react";
 
-const LAST_UPDATED = "January 6, 2026";
+const LAST_UPDATED = "February 1, 2025";
 
 export default function TermsOfService() {
   const { copiedValue: copiedSection, copyToClipboard } = useCopyToClipboard();
@@ -36,6 +36,16 @@ export default function TermsOfService() {
             </CardHeader>
 
             <div className="space-y-8 p-8">
+              <div className="p-6">
+                <div className="prose prose-sm max-w-none text-muted-foreground font-medium">
+                  <p>
+                    Welcome to TheFalse. By accessing or using our website,
+                    application, or services (collectively, the &quot;Service&quot;),
+                    you agree to be bound by these Terms of Service. If you do not
+                    agree, please do not use the Service.
+                  </p>
+                </div>
+              </div>
               {sections.map((section) => {
                 const sectionId = createSectionId(section.title!);
                 return (
@@ -72,136 +82,286 @@ export default function TermsOfService() {
 
 const sections = [
   {
-    title: "Overview",
-    content: (
-      <p>
-        Welcome to thefalse. These Terms of Service (&quot;Terms&quot;) govern
-        your access to and use of TheFalse, including our website and related
-        services. By using TheFalse, you agree to these Terms.
-      </p>
-    ),
-  },
-  {
-    title: "1. What we're about",
+    title: "1. Description of the Service",
     content: (
       <div className="space-y-4">
-        <p>thefalse is built for readers and thoughtful interaction.</p>
         <p>
-          We believe in authenticity, privacy, and meaningful conversation. Our
-          platform is designed to be a quieter space — one that values
-          reflection over performance and people over algorithms.
+          TheFalse is a social reading platform that lets you build a personal
+          digital library, track what you read, write reflections and notes, and
+          optionally connect with other readers.
         </p>
         <p>
-          By using thefalse, you are part of an early-stage platform focused on
-          reading, thinking, and sharing ideas intentionally.
+          Features include book tracking, notes and highlights, a chronological
+          feed, following other readers, rooms and circles for small-group
+          conversation, and related tools. We may add, change, or discontinue
+          features from time to time.
         </p>
       </div>
     ),
   },
   {
-    title: "2. Your account",
+    title: "2. Eligibility and Accounts",
     content: (
       <div className="space-y-4">
-        <p>When you create an account, you agree to:</p>
+        <p>
+          You must be at least 13 years old (or the minimum age in your
+          jurisdiction to consent to use online services) to use the Service.
+        </p>
+        <p>
+          If you are under 18, you should have a parent or guardian review these
+          terms with you.
+        </p>
+        <p>
+          You are responsible for keeping your account credentials secure and
+          for all activity under your account. You must provide accurate
+          information and update it when it changes.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "3. Your Content and Conduct",
+    content: (
+      <div className="space-y-4">
+        <p>
+          You retain ownership of content you create (notes, reflections,
+          comments, profile information, and similar content).
+        </p>
+        <p>
+          By posting content on the Service, you grant us a non-exclusive,
+          royalty-free, worldwide license to use, store, display, and distribute
+          that content as needed to operate and improve the Service (including
+          backup and syndication to other users as you choose).
+        </p>
+        <p>You agree not to use the Service to:</p>
         <ul className="ml-4 list-disc space-y-2">
-          <li>provide accurate information</li>
-          <li>keep your login credentials secure</li>
-          <li>be responsible for activity under your account</li>
-          <li>notify us if you believe your account has been compromised</li>
-        </ul>
-        <p>
-          You are responsible for anything that happens through your account.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: "3. Your content",
-    content: (
-      <div className="space-y-4">
-        <p>
-          thefalse allows users to post content related to books and reading,
-          including thoughts, highlights, and short reflections.
-        </p>
-        <p>You retain ownership of the content you create.</p>
-        <p>
-          By posting content on thefalse, you grant us a limited, non-exclusive
-          license to host and display your content solely for the purpose of
-          operating and improving the platform.
-        </p>
-        <p>
-          This license ends when your content is deleted, except where retention
-          is required for technical or legal reasons.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: "4. Content rules",
-    content: (
-      <div className="space-y-4">
-        <p>You may not post content that:</p>
-        <ul className="ml-4 list-disc space-y-2">
-          <li>is illegal or harmful</li>
-          <li>harasses, threatens, or abuses others</li>
-          <li>contains spam or intentionally misleading information</li>
-          <li>infringes on intellectual property or other rights</li>
-        </ul>
-        <p>
-          We expect users to act in good faith and treat others respectfully.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: "5. Platform moderation",
-    content: (
-      <div className="space-y-4">
-        <p>thefalse does not actively monitor all content.</p>
-        <p>
-          However, we reserve the right to remove content or restrict accounts
-          if necessary to protect the platform, comply with legal obligations,
-          or respond to clear violations of these Terms.
-        </p>
-        <p>If you encounter a serious issue, you may contact us directly.</p>
-      </div>
-    ),
-  },
-  {
-    title: "6. Our rights",
-    content: (
-      <div className="space-y-4">
-        <p>We may:</p>
-        <ul className="ml-4 list-disc space-y-2">
-          <li>modify, suspend, or discontinue parts of the service</li>
-          <li>update these Terms from time to time</li>
-          <li>take reasonable action to protect thefalse and its users</li>
-        </ul>
-        <p>Any changes will be effective once posted.</p>
-      </div>
-    ),
-  },
-  {
-    title: "7. Important stuff",
-    content: (
-      <div className="space-y-4">
-        <p>By using thefalse, you agree to:</p>
-        <ul className="ml-4 list-disc space-y-2">
-          <li>follow these Terms</li>
-          <li>review and accept our Privacy Policy</li>
+          <li>Violate any law or encourage illegal activity</li>
+          <li>Infringe others&apos; intellectual property or privacy</li>
+          <li>Harass, abuse, defame, or threaten others</li>
+          <li>Impersonate any person or entity</li>
           <li>
-            understand that content posted by users reflects their own views,
-            not those of TheFalse
+            Distribute malware or attempt to compromise our systems or other
+            users
+          </li>
+          <li>
+            Scrape, automate access, or circumvent access controls without
+            permission
           </li>
         </ul>
-        <p className="pt-4">
-          If you have questions, contact us at:{" "}
+        <p>
+          We may remove content or suspend or terminate accounts that violate
+          these terms or that we reasonably believe harm the Service or others.
+          We are not obligated to monitor all content but may do so when we
+          choose.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "4. Intellectual Property",
+    content: (
+      <div className="space-y-4">
+        <p>
+          TheFalse and its branding, design, code, and other materials we
+          provide are owned by us or our licensors. You may not copy, modify, or
+          create derivative works of our Service or use our trademarks without
+          written permission.
+        </p>
+        <p>
+          Book metadata (titles, covers, descriptions) may be subject to
+          third-party rights; we use such information in accordance with our
+          data sources and applicable law.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "5. Privacy",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Your use of the Service is also governed by our{" "}
           <a
-            href="mailto:bkht@thefalse.net"
+            href="https://thefalse.net/privacy"
             className="text-foreground hover:underline"
           >
-            bkht@thefalse.net
+            Privacy Policy
           </a>
+          , which describes how we collect, use, and protect your information.
+          By using the Service, you consent to that policy.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "6. What We Store and What We Don't",
+    content: (
+      <div className="space-y-4">
+        <p>
+          <strong>What we store.</strong> To provide the Service, we store:
+        </p>
+        <ul className="ml-4 list-disc space-y-2">
+          <li>
+            <strong>Account information</strong> - email, username, name, profile
+            picture, bio, locale, and similar details you provide or that we
+            receive from sign-in providers.
+          </li>
+          <li>
+            <strong>Your content</strong> - notes, reflections, book reviews,
+            comments, and other content you create or post on the Service.
+          </li>
+          <li>
+            <strong>Reading data</strong> - books you add to your library,
+            reading status (e.g. want to read, currently reading, read),
+            optional dates, and reading-session data when you use those
+            features.
+          </li>
+          <li>
+            <strong>Social and activity data</strong> - who you follow, likes,
+            bookmarks, membership in circles and rooms, and similar data needed
+            to run the feed and social features.
+          </li>
+          <li>
+            <strong>Technical and safety data</strong> - session and account
+            metadata, logs needed to operate and secure the Service, and data we
+            are required to keep for legal or safety reasons.
+          </li>
+        </ul>
+        <p>
+          <strong>What we don't store / don't do.</strong> We are designed to be
+          privacy-respecting:
+        </p>
+        <ul className="ml-4 list-disc space-y-2">
+          <li>
+            <strong>Search history on our servers</strong>: Your recent searches
+            (e.g. last 15) are stored only on your device (e.g. in your
+            browser). We do not retain search history on our servers for the
+            long term or use it to build profiles about you.
+          </li>
+          <li>
+            <strong>No selling your data</strong>: We do not sell your personal
+            data or reading history to third parties.
+          </li>
+          <li>
+            <strong>No ads</strong>: We do not run ads or use your data for ad
+            targeting.
+          </li>
+          <li>
+            <strong>No hidden tracking</strong>: We do not use your searches or
+            reading activity to build marketing profiles, and we do not share
+            search or reading history with third parties for those purposes.
+          </li>
+        </ul>
+        <p>
+          For full details on collection, use, retention, and your rights, see
+          our{" "}
+          <a
+            href="https://thefalse.net/privacy"
+            className="text-foreground hover:underline"
+          >
+            Privacy Policy
+          </a>
+          .
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "7. Disclaimers",
+    content: (
+      <div className="space-y-4">
+        <p>
+          The Service is provided &quot;as is&quot; and &quot;as available.&quot;
+          We do not guarantee that it will be uninterrupted, error-free, or
+          free of harmful components. We are not responsible for the accuracy
+          of book metadata, third-party content, or content posted by users.
+          Reading recommendations and other features may be imperfect; use your
+          own judgment. Nothing in the Service constitutes professional (e.g.
+          legal or medical) advice.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "8. Limitation of Liability",
+    content: (
+      <div className="space-y-4">
+        <p>
+          To the fullest extent permitted by law, TheFalse and its affiliates,
+          officers, and employees shall not be liable for any indirect,
+          incidental, special, consequential, or punitive damages, or any loss
+          of profits, data, or goodwill, arising from your use of the Service.
+          Our total liability for any claims related to the Service shall not
+          exceed the amount you paid us in the twelve (12) months before the
+          claim (or one hundred U.S. dollars if you have not paid us). Some
+          jurisdictions do not allow certain limitations; in those cases, our
+          liability is limited to the maximum permitted.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "9. Termination",
+    content: (
+      <div className="space-y-4">
+        <p>
+          You may stop using the Service at any time. We may suspend or
+          terminate your access if you breach these terms or for other
+          operational or legal reasons. Upon termination, your right to use the
+          Service ends. We may retain and use your content as needed for legal
+          compliance, dispute resolution, and safety, subject to our Privacy
+          Policy. You may request deletion of your account and data as described
+          in our Privacy Policy.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "10. Changes to These Terms",
+    content: (
+      <div className="space-y-4">
+        <p>
+          We may update these Terms of Service from time to time. We will post
+          the updated terms on this page and update the &quot;Last updated&quot;
+          date. For material changes, we may notify you by email or through the
+          Service. Continued use of the Service after changes take effect means
+          you accept the new terms. If you do not agree, please stop using the
+          Service.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "11. General",
+    content: (
+      <div className="space-y-4">
+        <p>
+          These terms, together with our Privacy Policy and any other policies
+          we publish, constitute the entire agreement between you and TheFalse
+          regarding the Service. If any part of these terms is held invalid, the
+          rest remains in effect. Our failure to enforce a right does not waive
+          that right. These terms are governed by the laws of the jurisdiction
+          in which we operate, without regard to conflict of law principles. Any
+          disputes shall be resolved in the courts of that jurisdiction, except
+          where prohibited.
+        </p>
+      </div>
+    ),
+  },
+  {
+    title: "12. Contact",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Questions about these Terms of Service or the Service can be sent to
+          us via the contact or support options provided on{" "}
+          <a
+            href="https://thefalse.net"
+            className="text-foreground hover:underline"
+          >
+            thefalse.net
+          </a>{" "}
+          or through the application.
         </p>
       </div>
     ),
