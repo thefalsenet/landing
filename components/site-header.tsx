@@ -47,8 +47,8 @@ export function SiteHeader() {
           </Link>
         </nav>
 
-        <Button asChild size="sm" className="rounded-md">
-          <Link href="/app">Start reading</Link>
+        <Button asChild size="sm" className="rounded-md text-sm">
+          <Link href="/app">Get started</Link>
         </Button>
       </div>
     </header>
