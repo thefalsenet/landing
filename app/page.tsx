@@ -1,192 +1,161 @@
-import Countdown from "@/components/countdown";
-import BookCollectionInfinite from "@/components/book-collection-infinite";
 import { Button } from "@/components/ui/button";
-import FeaturesSection from "@/components/features-section";
-import HowItWorks from "@/components/how-it-works";
-import FAQSection from "@/components/faq-section";
-import CTASection from "@/components/cta-section";
-import MobileBookCollection from "@/components/mobile-book-collection";
-import BookshelfCarousel from "@/components/bookshelf-carousel";
-import WhatYouCanDo from "@/components/what-you-can-do";
 import Link from "next/link";
-import Image from "next/image";
-import axios from "axios";
-import { TestimonialCard } from "@/components/testimonial-card";
-import GradientBlinds from "@/components/GradientBlinds";
-import Silk from "@/components/Silk";
-import { Icons } from "@/components/icons";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
 
 export const metadata = {
-  title: "thefalse · Rethink reading.",
+  title: "TheFalse · A place to read and think.",
+  description: "Track what you read. Keep your thoughts. No algorithms, no noise.",
 };
 
 export default async function Home() {
   return (
     <>
       <SiteHeader />
+      
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden bg-bg-primary text-text-primary">
-        {/* Grid background */}
-        <div
-          className="pointer-events-none absolute inset-0 invert dark:invert-0"
-          style={{
-            backgroundImage: "url(/background-image.jpg)",
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 text-center">
-          <h1 className="font-serif text-4xl leading-tight md:text-6xl font-semibold">
-            Built for readers.
+      <section className="relative pt-32 pb-20 px-6">
+        <div className="mx-auto max-w-2xl flex flex-col items-center justify-center text-center min-h-[calc(100vh-8rem)]">
+          <h1 className="font-serif text-5xl md:text-6xl leading-tight text-foreground text-balance">
+            A place to read and think.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg text-text-secondary md:text-xl">
-            Track what you read. Share what you feel. Discover books, thoughts,
-            and voices — all in one place.
+          <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed text-balance">
+            Track the books you read. Write what you think. See how your understanding changes over time.
           </p>
 
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <Button size="lg" asChild>
-              <Link href="/app">Start reading</Link>
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 items-center">
+            <Button size="lg" asChild className="rounded-md">
+              <Link href="/app">Create an account</Link>
             </Button>
-
-            <span className="text-sm text-text-muted">
-              Built for readers who think, feel, and reflect.
-            </span>
+            <Button size="lg" variant="outline" asChild className="rounded-md">
+              <Link href="#explore">Or just look around</Link>
+            </Button>
           </div>
         </div>
-
-        {/* Floating elements */}
-        <FloatingElements />
       </section>
 
-      <section className="relative max-w-screen overflow-x-hidden px-6 py-40 md:py-56">
-        <div className="flex flex-col items-center">
-          <div className="text-center mb-16">
-            <h2 className="text-xl md:text-2xl font-display font-bold font-serif">
-              Talk Beyond the Page
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-snug text-center">
-              Your bookmarks, thoughts, and questions deserve an audience.
+      {/* What Actually Happens Here */}
+      <section id="explore" className="py-20 px-6 border-t border-border">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-balance">
+            What actually happens here
+          </h2>
+
+          <div className="space-y-8 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              You log books as you read them. It takes three seconds. Title, author, that's the start.
+            </p>
+            <p>
+              Then you add your thoughts whenever you want. Mid-book. After. Days later when something clicks.
+            </p>
+            <p>
+              You come back and see how your thinking changed. Which books mattered. Which ideas stuck with you.
+            </p>
+            <p>
+              That's it. No dashboards. No gamification. No pressure to keep streaks alive.
             </p>
           </div>
-          <div className="relative select-none">
-            <div className="frame-outer">
-              <div className="relative h-full overflow-hidden bg-background border- shadow w-screen lg:w-full">
-                <Image
-                  sizes="100vw"
-                  src={"/screenshot.png"}
-                  alt=""
-                  width={1302}
-                  height={1011}
-                />
-              </div>
+        </div>
+      </section>
+
+      {/* What This Is Not */}
+      <section className="py-20 px-6 border-t border-border bg-secondary/20">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-balance">
+            What this is not
+          </h2>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-foreground font-medium mb-2">Not social media.</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Your notes are private by default. You control what's visible. No algorithm deciding what you see.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-foreground font-medium mb-2">Not gamified.</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                No points. No levels. No fake urgency to keep you coming back. Reading isn't a performance.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-foreground font-medium mb-2">Not a ranking system.</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We're not trying to tell you what's worth reading. That's between you and the book.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-foreground font-medium mb-2">Not tracking you.</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                No behavioral analysis. No profiles sold to advertisers. Your reading is yours alone.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Bookshelf Carousel */}
-      <BookshelfCarousel />
+      {/* Who It's For */}
+      <section className="py-20 px-6 border-t border-border">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-balance">
+            Who it's for
+          </h2>
 
-      {/* What You Can Do Section */}
-      <WhatYouCanDo />
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            TheFalse is for people who read to understand, not to perform. If you care about what you read—if books change how you think—this is for you.
+          </p>
 
-      {/* How it Works Section */}
-      <HowItWorks />
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            If you want social validation, trending lists, or quick takes, you might find this quiet and slow. That might be the point.
+          </p>
+        </div>
+      </section>
 
-      {/* CTA Section */}
+      {/* Privacy and Ownership */}
+      <section className="py-20 px-6 border-t border-border bg-secondary/20">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-balance">
+            Privacy and ownership
+          </h2>
+
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              Your notes are yours. We don't publish them by default. You decide what to share, with whom, and when.
+            </p>
+            <p>
+              You can delete your account and all your data at any time. No waiting periods. No tricks.
+            </p>
+            <p>
+              We don't track your reading behavior. We don't use your data to train AI models or sell insights to third parties.
+            </p>
+            <p>
+              We think the books you read and the thoughts you have are sacred. We treat them accordingly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 px-6 border-t border-border">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-muted-foreground text-lg mb-8">
+            If this resonates, we'd like to have you here.
+          </p>
+          <Button size="lg" asChild className="rounded-md">
+            <Link href="/app">Create an account</Link>
+          </Button>
+          <p className="text-sm text-muted-foreground mt-6">
+            Or come back whenever you're ready.
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
       <Footer />
-    </>
-  );
-}
-
-function FloatingElements() {
-  return (
-    <>
-      {/* Top-left: Single Book */}
-      <div className="absolute left-24 top-24 hidden md:block pointer-events-none">
-        <div
-          className="relative rotate-12"
-          style={{
-            animation: "float-slow 6s ease-in-out infinite",
-          }}
-        >
-          <Image
-            src="/books_1f4da.png"
-            alt="Book"
-            width={180}
-            height={240}
-            className="image-border"
-            priority={false}
-          />
-        </div>
-      </div>
-
-      {/* Bottom-left: Stack of Books */}
-      <div className="absolute bottom-40 left-24 hidden md:block pointer-events-none">
-        <div
-          className="relative -rotate-6 dark:opacity-40"
-          style={{
-            animation: "float 8s ease-in-out infinite",
-            animationDelay: "1s",
-          }}
-        >
-          <Image
-            src="/pngwing.com.png"
-            alt="Stack of books"
-            width={200}
-            height={170}
-            className="drop-shadow-2xl"
-            priority={false}
-          />
-        </div>
-      </div>
-
-      {/* Top-right: Glasses */}
-      <div className="absolute right-24 top-24 hidden md:block pointer-events-none">
-        <div
-          className="relative rotate-6"
-          style={{
-            animation: "float-fast 5s ease-in-out infinite",
-            animationDelay: "0.5s",
-          }}
-        >
-          <Image
-            src="/Open Book Emoji.png"
-            alt="Reading glasses"
-            width={100}
-            height={60}
-            className="image-border"
-            priority={false}
-          />
-        </div>
-      </div>
-
-      {/* Bottom-right: Library Card */}
-      <div className="absolute bottom-12 right-24 hidden md:block pointer-events-none">
-        <div
-          className="relative -rotate-5 book-cover"
-          style={{
-            animation: "float-slow 7s ease-in-out infinite",
-            animationDelay: "1.5s",
-          }}
-        >
-          <Image
-            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1317793965i/11468377.jpg"
-            alt="Library card"
-            width={200}
-            height={130}
-            className="drop-shadow-2xl"
-            priority={false}
-          />
-        </div>
-      </div>
     </>
   );
 }
