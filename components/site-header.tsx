@@ -45,7 +45,7 @@ export function SiteHeader() {
       <nav className="w-full max-w-[1360px] mx-auto">
         <div className="mx-auto flex w-full items-center justify-between px-4 sm:px-8 py-4">
           <Link href="/" className="flex items-center">
-            <Icons.letterMark className="h-4" />
+            <Icons.letterMark className="h-4 w-auto" />
           </Link>
           <div className="flex items-center gap-2">
             <div className="hidden items-center gap-6 md:flex mr-6">

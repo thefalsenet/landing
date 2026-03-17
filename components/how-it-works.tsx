@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { cn } from "@/lib/utils";
 import { Search, BookOpen, PenTool, Share2 } from "lucide-react";
 import Image from "next/image";
 
@@ -31,31 +32,44 @@ function Step({ number, title, description, icon }: StepProps) {
 export default function HowItWorks() {
   const steps = [
     {
-      number: 1,
-      title: "Add a book",
-      description: "Search by title or author and start reading in seconds.",
-      icon: <Search className="size-6 stroke-[1.5]" />,
+      title: "Open TheFalse. Your shelf is ready.",
+      description:
+        "Every book you've read, are reading, or plan to — organized without effort. Reading, Done, Next. That's all it takes.",
+      bgUrl: "/bg-01.png",
+      imageUrl: "/book-stack.png",
+      onRight: false,
     },
     {
-      number: 2,
-      title: "Read & track",
+      title: "Noise is already gone.",
       description:
-        "Track your progress and reading sessions automatically or manually.",
-      icon: <BookOpen className="size-6 stroke-[1.5]" />,
+        "Your feed shows real readers and their honest thoughts — no trending lists, no sponsored picks. Just people who read like you do.",
+      bgUrl: "/bg-02.png",
+      imageUrl: "/feed.png",
+      onRight: false,
     },
     {
-      number: 3,
-      title: "Think & write",
+      title: "Explore with AI search",
       description:
-        "Highlight passages, write short thoughts, or save private notes.",
-      icon: <PenTool className="size-6 stroke-[1.5]" />,
+        'Search by mood, theme, or feeling — not just title. Ask for "books about trust and betrayal" and get results matched to your taste.',
+      bgUrl: "/bg-03.png",
+      imageUrl: "/ai-search.png",
+      onRight: true,
     },
     {
-      number: 4,
-      title: "Share & discuss",
+      title: "Track reading sessions",
       description:
-        "Share reflections, follow readers, or join discussions when you want.",
-      icon: <Share2 className="size-6 stroke-[1.5]" />,
+        "Log time spent reading — manually or with the built-in timer. See your reading history at a glance.",
+      bgUrl: "/bg-04.png",
+      imageUrl: "/reading-session.png",
+      onRight: false,
+    },
+    {
+      title: "Post notes as you read",
+      description:
+        "Share a thought, quote, or reaction while it's fresh. Post publicly, to followers, or keep it private.",
+      bgUrl: "/bg-05.png",
+      imageUrl: "/composer.png",
+      onRight: true,
     },
   ];
 
@@ -72,7 +86,20 @@ export default function HowItWorks() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div className="md:col-span-2"></div>
+          {steps.map((step, i) => (
+            <div
+              className={cn("md:col-span-1", i === 0 ? "md:col-span-2" : "")}
+              key={i}
+            >
+              <FeatureCard
+                bgUrl={step.bgUrl!}
+                imageUrl={step.imageUrl!}
+                description={step.description}
+                title={step.title}
+                onRight={step.onRight}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -84,6 +111,7 @@ interface FeatureCardProps {
   description?: string;
   bgUrl: string;
   imageUrl: string;
+  onRight: boolean;
 }
 
 function FeatureCard({
@@ -91,6 +119,7 @@ function FeatureCard({
   description,
   bgUrl,
   imageUrl,
+  onRight,
 }: FeatureCardProps) {
   return (
     <>
@@ -110,9 +139,14 @@ function FeatureCard({
               className="pointer-events-none select-none object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-          <div className="absolute inset-0 flex items-center p-6 justify-center">
+          <div
+            className={cn(
+              "absolute inset-0 flex items-center p-6 justify-center",
+              onRight ? "pr-0 justify-end" : "",
+            )}
+          >
             <img
-              src="/images/onboarding/mail-stack.svg"
+              src={imageUrl}
               alt={title}
               className="pointer-events-none select-none drop-shadow-lg max-h-[80%] w-auto"
             />
