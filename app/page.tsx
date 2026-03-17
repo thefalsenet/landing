@@ -36,8 +36,8 @@ export default async function Home() {
               </p>
             </header>
             <div className="flex items-center gap-3">
-              <Button className="h-8 px-3 text-sm cursor-pointer">
-                Start reading
+              <Button asChild className="h-8 px-3 text-sm cursor-pointer">
+                <Link href="/app">Start reading</Link>
               </Button>
               <Button
                 variant={"ghost"}
