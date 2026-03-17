@@ -2,42 +2,30 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function CTASection() {
   return (
-    <section className="py-28 px-6 w-full relative">
-      {/* Optional subtle divider line */}
+    <section className="w-full px-4 sm:px-8 pt-16 pb-4 md:pt-24 md:pb-6">
+      <div className="relative mx-auto w-full max-w-[1360px] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={"/bg-05.png"}
+            alt="TheFalse"
+            loading="lazy"
+            decoding="async"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1360px) 100vw, 1360px"
+          />
+        </div>
 
-      <div className="flex flex-col items-center text-center space-y-7">
-        {/* Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="font-serif leading-tight lg:to-primary inline-block text-center text-2xl font-bold text-white sm:text-4xl md:text-5xl lg:bg-linear-to-b lg:from-[#84878D] lg:via-[#84878D] lg:bg-clip-text lg:text-7xl lg:text-transparent"
-        >
-          <span>Start your </span> <br />
-          reading space
-        </motion.div>
-
-        {/* Supporting text */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="hidden flex-col items-center justify-start md:flex"
-        >
-          <div className="justify-start text-center text-lg font-normal leading-7 text-white lg:text-xl">
-            Create a quiet place for your books, thoughts, and conversations.
-            <br />
-            Join readers who care more about meaning than metrics.
-          </div>
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
-          <Button size="lg" variant={"secondary"} asChild>
-            <Link href="/app">Start reading</Link>
+        <div className="relative z-10 flex flex-col items-center space-y-6 text-center py-28 md:py-40">
+          <h2 className="text-4xl font-serif tracking-[-0.01em] leading-[1.1] text-white md:text-6xl">
+            Start reading today.
+          </h2>
+          <Button variant={"secondary"} className="h-8 px-2 text-sm" asChild>
+            <Link href="/app">Get started</Link>
           </Button>
         </div>
       </div>

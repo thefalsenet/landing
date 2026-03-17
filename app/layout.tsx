@@ -98,13 +98,13 @@ a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
             fontSans.variable,
-            fontSerif.variable
+            fontSerif.variable,
           )}
         >
           <div className="flex-none h-screen pointer-events-none fixed top-0 w-full z-[200]">
             <div className="noise" />
           </div>
-          {children}
+          <main className="w-full max-w-[1360px] mx-auto">{children}</main>
           <Analytics />
         </body>
       </html>

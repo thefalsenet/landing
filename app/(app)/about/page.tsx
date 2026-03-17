@@ -1,15 +1,18 @@
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "our story",
+  title: "TheFalse allows people to control what they read.",
   openGraph: {
-    title: "our story",
-    images: ["/og-about.jpg"],
+    title: "TheFalse allows people to control what they read.",
   },
   twitter: {
-    title: "our story",
-    images: ["/og-about.jpg"],
+    title: "TheFalse allows people to control what they read.",
   },
 };
 
@@ -21,16 +24,21 @@ export default function AboutPage() {
           <Card className="overflow-hidden border-none bg-muted/30 shadow-none">
             <CardHeader className="space-y-4 px-8 py-8">
               <div className="space-y-4 text-center">
-                <CardTitle className="text-3xl font-bold tracking-tight md:text-4xl font-serif">
-                  Our Story
+                <CardTitle className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] tracking-[-0.01em] leading-[100%] mb-2 pb-3 text-balance wrap-break-word hyphens-auto font-serif">
+                  TheFalse allows people to control what they read.
                 </CardTitle>
+                <CardDescription className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word">
+                  No algorithmic feed deciding what matters. No engagement
+                  optimization. Just people, books, and the freedom to shape
+                  your own experience.
+                </CardDescription>
               </div>
             </CardHeader>
 
             <div className="space-y-8 p-8">
               {sections.map((section) => (
                 <div key={section.title} className="p-6">
-                  <h2 className="mb-4 text-xl font-semibold tracking-tight font-serif">
+                  <h2 className="mb-4 text-xl font-medium tracking-tight font-serif">
                     {section.title}
                   </h2>
                   <div className="prose prose-sm max-w-none text-muted-foreground font-medium">
@@ -48,24 +56,7 @@ export default function AboutPage() {
 
 const sections = [
   {
-    title:
-      "thefalse is a social platform built on a simple idea: you should control what you see.",
-    content: (
-      <div className="space-y-4">
-        <p className="text-lg font-semibold text-foreground"></p>
-        <p>
-          No algorithmic feed deciding what matters. No engagement optimization.
-          No one telling you who to follow or what to care about.
-        </p>
-        <p>
-          Just people, conversations, and the freedom to shape your own
-          experience.
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: "Why thefalse exists",
+    title: "Why TheFalse exists",
     content: (
       <div className="space-y-4">
         <p>
@@ -77,14 +68,14 @@ const sections = [
           you based on what keeps you scrolling.
         </p>
         <p>
-          thefalse exists because we believe social media can be built
+          TheFalse exists because we believe social media can be built
           differently — where connection is the goal, not a byproduct.
         </p>
       </div>
     ),
   },
   {
-    title: "What makes thefalse different",
+    title: "What makes TheFalse different",
     content: (
       <div className="space-y-6">
         <div>
@@ -126,7 +117,7 @@ const sections = [
     ),
   },
   {
-    title: "What you can do on thefalse",
+    title: "What you can do on TheFalse",
     content: (
       <ul className="ml-4 list-disc space-y-2">
         <li>Share thoughts, images, and links</li>
@@ -138,7 +129,7 @@ const sections = [
     ),
   },
   {
-    title: "Who thefalse is for",
+    title: "Who TheFalse is for",
     content: (
       <div className="space-y-4">
         <p>
@@ -154,7 +145,7 @@ const sections = [
     ),
   },
   {
-    title: 'Why "thefalse"',
+    title: 'Why "TheFalse"',
     content: (
       <div className="space-y-4">
         <p>
@@ -173,7 +164,7 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p className="text-foreground font-semibold">
-          thefalse is still growing.
+          TheFalse is still growing.
         </p>
         <p>
           If you&apos;re tired of being optimized, tracked, and algorithmically
@@ -182,10 +173,10 @@ const sections = [
         <p>Want to get in touch? Reach out:</p>
         <div className="flex flex-col space-y-2 pt-2">
           <a
-            href="mailto:bkht@thefalse.net"
+            href="mailto:team@thefalse.net"
             className="inline-flex items-center text-foreground hover:underline"
           >
-            bkht@thefalse.net
+            team@thefalse.net
           </a>
         </div>
       </div>
