@@ -1,24 +1,15 @@
 import Balancer from "react-wrap-balancer";
 import { Button } from "@/components/ui/button";
-import FeaturesSection from "@/components/features-section";
 import HowItWorks from "@/components/how-it-works";
 import FAQSection from "@/components/faq-section";
 import CTASection from "@/components/cta-section";
-import MobileBookCollection from "@/components/mobile-book-collection";
-import BookshelfCarousel from "@/components/bookshelf-carousel";
-import WhatYouCanDo from "@/components/what-you-can-do";
 import Link from "next/link";
 import Image from "next/image";
-import axios from "axios";
-import { TestimonialCard } from "@/components/testimonial-card";
-import GradientBlinds from "@/components/GradientBlinds";
-import Silk from "@/components/Silk";
-import { Icons } from "@/components/icons";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
 
 export const metadata = {
-  title: "thefalse · Rethink reading.",
+  title: "TheFalse · Rethink reading.",
 };
 
 export default async function Home() {

@@ -23,7 +23,7 @@ export default function FaqPage() {
             <CardHeader className="space-y-4 px-8 py-8">
               <div className="space-y-2 text-center">
                 <CardTitle className="text-3xl font-bold tracking-tight md:text-4xl font-serif">
-                  FAQ
+                  Help
                 </CardTitle>
                 <p className="text-muted-foreground">
                   Find answers to common questions about TheFalse.
