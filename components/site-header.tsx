@@ -40,52 +40,41 @@ export function SiteHeader() {
 
   return (
     <div
-      className={`flex-none left-1/2 fixed top-0 -translate-x-1/2 w-full flex items-center content-center z-50 h-16 transition-all duration-200 ${
-        scrolled
-          ? "bg-background border-b"
-          : "dark:mix-blend-difference text-foreground/70"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md transition-[border-color] duration-200 border-b border-transparent`}
     >
-      <header className="container mx-auto px-4 md:px-6 flex items-center justify-between max-w-[1440px]">
-        <div>
-          <Link href="/" className="relative bottom-1.5 cursor-pointer">
-            <Icons.logo className="size-8" />
-            <span className="text-muted-foreground absolute -right-[-2px] text-[13px]">
-              beta
-            </span>
+      <nav className="w-full max-w-[1360px] mx-auto">
+        <div className="mx-auto flex w-full items-center justify-between px-4 sm:px-8 py-4">
+          <Link href="/" className="flex items-center">
+            <Icons.letterMark className="h-4" />
           </Link>
-        </div>
-        <nav>
-          <ul className="flex gap-8">
-            {navigation.map((item) => {
-              const isActive = item.href === pathname;
-              return (
-                <li key={item.name}>
+          <div className="flex items-center gap-2">
+            <div className="hidden items-center gap-6 md:flex mr-6">
+              {navigation.map((item) => {
+                const isActive = item.href === pathname;
+                return (
                   <Link
                     href={item.href}
+                    key={item.name}
                     className={cn(
-                      "text-sm font-medium text-muted-foreground/70 hover:text-muted-foreground transition-colors",
-                      isActive && "text-foreground"
+                      "text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+                      isActive && "text-foreground",
                     )}
                   >
                     {item.name}
                   </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-        <Button
-          asChild
-          variant={scrolled ? "default" : "link"}
-          className={cn(
-            "rounded-none font-semibold",
-            scrolled ? "" : "text-inherit"
-          )}
-        >
-          <Link href="/app">Start reading</Link>
-        </Button>
-      </header>
+                );
+              })}
+            </div>
+            <Button
+              asChild
+              variant={"default"}
+              className={cn("h-8 px-3 text-sm")}
+            >
+              <Link href="/app">Start reading</Link>
+            </Button>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 }

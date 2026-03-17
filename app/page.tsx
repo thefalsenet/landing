@@ -1,5 +1,4 @@
-import Countdown from "@/components/countdown";
-import BookCollectionInfinite from "@/components/book-collection-infinite";
+import Balancer from "react-wrap-balancer";
 import { Button } from "@/components/ui/button";
 import FeaturesSection from "@/components/features-section";
 import HowItWorks from "@/components/how-it-works";
@@ -27,75 +26,64 @@ export default async function Home() {
     <>
       <SiteHeader />
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden bg-bg-primary text-text-primary">
-        {/* Grid background */}
-        <div
-          className="pointer-events-none absolute inset-0 invert dark:invert-0"
-          style={{
-            backgroundImage: "url(/background-image.jpg)",
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
-
+      <section className="relative w-full overflow-x-hidden px-4 sm:px-8 pt-28 pb-12 md:pt-32 md:pb-20">
         {/* Content */}
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 text-center">
-          <h1 className="font-serif text-4xl leading-tight md:text-6xl font-semibold">
-            Built for readers.
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-lg text-text-secondary md:text-xl">
-            Track what you read. Share what you feel. Discover books, thoughts,
-            and voices — all in one place.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <Button size="lg" asChild>
-              <Link href="/app">Start reading</Link>
-            </Button>
-
-            <span className="text-sm text-text-muted">
-              Built for readers who think, feel, and reflect.
-            </span>
+        <div className="relative mx-auto flex w-full max-w-[1360px] flex-col items-start space-y-10">
+          <div className="flex max-w-[900px] flex-col items-start gap-4">
+            <header className="overflow-hidden text-left">
+              <h1 className="text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] tracking-[-0.01em] leading-[105%] mb-2 pb-3 text-balance font-serif wrap-break-word hyphens-auto text-foreground">
+                <Balancer>
+                  Reading platform for{" "}
+                  <span className="text-primary">thoughtful</span> readers.
+                </Balancer>
+              </h1>
+              <p className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word text-muted-foreground">
+                <Balancer>
+                  Track what you read. Share what you feel. Discover books
+                  through people — not algorithms. No ads, no streak pressure.
+                </Balancer>
+              </p>
+            </header>
+            <div className="flex items-center gap-3">
+              <Button className="h-8 px-3 text-sm cursor-pointer">
+                Start reading
+              </Button>
+              <Button
+                variant={"ghost"}
+                className="h-8 px-3 text-sm cursor-pointer"
+                asChild
+              >
+                <Link href={"#how-it-works"}>See how it works</Link>
+              </Button>
+            </div>
           </div>
-        </div>
-
-        {/* Floating elements */}
-        <FloatingElements />
-      </section>
-
-      <section className="relative max-w-screen overflow-x-hidden px-6 py-40 md:py-56">
-        <div className="flex flex-col items-center">
-          <div className="text-center mb-16">
-            <h2 className="text-xl md:text-2xl font-display font-bold font-serif">
-              Talk Beyond the Page
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-snug text-center">
-              Your bookmarks, thoughts, and questions deserve an audience.
-            </p>
-          </div>
-          <div className="relative select-none">
-            <div className="frame-outer">
-              <div className="relative h-full overflow-hidden bg-background border- shadow w-screen lg:w-full">
+          <div className="relative w-full">
+            <div className="pointer-events-none select-none absolute inset-0 overflow-hidden">
+              <Image
+                src={"/hero-bg.png"}
+                alt="Hero image"
+                loading="lazy"
+                decoding="async"
+                fill
+                className="absolute inset-0 h-full w-full object-cover blur-xs pointer-events-none select-none"
+              />
+            </div>
+            <div className="relative w-full max-w-[900px] mx-auto">
+              <div className="py-4">
                 <Image
-                  sizes="100vw"
-                  src={"/screenshot.png"}
-                  alt=""
-                  width={1302}
-                  height={1011}
+                  src={"/hero-img.png"}
+                  alt="TheFalse Demo"
+                  loading="lazy"
+                  decoding="async"
+                  width={1800}
+                  height={1284}
+                  className="w-full h-auto"
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Bookshelf Carousel */}
-      <BookshelfCarousel />
-
-      {/* What You Can Do Section */}
-      <WhatYouCanDo />
 
       {/* How it Works Section */}
       <HowItWorks />

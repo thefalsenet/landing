@@ -58,18 +58,18 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto relative">
-      <div className="flex flex-col items-center">
-        <div className="text-center mb-16 max-w-2xl">
-          <h2 className="text-2xl md:text-3xl font-serif font-semibold leading-tight mb-4">
+    <section className="w-full px-4 sm:px-8 py-16 md:py-24" id="how-it-works">
+      <div className="mx-auto w-full max-w-[1360px] space-y-10">
+        <div className="space-y-3 text-left">
+          <h2 className="text-2xl tracking-[-0.01em] leading-[100%] text-foreground font-serif md:text-3xl">
             How it works
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            A simple flow, built around reading.
+          <p className="text-sm text-muted-foreground md:text-base max-w-2xl">
+            Connect your reading. thefalse handles the rest.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 w-full">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {steps.map((step) => (
             <Step
               key={step.number}
