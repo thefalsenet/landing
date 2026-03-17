@@ -48,7 +48,7 @@ export function SiteHeader() {
             <Icons.letterMark className="h-4 w-auto" />
           </Link>
           <div className="flex items-center gap-2">
-            <div className="hidden items-center gap-6 md:flex mr-6">
+            {/* <div className="hidden items-center gap-6 md:flex mr-6">
               {navigation.map((item) => {
                 const isActive = item.href === pathname;
                 return (
@@ -64,7 +64,7 @@ export function SiteHeader() {
                   </Link>
                 );
               })}
-            </div>
+            </div> */}
             <Button
               asChild
               variant={"default"}
