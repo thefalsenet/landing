@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { Search, BookOpen, PenTool, Share2 } from "lucide-react";
+import Image from "next/image";
 
 interface StepProps {
   number: number;
@@ -70,17 +72,59 @@ export default function HowItWorks() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {steps.map((step) => (
-            <Step
-              key={step.number}
-              number={step.number}
-              title={step.title}
-              description={step.description}
-              icon={step.icon}
-            />
-          ))}
+          <div className="md:col-span-2"></div>
         </div>
       </div>
     </section>
+  );
+}
+
+interface FeatureCardProps {
+  title?: string;
+  description?: string;
+  bgUrl: string;
+  imageUrl: string;
+}
+
+function FeatureCard({
+  title,
+  description,
+  bgUrl,
+  imageUrl,
+}: FeatureCardProps) {
+  return (
+    <>
+      <div className="group flex h-full flex-col">
+        <div
+          className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden"
+          aria-label={title}
+        >
+          <div className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden">
+            <Image
+              src={bgUrl}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="pointer-events-none select-none object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div className="absolute inset-0 flex items-center p-6 justify-center">
+            <img
+              src="/images/onboarding/mail-stack.svg"
+              alt={title}
+              className="pointer-events-none select-none drop-shadow-lg max-h-[80%] w-auto"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-1.5 px-0.5 py-5">
+          <h3 className="text-base font-medium text-foreground">{title}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {description}
+          </p>
+        </div>
+      </div>
+    </>
   );
 }

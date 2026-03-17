@@ -65,6 +65,7 @@ export default async function Home() {
                 loading="lazy"
                 decoding="async"
                 fill
+                sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover blur-xs pointer-events-none select-none"
               />
             </div>
@@ -78,6 +79,7 @@ export default async function Home() {
                   width={1800}
                   height={1284}
                   className="w-full h-auto"
+                  sizes="(max-width: 768px) 100vw, 66vw"
                 />
               </div>
             </div>
