@@ -67,7 +67,7 @@ export default function HowItWorks() {
             How it works
           </h2>
           <p className="text-sm text-muted-foreground md:text-base max-w-2xl">
-            Connect your reading. thefalse handles the rest.
+            Connect your reading. TheFalse handles the rest.
           </p>
         </div>
 
