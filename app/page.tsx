@@ -90,7 +90,11 @@ export default async function Home() {
       {/* How it Works Section */}
       <HowItWorks />
 
+      <FAQSection />
+
       {/* CTA Section */}
+      <CTASection />
+
       <Footer />
     </>
   );
