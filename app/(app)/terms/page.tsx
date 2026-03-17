@@ -1,11 +1,13 @@
 "use client";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Link2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Footer from "@/components/footer";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Link2 } from "lucide-react";
 import { createSectionId } from "@/lib/utils";
-import React from "react";
 
 const LAST_UPDATED = "January 6, 2026";
 
@@ -24,14 +26,12 @@ export default function TermsOfService() {
           <Card className="overflow-hidden rounded-xl border-none bg-muted/30">
             <CardHeader className="space-y-4 px-8 py-8">
               <div className="space-y-2 text-center">
-                <CardTitle className="text-3xl font-bold tracking-tight md:text-4xl font-serif">
+                <CardTitle className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] tracking-[-0.01em] leading-[100%] mb-2 pb-3 text-balance wrap-break-word hyphens-auto font-serif">
                   Terms of Service
                 </CardTitle>
-                <div className="flex items-center justify-center gap-2">
-                  <p className="text-sm text-muted-foreground">
-                    Last updated: {LAST_UPDATED}
-                  </p>
-                </div>
+                <CardDescription className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word">
+                  Last updated: {LAST_UPDATED}
+                </CardDescription>
               </div>
             </CardHeader>
 
@@ -85,7 +85,7 @@ const sections = [
     title: "1. What we're about",
     content: (
       <div className="space-y-4">
-        <p>thefalse is built for readers and thoughtful interaction.</p>
+        <p>TheFalse is built for readers and thoughtful interaction.</p>
         <p>
           We believe in authenticity, privacy, and meaningful conversation. Our
           platform is designed to be a quieter space — one that values
@@ -120,7 +120,7 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p>
-          thefalse allows users to post content related to books and reading,
+          TheFalse allows users to post content related to books and reading,
           including thoughts, highlights, and short reflections.
         </p>
         <p>You retain ownership of the content you create.</p>
@@ -157,7 +157,7 @@ const sections = [
     title: "5. Platform moderation",
     content: (
       <div className="space-y-4">
-        <p>thefalse does not actively monitor all content.</p>
+        <p>TheFalse does not actively monitor all content.</p>
         <p>
           However, we reserve the right to remove content or restrict accounts
           if necessary to protect the platform, comply with legal obligations,
@@ -175,7 +175,7 @@ const sections = [
         <ul className="ml-4 list-disc space-y-2">
           <li>modify, suspend, or discontinue parts of the service</li>
           <li>update these Terms from time to time</li>
-          <li>take reasonable action to protect thefalse and its users</li>
+          <li>take reasonable action to protect TheFalse and its users</li>
         </ul>
         <p>Any changes will be effective once posted.</p>
       </div>
@@ -197,10 +197,10 @@ const sections = [
         <p className="pt-4">
           If you have questions, contact us at:{" "}
           <a
-            href="mailto:bkht@thefalse.net"
+            href="mailto:team@thefalse.net"
             className="text-foreground hover:underline"
           >
-            bkht@thefalse.net
+            team@thefalse.net
           </a>
         </p>
       </div>

@@ -27,7 +27,7 @@ export default function AboutPage() {
                 <CardTitle className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] tracking-[-0.01em] leading-[100%] mb-2 pb-3 text-balance wrap-break-word hyphens-auto font-serif">
                   TheFalse allows people to control what they read.
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word">
                   No algorithmic feed deciding what matters. No engagement
                   optimization. Just people, books, and the freedom to shape
                   your own experience.
@@ -75,7 +75,7 @@ const sections = [
     ),
   },
   {
-    title: "What makes thefalse different",
+    title: "What makes TheFalse different",
     content: (
       <div className="space-y-6">
         <div>

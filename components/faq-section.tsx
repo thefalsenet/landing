@@ -28,13 +28,13 @@ export default function FAQSection() {
               reflect. It tracks your books, lets you share thoughts and
               highlights, and surfaces readers worth following — without ads,
               algorithms, or streak pressure. If you find Goodreads too static
-              and Twitter too fast, thefalse is for you.
+              and Twitter too fast, TheFalse is for you.
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-2" className="border">
             <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              How isit different from Goodreads?
+              How is it different from Goodreads?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
               Goodreads is a database with social features bolted on. thefalse
@@ -76,9 +76,9 @@ export default function FAQSection() {
               Is TheFalse free?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              OuTheFalse is free to join and use. You can sign up at
-              thefalse.net — no waitlist, no invite required. The platform is
-              live and open right now.
+              TheFalse is free to join and use. You can sign up at thefalse.net
+              — no waitlist, no invite required. The platform is live and open
+              right now.
             </AccordionContent>
           </AccordionItem>
 
