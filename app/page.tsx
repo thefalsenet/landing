@@ -24,20 +24,20 @@ export default async function Home() {
             <header className="overflow-hidden text-left">
               <h1 className="text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] tracking-[-0.01em] leading-[105%] mb-2 pb-3 text-balance font-serif wrap-break-word hyphens-auto text-foreground">
                 <Balancer>
-                  Reading platform for{" "}
-                  <span className="text-primary">thoughtful</span> readers.
+                  What you believe today may be wrong tomorrow.
                 </Balancer>
               </h1>
               <p className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word text-muted-foreground">
                 <Balancer>
-                  Track what you read. Share what you feel. Discover books
-                  through people — not algorithms. No ads, no streak pressure.
+                  A reading platform where books start conversations, not just
+                  finish them. Track what you&apos;ve read. Write what it meant.
+                  Find the people worth reading with.
                 </Balancer>
               </p>
             </header>
             <div className="flex items-center gap-3">
               <Button asChild className="h-8 px-3 text-sm cursor-pointer">
-                <Link href="/app">Start reading</Link>
+                <Link href="/app">Open your library</Link>
               </Button>
               <Button
                 variant={"ghost"}

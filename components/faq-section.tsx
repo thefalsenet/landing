@@ -24,11 +24,11 @@ export default function FAQSection() {
               What is TheFalse and who is it for?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              TheFalse is a reading platform built for readers who think and
-              reflect. It tracks your books, lets you share thoughts and
-              highlights, and surfaces readers worth following — without ads,
-              algorithms, or streak pressure. If you find Goodreads too static
-              and Twitter too fast, TheFalse is for you.
+              A reading platform built for people who read to think. It tracks
+              your books, lets you share reflections and highlights, and
+              surfaces readers worth following — without ads, algorithms, or
+              streak pressure. If you find Goodreads too static and Twitter too
+              fast, this is built for you.
             </AccordionContent>
           </AccordionItem>
 
@@ -37,8 +37,8 @@ export default function FAQSection() {
               How is it different from Goodreads?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              Goodreads is a database with social features bolted on. thefalse
-              is built around the feed and conversation first. No ads, no
+              Goodreads is a database with social features bolted on. TheFalse
+              is built around reading as a thinking practice. No ads, no
               sponsored picks, no star ratings as the only way to express what a
               book meant to you. We surface thoughtful readers, not popular
               titles.
@@ -50,11 +50,10 @@ export default function FAQSection() {
               What does the name mean?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              The name reflects a core idea: what we believe today may turn out
-              to be false tomorrow. Books expose us to different perspectives,
-              challenge assumptions, and expand how we see the world. TheFalse
-              is a place where it&apos;s okay — even encouraged — to question
-              what you think you know.
+              What we believe today may turn out to be false tomorrow. Books
+              expose us to different perspectives, challenge assumptions, and
+              expand how we see the world. TheFalse is a place where it&apos;s
+              okay — even encouraged — to question what you think you know.
             </AccordionContent>
           </AccordionItem>
 
@@ -63,11 +62,11 @@ export default function FAQSection() {
               How does discovery work if there&apos;s no algorithm?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              Discovery on TheFalse happens through people, not systems. When
-              someone you follow starts a book, writes a note, or shares a
-              reflection, you see it in your feed — in chronological order.
-              Books spread the same way good ideas spread: through curiosity and
-              conversation, not through a ranked recommendation engine.
+              Through people. When someone you follow starts a book, writes a
+              note, or shares a reflection, you see it in your feed — in
+              chronological order. Books spread the same way good ideas spread:
+              through curiosity and conversation, not through a ranked
+              recommendation engine.
             </AccordionContent>
           </AccordionItem>
 
@@ -76,9 +75,9 @@ export default function FAQSection() {
               Is TheFalse free?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              TheFalse is free to join and use. You can sign up at thefalse.net
-              — no waitlist, no invite required. The platform is live and open
-              right now.
+              Free to join and use — no waitlist, no invite required. The
+              platform is live now. A paid tier unlocks the Library Agent and
+              additional features for readers who want more.
             </AccordionContent>
           </AccordionItem>
 
