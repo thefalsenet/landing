@@ -25,7 +25,7 @@ export default function CTASection() {
             Start reading today.
           </h2>
           <Button variant={"secondary"} className="h-8 px-2 text-sm" asChild>
-            <Link href="/app">Get started</Link>
+            <Link href="/app">Open your library</Link>
           </Button>
         </div>
       </div>

@@ -32,9 +32,9 @@ function Step({ number, title, description, icon }: StepProps) {
 export default function HowItWorks() {
   const steps = [
     {
-      title: "Open TheFalse. Your shelf is ready.",
+      title: "Your library, finally organized",
       description:
-        "Every book you've read, are reading, or plan to — organized without effort. Reading, Done, Next. That's all it takes.",
+        "Add books in seconds. Mark them reading, finished, or abandoned. Track time. Build the reading history you never had — without spreadsheets or guilt.",
       bgUrl: "/bg-01.png",
       imageUrl: "/book-stack.png",
       onRight: false,
@@ -42,7 +42,7 @@ export default function HowItWorks() {
     {
       title: "Noise is already gone.",
       description:
-        "Your feed shows real readers and their honest thoughts — no trending lists, no sponsored picks. Just people who read like you do.",
+        "Your feed shows real readers and their honest thoughts — in the order they wrote them. No trending lists. No sponsored picks. No algorithm deciding what matters.",
       bgUrl: "/bg-02.png",
       imageUrl: "/feed.png",
       onRight: false,
@@ -81,7 +81,9 @@ export default function HowItWorks() {
             How it works
           </h2>
           <p className="text-sm text-muted-foreground md:text-base max-w-2xl">
-            Connect your reading. TheFalse handles the rest.
+            Reading, made worth keeping. Everything you&apos;ve read, thought,
+            and underlined — in one place that doesn&apos;t try to sell you
+            anything.
           </p>
         </div>
 
