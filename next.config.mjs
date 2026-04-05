@@ -18,6 +18,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "pic.thefalse.net",
       },
+      {
+        protocol: "https",
+        hostname: "media.licdn.com",
+      },
     ],
   },
   async redirects() {
