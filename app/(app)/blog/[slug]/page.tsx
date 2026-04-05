@@ -34,10 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: post.date,
       url: `${siteConfig.url}/blog/${post.slug}`,
+      authors: post.authors.map((author) => author.name),
+      images: [post.coverImage],
     },
     twitter: {
       title: post.title,
       description: post.excerpt,
+      images: [post.coverImage],
     },
   };
 }
