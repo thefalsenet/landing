@@ -4,7 +4,7 @@ import { whyWeBuiltAiReadingHistoryBlocks } from "./blog-why-we-built-blocks";
 export type { BlogAuthor, BlogContentBlock, BlogPost } from "./blog-types";
 
 const whyWeBuiltAiReadingHistoryPost: BlogPost = {
-  slug: "why-we-built-an-ai-that-knows-your-reading-history",
+  slug: "why-we-built-an-ai-agent",
   title: "Why We Built an AI That Knows Your Reading History",
   date: "2026-04-06",
   excerpt:
