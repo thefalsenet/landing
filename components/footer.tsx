@@ -67,7 +67,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={"#"}
+                  href={"/blog"}
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                 >
                   Blog
