@@ -57,12 +57,12 @@ export default async function BlogPostPage({ params }: Props) {
       <div className="relative z-10 flex grow flex-col">
         <div className="mx-auto w-full max-w-[1360px] px-4 pb-20 pt-28 sm:px-8 md:pt-32">
           <div className="mb-10 grid gap-8 lg:mb-14 lg:grid-cols-[minmax(0,200px)_1fr] lg:gap-12 xl:grid-cols-[minmax(0,220px)_1fr]">
-            <aside className="flex flex-row gap-4 lg:flex-col lg:gap-4 text-sm text-muted-foreground lg:pt-1">
-              <time dateTime={post.date} className="hidden lg:block">
+            <aside className="order-2 flex flex-row items-center gap-4 lg:order-1 lg:flex-col lg:items-start lg:gap-4 text-sm text-muted-foreground lg:pt-1">
+              <time dateTime={post.date}>
                 {dateFormatter.format(new Date(post.date))}
               </time>
               {post.authors.map((author) => (
-                <div className="flex flex-col lg:flex-row lg:items-center lg:gap-2.5 items-center gap-2" key={author.name}>
+                <div className="flex flex-row items-center gap-2 lg:gap-2.5" key={author.name}>
                   {author.avatar ? (
                     <Image
                       src={author.avatar}
@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
               ))}
             </aside>
-            <div className="min-w-0">
+            <div className="order-1 min-w-0 lg:order-2">
               <h1 className="font-serif text-[1.875rem] leading-[1.12] tracking-[-0.01em] text-foreground sm:text-[2.25rem] md:text-[2.75rem]">
                 {post.title}
               </h1>
