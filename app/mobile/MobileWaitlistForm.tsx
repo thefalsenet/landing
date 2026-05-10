@@ -48,7 +48,9 @@ export function MobileWaitlistForm() {
 
     if (result.success) {
       toast.success(result.message);
-      const form = document.getElementById("mobile-waitlist-form") as HTMLFormElement;
+      const form = document.getElementById(
+        "mobile-waitlist-form",
+      ) as HTMLFormElement;
       form?.reset();
     } else {
       toast.error(result.message);
@@ -78,7 +80,7 @@ export function MobileWaitlistForm() {
             name="email"
             required
             data-slot="input"
-            className="file:text-gray-1000 selection:bg-background-100 selection:text-gray-1000 flex min-w-0 px-3 py-1 text-base shadow-xs outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm aria-invalid:ring-red-500/20 dark:aria-invalid:ring-red-500/40 aria-invalid:border-red-500 bg-input border border-foreground !text-[16px] sm:!text-[14px] placeholder:text-muted-foreground pl-[15px] focus-visible:border-foreground focus-visible:ring-none focus-visible:ring-0 h-[46px] sm:h-9 transition-all w-70 duration-500 ease-out flex-shrink-0"
+            className="file:text-gray-1000 selection:bg-background-100 selection:text-gray-1000 flex min-w-0 px-3 py-1 text-base shadow-xs outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm aria-invalid:ring-red-500/20 dark:aria-invalid:ring-red/40 aria-invalid:border-red bg-input border border-foreground !text-[16px] sm:!text-[14px] placeholder:text-muted-foreground pl-[15px] focus-visible:border-foreground focus-visible:ring-none focus-visible:ring-0 h-[46px] sm:h-9 transition-all w-full duration-500 ease-out flex-shrink-0"
             placeholder="Join the waitlist…"
             autoCapitalize="off"
             spellCheck={false}
