@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import { Metadata, Viewport } from "next";
+import Script from "next/script";
 
 import { siteConfig } from "@/config/site";
 import { fontSans, fontSerif } from "@/lib/font";
@@ -76,17 +77,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning className="scroll-smooth light">
         <head>
-          <script>
+          <Script id="twitter-pixel" strategy="afterInteractive">
             {`!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
 },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
 a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
           twq("config", "ph0w1");`}
-          </script>
-          <script
-            async
+          </Script>
+          <Script
+            id="adsense"
+            strategy="afterInteractive"
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6923394810941229"
             crossOrigin="anonymous"
-          ></script>
+          />
           <link
             rel="search"
             type="application/opensearchdescription+xml"

@@ -1,6 +1,6 @@
 import {
   JetBrains_Mono as FontMono,
-  Manrope as FontSans,
+  Lato as FontSans,
   Lora as FontSerif,
 } from "next/font/google";
 import localFont from "next/font/local";
@@ -8,6 +8,7 @@ import localFont from "next/font/local";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
   variable: "--font-sans",
 });
 
