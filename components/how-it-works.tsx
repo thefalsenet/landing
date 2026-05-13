@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { Search, BookOpen, PenTool, Share2 } from "lucide-react";
 import Image from "next/image";
+import type { LandingDictionary } from "@/lib/i18n-shared";
 
 interface StepProps {
   number: number;
@@ -29,44 +30,43 @@ function Step({ number, title, description, icon }: StepProps) {
   );
 }
 
-export default function HowItWorks() {
+interface HowItWorksProps {
+  copy: LandingDictionary["howItWorks"];
+}
+
+export default function HowItWorks({ copy }: HowItWorksProps) {
   const steps = [
     {
-      title: "Read inside the app",
-      description:
-        "TheFalse is moving to mobile so reading can happen here, not somewhere else first. Open a book, stay in the session, and let the interface get out of the way.",
+      title: copy.steps[0].title,
+      description: copy.steps[0].description,
       bgUrl: "/bg-01.png",
       imageUrl: "/book-stack.png",
       onRight: false,
     },
     {
-      title: "Highlight and reflect",
-      description:
-        "Save the lines that matter, keep your place, and turn finishing a book into reflection instead of a forgotten checkmark.",
+      title: copy.steps[1].title,
+      description: copy.steps[1].description,
       bgUrl: "/bg-02.png",
       imageUrl: "/feed.png",
       onRight: false,
     },
     {
-      title: "Discover through readers",
-      description:
-        "Community still matters, but it follows reading. Find books through thoughtful people, overlap, and real signals rather than generic popularity.",
+      title: copy.steps[2].title,
+      description: copy.steps[2].description,
       bgUrl: "/bg-03.png",
       imageUrl: "/ai-search.png",
       onRight: true,
     },
     {
-      title: "Track a serious reading life",
-      description:
-        "Build a reading history that actually understands what you started, finished, revisited, and carried forward.",
+      title: copy.steps[3].title,
+      description: copy.steps[3].description,
       bgUrl: "/bg-04.png",
       imageUrl: "/reading-session.png",
       onRight: false,
     },
     {
-      title: "Use the agent with context",
-      description:
-        "The Library Agent is meant to become useful because it understands your books, highlights, and patterns, not because it talks loudly.",
+      title: copy.steps[4].title,
+      description: copy.steps[4].description,
       bgUrl: "/bg-05.png",
       imageUrl: "/composer.png",
       onRight: true,
@@ -78,12 +78,10 @@ export default function HowItWorks() {
       <div className="mx-auto w-full max-w-[1360px] space-y-10">
         <div className="space-y-3 text-left">
           <h2 className="text-2xl tracking-[-0.01em] leading-[100%] text-foreground font-serif md:text-3xl">
-            What&apos;s changing
+            {copy.title}
           </h2>
           <p className="text-sm text-muted-foreground md:text-base max-w-2xl">
-            TheFalse is narrowing into a mobile reading product: read here,
-            highlight here, reflect here, and let community and AI support the
-            reading loop instead of distracting from it.
+            {copy.description}
           </p>
         </div>
 

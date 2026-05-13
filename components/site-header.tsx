@@ -5,8 +5,18 @@ import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import type { SupportedLocale } from "@/lib/i18n-shared";
 
-export function SiteHeader() {
+interface SiteHeaderProps {
+  ctaLabel?: string;
+  currentLocale?: SupportedLocale;
+}
+
+export function SiteHeader({
+  ctaLabel = "Join early access",
+  currentLocale = "en",
+}: SiteHeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -42,12 +52,13 @@ export function SiteHeader() {
             <Icons.letterMark className="h-5 w-auto" />
           </Link>
           <div className="flex items-center gap-2">
+            <LanguageSwitcher currentLocale={currentLocale} />
             <Button
               asChild
               variant={"default"}
               className={cn("h-8 px-3 text-sm")}
             >
-              <Link href="/mobile">Join early access</Link>
+              <Link href="/mobile">{ctaLabel}</Link>
             </Button>
           </div>
         </div>

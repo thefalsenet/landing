@@ -7,45 +7,44 @@ import Link from "next/link";
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
+import { getLandingCopy } from "@/lib/i18n";
 
-export const metadata = {
-  title: "TheFalse · Mobile reading, rebuilt with intention",
-  description:
-    "TheFalse is being rebuilt as a mobile reading product: read in the app, highlight what matters, reflect with continuity, and join early access to the beta.",
-};
+export async function generateMetadata() {
+  const { copy } = await getLandingCopy();
+
+  return {
+    title: copy.meta.homeTitle,
+    description: copy.meta.homeDescription,
+  };
+}
 
 export default async function Home() {
+  const { locale, copy } = await getLandingCopy();
+
   return (
     <>
-      <SiteHeader />
+      <SiteHeader ctaLabel={copy.header.cta} currentLocale={locale} />
       <section className="relative w-full overflow-x-hidden px-4 sm:px-8 pt-28 pb-12 md:pt-32 md:pb-20">
         <div className="relative mx-auto flex w-full max-w-[1360px] flex-col items-start space-y-10">
           <div className="flex max-w-[900px] flex-col items-start gap-4">
             <header className="overflow-hidden text-left">
               <h1 className="text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] tracking-[-0.01em] leading-[105%] mb-2 pb-3 text-balance font-serif wrap-break-word hyphens-auto text-foreground">
-                <Balancer>
-                  TheFalse is being rebuilt for mobile, with reading at the
-                  center.
-                </Balancer>
+                <Balancer>{copy.home.title}</Balancer>
               </h1>
               <p className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word text-muted-foreground">
-                <Balancer>
-                  Read inside the app, highlight what matters, reflect while a
-                  book is still alive, and discover readers worth following
-                  without turning the experience into noise.
-                </Balancer>
+                <Balancer>{copy.home.description}</Balancer>
               </p>
             </header>
             <div className="flex items-center gap-3">
               <Button asChild className="h-8 px-3 text-sm cursor-pointer">
-                <Link href="/mobile">Join early access</Link>
+                <Link href="/mobile">{copy.home.primaryCta}</Link>
               </Button>
               <Button
                 variant={"ghost"}
                 className="h-8 px-3 text-sm cursor-pointer"
                 asChild
               >
-                <Link href={"#how-it-works"}>See what&apos;s changing</Link>
+                <Link href={"#how-it-works"}>{copy.home.secondaryCta}</Link>
               </Button>
             </div>
           </div>
@@ -79,9 +78,9 @@ export default async function Home() {
         </div>
       </section>
 
-      <HowItWorks />
-      <FAQSection />
-      <CTASection />
+      <HowItWorks copy={copy.howItWorks} />
+      <FAQSection copy={copy.faq} />
+      <CTASection copy={copy.cta} />
       <Footer />
     </>
   );

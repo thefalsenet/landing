@@ -3,7 +3,7 @@ export const siteConfig = {
   url: "https://thefalse.net",
   ogImage: "https://thefalse.net/og.jpg",
   description:
-    "TheFalse is being rebuilt as a mobile reading product for serious readers: read in the app, highlight what matters, reflect with continuity, and join early access to the beta.",
+    "TheFalse is being rebuilt as a mobile reading product for serious readers.",
   links: {
     twitter: "https://twitter.com/thefalsenet",
     instagram: "https://instagram.com/thefalsenet",
