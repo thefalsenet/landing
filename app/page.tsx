@@ -53,7 +53,7 @@ export default async function Home() {
               <Image
                 src={"/hero-bg.png"}
                 alt="Hero image"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 fill
                 sizes="100vw"
