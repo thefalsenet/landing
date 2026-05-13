@@ -21,27 +21,24 @@ export default function FAQSection() {
         <Accordion type="single" collapsible className="space-y-3">
           <AccordionItem value="item-1" className="border">
             <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              What is TheFalse and who is it for?
+              What is changing about TheFalse?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              A reading platform built for people who read to think. It tracks
-              your books, lets you share reflections and highlights, and
-              surfaces readers worth following — without ads, algorithms, or
-              streak pressure. If you find Goodreads too static and Twitter too
-              fast, this is built for you.
+              TheFalse is being rebuilt around mobile. The product direction is
+              narrower now: in-app reading, highlights, reflection, thoughtful
+              discovery, and a calmer experience that takes reading seriously.
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-2" className="border">
             <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              How is it different from Goodreads?
+              Why move to mobile first?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              Goodreads is a database with social features bolted on. TheFalse
-              is built around reading as a thinking practice. No ads, no
-              sponsored picks, no star ratings as the only way to express what a
-              book meant to you. We surface thoughtful readers, not popular
-              titles.
+              Because the next version of the product is meant to be where
+              reading actually happens. The goal is not just to track books
+              read elsewhere, but to let reading, notes, and reflection happen
+              in one continuous flow.
             </AccordionContent>
           </AccordionItem>
 
@@ -59,25 +56,23 @@ export default function FAQSection() {
 
           <AccordionItem value="item-5" className="border">
             <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              How does discovery work if there&apos;s no algorithm?
+              Is this still a social reading product?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              Through people. When someone you follow starts a book, writes a
-              note, or shares a reflection, you see it in your feed — in
-              chronological order. Books spread the same way good ideas spread:
-              through curiosity and conversation, not through a ranked
-              recommendation engine.
+              Yes, but reading comes first. Community should help you discover
+              good books and thoughtful people, not turn the product into a
+              generic engagement feed.
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-6" className="border">
             <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              Is TheFalse free?
+              Can I join now?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              Free to join and use — no waitlist, no invite required. The
-              platform is live now. A paid tier unlocks the Library Agent and
-              additional features for readers who want more.
+              Yes. Early-access signups are open while the mobile product is
+              taking shape. Joining the waitlist is the best way to hear when
+              new reader cohorts open.
             </AccordionContent>
           </AccordionItem>
 
@@ -86,11 +81,9 @@ export default function FAQSection() {
               Who is TheFalse for?
             </AccordionTrigger>
             <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              TheFalse is for people who read to think, not just to finish. If
-              you find most social media too fast and Goodreads too passive,
-              you&apos;ll feel at home here. Readers who like writing, who
-              follow ideas, who want to discuss a book rather than just log it —
-              this is built for you.
+              Readers who want more than a catalog and less than a noisy social
+              app. If you care about highlighting, reflection, and building a
+              reading history that feels intellectually useful, this is for you.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

@@ -6,12 +6,6 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
-const navigation = [
-  { name: "About", href: "/about" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Feedback", href: "/feedback" },
-];
-
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -48,29 +42,12 @@ export function SiteHeader() {
             <Icons.letterMark className="h-5 w-auto" />
           </Link>
           <div className="flex items-center gap-2">
-            {/* <div className="hidden items-center gap-6 md:flex mr-6">
-              {navigation.map((item) => {
-                const isActive = item.href === pathname;
-                return (
-                  <Link
-                    href={item.href}
-                    key={item.name}
-                    className={cn(
-                      "text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
-                      isActive && "text-foreground",
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
-            </div> */}
             <Button
               asChild
               variant={"default"}
               className={cn("h-8 px-3 text-sm")}
             >
-              <Link href="/mobile">Get early access</Link>
+              <Link href="/mobile">Join early access</Link>
             </Button>
           </div>
         </div>

@@ -22,10 +22,10 @@ export default function CTASection() {
 
         <div className="relative z-10 flex flex-col items-center space-y-6 text-center py-28 md:py-40">
           <h2 className="text-4xl font-serif tracking-[-0.01em] leading-[1.1] text-white md:text-6xl">
-            Start reading today.
+            Join the mobile reading beta.
           </h2>
           <Button variant={"secondary"} className="h-8 px-2 text-sm" asChild>
-            <Link href="/mobile">Open your library</Link>
+            <Link href="/mobile">Join early access</Link>
           </Button>
         </div>
       </div>

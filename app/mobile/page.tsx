@@ -1,7 +1,14 @@
+import { Metadata } from "next";
 import { Icons } from "@/components/icons";
 import LightRays from "@/components/LightRays/LightRays";
 import { Toaster } from "@/components/ui/sonner";
 import { MobileWaitlistForm } from "./MobileWaitlistForm";
+
+export const metadata: Metadata = {
+  title: "TheFalse Mobile · Early access",
+  description:
+    "Join early access for TheFalse Mobile, a calm reading product built around in-app reading, highlights, and reflection.",
+};
 
 export default function Mobile() {
   return (
@@ -15,10 +22,11 @@ export default function Mobile() {
 
         <div>
           <h1 className="text-4xl font-medium text-balance text-center font-serif">
-            A quiet place for readers.
+            A calm reading app, built for mobile.
           </h1>
           <p className="text-2xl text-muted-foreground text-center">
-            Sign-ups are paused while we keep things calm and usable.
+            Early access is open while we shape the reading, highlights, and
+            reflection loop.
           </p>
         </div>
 

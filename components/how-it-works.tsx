@@ -32,41 +32,41 @@ function Step({ number, title, description, icon }: StepProps) {
 export default function HowItWorks() {
   const steps = [
     {
-      title: "Your library, finally organized",
+      title: "Read inside the app",
       description:
-        "Add books in seconds. Mark them reading, finished, or abandoned. Track time. Build the reading history you never had — without spreadsheets or guilt.",
+        "TheFalse is moving to mobile so reading can happen here, not somewhere else first. Open a book, stay in the session, and let the interface get out of the way.",
       bgUrl: "/bg-01.png",
       imageUrl: "/book-stack.png",
       onRight: false,
     },
     {
-      title: "Noise is already gone.",
+      title: "Highlight and reflect",
       description:
-        "Your feed shows real readers and their honest thoughts — in the order they wrote them. No trending lists. No sponsored picks. No algorithm deciding what matters.",
+        "Save the lines that matter, keep your place, and turn finishing a book into reflection instead of a forgotten checkmark.",
       bgUrl: "/bg-02.png",
       imageUrl: "/feed.png",
       onRight: false,
     },
     {
-      title: "Explore with AI search",
+      title: "Discover through readers",
       description:
-        'Search by mood, theme, or feeling — not just title. Ask for "books about trust and betrayal" and get results matched to your taste.',
+        "Community still matters, but it follows reading. Find books through thoughtful people, overlap, and real signals rather than generic popularity.",
       bgUrl: "/bg-03.png",
       imageUrl: "/ai-search.png",
       onRight: true,
     },
     {
-      title: "Track reading sessions",
+      title: "Track a serious reading life",
       description:
-        "Log time spent reading — manually or with the built-in timer. See your reading history at a glance.",
+        "Build a reading history that actually understands what you started, finished, revisited, and carried forward.",
       bgUrl: "/bg-04.png",
       imageUrl: "/reading-session.png",
       onRight: false,
     },
     {
-      title: "Post notes as you read",
+      title: "Use the agent with context",
       description:
-        "Share a thought, quote, or reaction while it's fresh. Post publicly, to followers, or keep it private.",
+        "The Library Agent is meant to become useful because it understands your books, highlights, and patterns, not because it talks loudly.",
       bgUrl: "/bg-05.png",
       imageUrl: "/composer.png",
       onRight: true,
@@ -78,12 +78,12 @@ export default function HowItWorks() {
       <div className="mx-auto w-full max-w-[1360px] space-y-10">
         <div className="space-y-3 text-left">
           <h2 className="text-2xl tracking-[-0.01em] leading-[100%] text-foreground font-serif md:text-3xl">
-            How it works
+            What&apos;s changing
           </h2>
           <p className="text-sm text-muted-foreground md:text-base max-w-2xl">
-            Reading, made worth keeping. Everything you&apos;ve read, thought,
-            and underlined — in one place that doesn&apos;t try to sell you
-            anything.
+            TheFalse is narrowing into a mobile reading product: read here,
+            highlight here, reflect here, and let community and AI support the
+            reading loop instead of distracting from it.
           </p>
         </div>
 
