@@ -51,7 +51,7 @@ export type LandingDictionary = {
 export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
   en: {
     meta: {
-      homeTitle: "TheFalse · Mobile reading, rebuilt with intention",
+      homeTitle: "TheFalse · A home for readers.",
       homeDescription:
         "TheFalse is being rebuilt as a mobile reading product: read in the app, highlight what matters, reflect with continuity, and join early access to the beta.",
       mobileTitle: "TheFalse Mobile · Early access",
@@ -64,9 +64,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Join early access",
     },
     home: {
-      title: "TheFalse is being rebuilt for mobile, with reading at the center.",
+      title: "A home for readers. Read here, think here.",
       description:
-        "Read inside the app, highlight what matters, reflect while a book is still alive, and discover readers worth following without turning the experience into noise.",
+        "Track what you read, read inside the app, highlight what matters, reflect while a book is still alive — and find readers worth following without turning the experience into noise.",
       primaryCta: "Join early access",
       secondaryCta: "See what's changing",
     },
@@ -153,7 +153,7 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
   },
   ru: {
     meta: {
-      homeTitle: "TheFalse · Мобильное чтение, собранное заново с намерением",
+      homeTitle: "TheFalse · Дом для читателей.",
       homeDescription:
         "TheFalse переосмысливается как мобильный продукт для чтения: читайте внутри приложения, выделяйте важное, возвращайтесь к мыслям и присоединяйтесь к раннему доступу.",
       mobileTitle: "TheFalse Mobile · Ранний доступ",
@@ -166,9 +166,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Получить ранний доступ",
     },
     home: {
-      title: "TheFalse перестраивается для мобильного формата, где чтение в центре.",
+      title: "Дом для читателей. Читайте здесь, размышляйте здесь.",
       description:
-        "Читайте внутри приложения, выделяйте важное, возвращайтесь к книге, пока она ещё жива в памяти, и находите читателей, за которыми стоит следить, без лишнего шума.",
+        "Отмечайте прочитанное, читайте внутри приложения, выделяйте важное, возвращайтесь к мыслям, пока книга ещё жива, и находите читателей, за которыми стоит следить, не превращая опыт в шум.",
       primaryCta: "Получить ранний доступ",
       secondaryCta: "Посмотреть, что меняется",
     },
@@ -255,7 +255,7 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
   },
   uz: {
     meta: {
-      homeTitle: "TheFalse · Mobil o‘qish mahsuloti, maqsad bilan qayta qurilgan",
+      homeTitle: "TheFalse · Kitobxonlar uchun makon.",
       homeDescription:
         "TheFalse mobil o‘qish mahsuloti sifatida qayta qurilmoqda: ilova ichida o‘qing, muhim joylarni belgilang, fikrlarni davom ettiring va beta uchun erta kirishga qo‘shiling.",
       mobileTitle: "TheFalse Mobile · Erta kirish",
@@ -268,9 +268,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Erta kirish olish",
     },
     home: {
-      title: "TheFalse mobil uchun qayta qurilmoqda va markazda o‘qish turadi.",
+      title: "Kitobxonlar uchun makon. Shu yerda o‘qing, shu yerda fikr qiling.",
       description:
-        "Ilova ichida o‘qing, muhim joylarni belgilang, kitob hali xotirada tirik paytda mulohaza qiling va ortiqcha shovqinsiz kuzatishga arzigulik kitobxonlarni toping.",
+        "O‘qiganlaringizni kuzating, ilova ichida o‘qing, muhim joylarni belgilang, kitob hali tirik paytda mulohaza qiling va tajribani shovqinga aylantirmasdan kuzatishga arziydigan kitobxonlarni toping.",
       primaryCta: "Erta kirish olish",
       secondaryCta: "Nimalar o‘zgarayotganini ko‘rish",
     },
