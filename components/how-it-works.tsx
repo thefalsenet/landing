@@ -61,7 +61,7 @@ export default function HowItWorks({ copy }: HowItWorksProps) {
       title: copy.steps[3].title,
       description: copy.steps[3].description,
       bgUrl: "/bg-04.png",
-      imageUrl: "/reading-session.svg",
+      imageUrl: "/books-stack.svg",
       onRight: false,
     },
     {
