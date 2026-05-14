@@ -85,7 +85,7 @@ export default async function Home() {
       <LibraryAgentSection copy={copy.libraryAgent} />
       <FAQSection copy={copy.faq} />
       <CTASection copy={copy.cta} />
-      <Footer />
+      <Footer copy={copy.footer} />
     </>
   );
 }

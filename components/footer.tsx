@@ -46,7 +46,7 @@ export default function Footer({ copy }: FooterProps) {
             </p>
           </div>
           <div className="space-y-4">
-            <h3 className="font-medium text-sm">Social</h3>
+            <h3 className="font-medium text-sm">{copy.socialTitle}</h3>
             <ul className="space-y-2.5">
               {socialLinks.map((social) => (
                 <li key={social.name}>
@@ -63,14 +63,14 @@ export default function Footer({ copy }: FooterProps) {
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="font-medium text-sm">Company</h3>
+            <h3 className="font-medium text-sm">{copy.companyTitle}</h3>
             <ul className="space-y-2.5">
               <li>
                 <a
                   href={"/about"}
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                 >
-                  About
+                  {copy.about}
                 </a>
               </li>
               <li>
@@ -78,7 +78,7 @@ export default function Footer({ copy }: FooterProps) {
                   href={"/blog"}
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                 >
-                  Blog
+                  {copy.blog}
                 </a>
               </li>
               <li>
@@ -86,7 +86,7 @@ export default function Footer({ copy }: FooterProps) {
                   href={"mailto:team@thefalse.net"}
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                 >
-                  Contact Us
+                  {copy.contactUs}
                 </a>
               </li>
               <li>
@@ -94,20 +94,20 @@ export default function Footer({ copy }: FooterProps) {
                   href={"/feedback"}
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                 >
-                  Feedback
+                  {copy.feedback}
                 </a>
               </li>
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="font-medium text-sm">Legal</h3>
+            <h3 className="font-medium text-sm">{copy.legalTitle}</h3>
             <ul className="space-y-2.5">
               <li>
                 <a
                   href={"/terms"}
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                 >
-                  Terms
+                  {copy.terms}
                 </a>
               </li>
               <li>
@@ -115,7 +115,7 @@ export default function Footer({ copy }: FooterProps) {
                   href={"/privacy"}
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                 >
-                  Privacy
+                  {copy.privacy}
                 </a>
               </li>
             </ul>

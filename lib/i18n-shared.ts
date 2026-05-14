@@ -54,6 +54,15 @@ export type LandingDictionary = {
   };
   footer: {
     tagline: string;
+    socialTitle: string;
+    companyTitle: string;
+    legalTitle: string;
+    about: string;
+    blog: string;
+    contactUs: string;
+    feedback: string;
+    terms: string;
+    privacy: string;
   };
   mobile: {
     label: string;
@@ -189,6 +198,15 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
     },
     footer: {
       tagline: "A home for readers. Mobile, rebuilt with intention.",
+      socialTitle: "Social",
+      companyTitle: "Company",
+      legalTitle: "Legal",
+      about: "About",
+      blog: "Blog",
+      contactUs: "Contact Us",
+      feedback: "Feedback",
+      terms: "Terms",
+      privacy: "Privacy",
     },
     mobile: {
       label: "Mobile",
@@ -323,6 +341,15 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
     },
     footer: {
       tagline: "Дом для читателей. Мобильное чтение, собранное заново с намерением.",
+      socialTitle: "Соцсети",
+      companyTitle: "Компания",
+      legalTitle: "Юридическое",
+      about: "О нас",
+      blog: "Блог",
+      contactUs: "Связаться с нами",
+      feedback: "Обратная связь",
+      terms: "Условия",
+      privacy: "Конфиденциальность",
     },
     mobile: {
       label: "Мобильно",
@@ -457,6 +484,15 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
     },
     footer: {
       tagline: "Kitobxonlar uchun makon. Mobil tajriba, niyat bilan qayta qurilgan.",
+      socialTitle: "Ijtimoiy tarmoqlar",
+      companyTitle: "Kompaniya",
+      legalTitle: "Huquqiy",
+      about: "Biz haqimizda",
+      blog: "Blog",
+      contactUs: "Bog‘lanish",
+      feedback: "Fikr-mulohaza",
+      terms: "Shartlar",
+      privacy: "Maxfiylik",
     },
     mobile: {
       label: "Mobil",
