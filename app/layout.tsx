@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 import { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { getPreferredLocale } from "@/lib/i18n";
 
 import { siteConfig } from "@/config/site";
 import { fontSans, fontSerif } from "@/lib/font";
@@ -72,10 +73,12 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const locale = await getPreferredLocale();
+
   return (
     <>
-      <html lang="en" suppressHydrationWarning className="scroll-smooth light">
+      <html lang={locale} suppressHydrationWarning className="scroll-smooth light">
         <head>
           <Script id="twitter-pixel" strategy="afterInteractive">
             {`!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);

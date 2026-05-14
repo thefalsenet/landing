@@ -1,9 +1,9 @@
-  export const siteConfig = {
-    name: "TheFalse",
+export const siteConfig = {
+  name: "TheFalse",
   url: "https://thefalse.net",
   ogImage: "https://thefalse.net/og.jpg",
-   description:
-    "TheFalse is a social reading platform to track books, share thoughts, and connect through notes, voice, and real reading sessions — without ads or noise.",
+  description:
+    "TheFalse is being rebuilt as a mobile reading product for serious readers.",
   links: {
     twitter: "https://twitter.com/thefalsenet",
     instagram: "https://instagram.com/thefalsenet",

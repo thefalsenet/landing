@@ -7,44 +7,44 @@ import Link from "next/link";
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
+import { getLandingCopy } from "@/lib/i18n";
 
-export const metadata = {
-  title: "TheFalse · Rethink reading.",
-};
+export async function generateMetadata() {
+  const { copy } = await getLandingCopy();
+
+  return {
+    title: copy.meta.homeTitle,
+    description: copy.meta.homeDescription,
+  };
+}
 
 export default async function Home() {
+  const { locale, copy } = await getLandingCopy();
+
   return (
     <>
-      <SiteHeader />
-      {/* Hero Section */}
+      <SiteHeader ctaLabel={copy.header.cta} currentLocale={locale} />
       <section className="relative w-full overflow-x-hidden px-4 sm:px-8 pt-28 pb-12 md:pt-32 md:pb-20">
-        {/* Content */}
         <div className="relative mx-auto flex w-full max-w-[1360px] flex-col items-start space-y-10">
           <div className="flex max-w-[900px] flex-col items-start gap-4">
             <header className="overflow-hidden text-left">
               <h1 className="text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] tracking-[-0.01em] leading-[105%] mb-2 pb-3 text-balance font-serif wrap-break-word hyphens-auto text-foreground">
-                <Balancer>
-                  What you believe today may be wrong tomorrow.
-                </Balancer>
+                <Balancer>{copy.home.title}</Balancer>
               </h1>
               <p className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word text-muted-foreground">
-                <Balancer>
-                  A reading platform where books start conversations, not just
-                  finish them. Track what you&apos;ve read. Write what it meant.
-                  Find the people worth reading with.
-                </Balancer>
+                <Balancer>{copy.home.description}</Balancer>
               </p>
             </header>
             <div className="flex items-center gap-3">
               <Button asChild className="h-8 px-3 text-sm cursor-pointer">
-                <Link href="/mobile">Open your library</Link>
+                <Link href="/mobile">{copy.home.primaryCta}</Link>
               </Button>
               <Button
                 variant={"ghost"}
                 className="h-8 px-3 text-sm cursor-pointer"
                 asChild
               >
-                <Link href={"#how-it-works"}>See how it works</Link>
+                <Link href={"#how-it-works"}>{copy.home.secondaryCta}</Link>
               </Button>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default async function Home() {
               <Image
                 src={"/hero-bg.png"}
                 alt="Hero image"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 fill
                 sizes="100vw"
@@ -63,7 +63,7 @@ export default async function Home() {
             <div className="relative w-full max-w-[900px] mx-auto">
               <div className="py-4">
                 <Image
-                  src={"/hero-img.png"}
+                  src={"/hero-img.svg"}
                   alt="TheFalse Demo"
                   loading="lazy"
                   decoding="async"
@@ -78,14 +78,9 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* How it Works Section */}
-      <HowItWorks />
-
-      <FAQSection />
-
-      {/* CTA Section */}
-      <CTASection />
-
+      <HowItWorks copy={copy.howItWorks} />
+      <FAQSection copy={copy.faq} />
+      <CTASection copy={copy.cta} />
       <Footer />
     </>
   );

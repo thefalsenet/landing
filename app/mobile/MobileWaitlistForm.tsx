@@ -7,6 +7,11 @@ import { subscribe } from "@/lib/actions/subscribe";
 import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
 
+interface MobileWaitlistFormProps {
+  placeholder?: string;
+  ariaLabel?: string;
+}
+
 function SubmitButton() {
   const { pending } = useFormStatus();
 
@@ -42,7 +47,10 @@ function SubmitButton() {
   );
 }
 
-export function MobileWaitlistForm() {
+export function MobileWaitlistForm({
+  placeholder = "Join the waitlist…",
+  ariaLabel = "Email address for mobile waitlist",
+}: MobileWaitlistFormProps) {
   async function handleSubscribe(formData: FormData) {
     const result = await subscribe(formData);
 
@@ -69,7 +77,7 @@ export function MobileWaitlistForm() {
       >
         <input type="hidden" name="source" value="mobile" />
         <label htmlFor="agent-waitlist-form" className="sr-only">
-          Email address for mobile waitlist
+          {ariaLabel}
         </label>
         <div
           className="relative flex flex-row w-[336px] sm:w-[324px] justify-between transition-all duration-500 ease-out"
@@ -81,7 +89,7 @@ export function MobileWaitlistForm() {
             required
             data-slot="input"
             className="file:text-gray-1000 selection:bg-background-100 selection:text-gray-1000 flex min-w-0 px-3 py-1 text-base shadow-xs outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm aria-invalid:ring-red-500/20 dark:aria-invalid:ring-red/40 aria-invalid:border-red bg-input border border-foreground !text-[16px] sm:!text-[14px] placeholder:text-muted-foreground pl-[15px] focus-visible:border-foreground focus-visible:ring-none focus-visible:ring-0 h-[46px] sm:h-9 transition-all w-full duration-500 ease-out flex-shrink-0"
-            placeholder="Join the waitlist…"
+            placeholder={placeholder}
             autoCapitalize="off"
             spellCheck={false}
             id="agent-waitlist-form"
@@ -91,7 +99,7 @@ export function MobileWaitlistForm() {
             data-lpignore="true"
             data-form-type="other"
             style={{ visibility: "visible" }}
-            aria-label="Email address for mobile waitlist"
+            aria-label={ariaLabel}
             aria-required={true}
           />
           <SubmitButton />

@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { Search, BookOpen, PenTool, Share2 } from "lucide-react";
 import Image from "next/image";
+import type { LandingDictionary } from "@/lib/i18n-shared";
 
 interface StepProps {
   number: number;
@@ -29,46 +30,45 @@ function Step({ number, title, description, icon }: StepProps) {
   );
 }
 
-export default function HowItWorks() {
+interface HowItWorksProps {
+  copy: LandingDictionary["howItWorks"];
+}
+
+export default function HowItWorks({ copy }: HowItWorksProps) {
   const steps = [
     {
-      title: "Your library, finally organized",
-      description:
-        "Add books in seconds. Mark them reading, finished, or abandoned. Track time. Build the reading history you never had — without spreadsheets or guilt.",
+      title: copy.steps[0].title,
+      description: copy.steps[0].description,
       bgUrl: "/bg-01.png",
-      imageUrl: "/book-stack.png",
+      imageUrl: "/reader.svg",
       onRight: false,
     },
     {
-      title: "Noise is already gone.",
-      description:
-        "Your feed shows real readers and their honest thoughts — in the order they wrote them. No trending lists. No sponsored picks. No algorithm deciding what matters.",
+      title: copy.steps[1].title,
+      description: copy.steps[1].description,
       bgUrl: "/bg-02.png",
-      imageUrl: "/feed.png",
+      imageUrl: "/highlight.svg",
       onRight: false,
     },
     {
-      title: "Explore with AI search",
-      description:
-        'Search by mood, theme, or feeling — not just title. Ask for "books about trust and betrayal" and get results matched to your taste.',
+      title: copy.steps[2].title,
+      description: copy.steps[2].description,
       bgUrl: "/bg-03.png",
-      imageUrl: "/ai-search.png",
+      imageUrl: "/readers.svg",
       onRight: true,
     },
     {
-      title: "Track reading sessions",
-      description:
-        "Log time spent reading — manually or with the built-in timer. See your reading history at a glance.",
+      title: copy.steps[3].title,
+      description: copy.steps[3].description,
       bgUrl: "/bg-04.png",
-      imageUrl: "/reading-session.png",
+      imageUrl: "/reading-session.svg",
       onRight: false,
     },
     {
-      title: "Post notes as you read",
-      description:
-        "Share a thought, quote, or reaction while it's fresh. Post publicly, to followers, or keep it private.",
+      title: copy.steps[4].title,
+      description: copy.steps[4].description,
       bgUrl: "/bg-05.png",
-      imageUrl: "/composer.png",
+      imageUrl: "/agent.svg",
       onRight: true,
     },
   ];
@@ -78,12 +78,10 @@ export default function HowItWorks() {
       <div className="mx-auto w-full max-w-[1360px] space-y-10">
         <div className="space-y-3 text-left">
           <h2 className="text-2xl tracking-[-0.01em] leading-[100%] text-foreground font-serif md:text-3xl">
-            How it works
+            {copy.title}
           </h2>
           <p className="text-sm text-muted-foreground md:text-base max-w-2xl">
-            Reading, made worth keeping. Everything you&apos;ve read, thought,
-            and underlined — in one place that doesn&apos;t try to sell you
-            anything.
+            {copy.description}
           </p>
         </div>
 
