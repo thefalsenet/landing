@@ -26,7 +26,7 @@ export default function CTASection({ copy }: CTASectionProps) {
         </div>
 
         <div className="relative z-10 flex flex-col items-center space-y-6 text-center py-28 md:py-40">
-          <h2 className="text-4xl font-serif tracking-[-0.01em] leading-[1.1] text-white md:text-6xl">
+          <h2 className="text-4xl font-serif tracking-[-0.01em] leading-[1.1] text-white md:text-6xl max-w-[540px]">
             {copy.title}
           </h2>
           <Button variant={"secondary"} className="h-8 px-2 text-sm" asChild>

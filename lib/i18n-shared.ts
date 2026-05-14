@@ -27,6 +27,19 @@ export type LandingDictionary = {
       description: string;
     }>;
   };
+  beliefSection: {
+    quote: string;
+    description: string;
+    cta: string;
+  };
+  libraryAgent: {
+    title: string;
+    description: string;
+    cards: Array<{
+      label: string;
+      quote: string;
+    }>;
+  };
   faq: {
     title: string;
     intro: string;
@@ -38,6 +51,18 @@ export type LandingDictionary = {
   cta: {
     title: string;
     button: string;
+  };
+  footer: {
+    tagline: string;
+    socialTitle: string;
+    companyTitle: string;
+    legalTitle: string;
+    about: string;
+    blog: string;
+    contactUs: string;
+    feedback: string;
+    terms: string;
+    privacy: string;
   };
   mobile: {
     label: string;
@@ -51,7 +76,7 @@ export type LandingDictionary = {
 export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
   en: {
     meta: {
-      homeTitle: "TheFalse · Mobile reading, rebuilt with intention",
+      homeTitle: "TheFalse · A home for readers.",
       homeDescription:
         "TheFalse is being rebuilt as a mobile reading product: read in the app, highlight what matters, reflect with continuity, and join early access to the beta.",
       mobileTitle: "TheFalse Mobile · Early access",
@@ -64,9 +89,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Join early access",
     },
     home: {
-      title: "TheFalse is being rebuilt for mobile, with reading at the center.",
+      title: "A home for readers. Read here, think here.",
       description:
-        "Read inside the app, highlight what matters, reflect while a book is still alive, and discover readers worth following without turning the experience into noise.",
+        "Track what you read, read inside the app, highlight what matters, reflect while a book is still alive — and find readers worth following without turning the experience into noise.",
       primaryCta: "Join early access",
       secondaryCta: "See what's changing",
     },
@@ -99,6 +124,35 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
           title: "Use the agent with context",
           description:
             "The Library Agent is meant to become useful because it understands your books, highlights, and patterns, not because it talks loudly.",
+        },
+      ],
+    },
+    beliefSection: {
+      quote: '"What we believe today may turn out to be false tomorrow."',
+      description:
+        "Books are one of the few ways we stress-test that. TheFalse is built around the premise that intellectual humility is a practice, and reading is where it happens.",
+      cta: "Join early access",
+    },
+    libraryAgent: {
+      title:
+        "The Library Agent knows your library. It's earned the right to say something.",
+      description:
+        "It doesn't return a list. It reasons over your actual reading history — every book finished, abandoned, every note — and says something specific to you.",
+      cards: [
+        {
+          label: "Next book",
+          quote:
+            "\"You finished three books on institutional failure in a row. I'd read something that disagrees with that framing before continuing. Fukuyama's The Origins of Political Order would do it. Want me to add it?\"",
+        },
+        {
+          label: "Library pattern",
+          quote:
+            "\"You have 14 books marked want-to-read that were added more than 2 years ago. Statistically, you will not read most of them. Do you want to review the list?\"",
+        },
+        {
+          label: "Abandonment",
+          quote:
+            "\"You've been in chapter 6 for three weeks. The same thing happened with Leviathan last year. Do you want to push through or close it?\"",
         },
       ],
     },
@@ -142,6 +196,18 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       title: "Join the mobile reading beta.",
       button: "Join early access",
     },
+    footer: {
+      tagline: "A home for readers. Mobile, rebuilt with intention.",
+      socialTitle: "Social",
+      companyTitle: "Company",
+      legalTitle: "Legal",
+      about: "About",
+      blog: "Blog",
+      contactUs: "Contact Us",
+      feedback: "Feedback",
+      terms: "Terms",
+      privacy: "Privacy",
+    },
     mobile: {
       label: "Mobile",
       title: "A calm reading app, built for mobile.",
@@ -153,7 +219,7 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
   },
   ru: {
     meta: {
-      homeTitle: "TheFalse · Мобильное чтение, собранное заново с намерением",
+      homeTitle: "TheFalse · Дом для читателей.",
       homeDescription:
         "TheFalse переосмысливается как мобильный продукт для чтения: читайте внутри приложения, выделяйте важное, возвращайтесь к мыслям и присоединяйтесь к раннему доступу.",
       mobileTitle: "TheFalse Mobile · Ранний доступ",
@@ -166,9 +232,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Получить ранний доступ",
     },
     home: {
-      title: "TheFalse перестраивается для мобильного формата, где чтение в центре.",
+      title: "Дом для читателей. Читайте здесь, размышляйте здесь.",
       description:
-        "Читайте внутри приложения, выделяйте важное, возвращайтесь к книге, пока она ещё жива в памяти, и находите читателей, за которыми стоит следить, без лишнего шума.",
+        "Отмечайте прочитанное, читайте внутри приложения, выделяйте важное, возвращайтесь к мыслям, пока книга ещё жива, и находите читателей, за которыми стоит следить, не превращая опыт в шум.",
       primaryCta: "Получить ранний доступ",
       secondaryCta: "Посмотреть, что меняется",
     },
@@ -201,6 +267,35 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
           title: "Используйте агента с контекстом",
           description:
             "Library Agent должен быть полезным потому, что понимает ваши книги, выделения и паттерны, а не потому, что говорит громче всех.",
+        },
+      ],
+    },
+    beliefSection: {
+      quote: "«То, во что мы верим сегодня, завтра может оказаться ложным.»",
+      description:
+        "Книги — один из немногих способов по-настоящему это проверять. TheFalse построен на идее, что интеллектуальная скромность — это практика, а чтение и есть место, где она формируется.",
+      cta: "Получить ранний доступ",
+    },
+    libraryAgent: {
+      title:
+        "Library Agent знает вашу библиотеку. Он заслужил право сказать что-то по делу.",
+      description:
+        "Он не возвращает просто список. Он рассуждает на основе вашей реальной истории чтения — каждой законченной книги, каждого отложенного чтения, каждой заметки — и говорит что-то конкретное именно вам.",
+      cards: [
+        {
+          label: "Следующая книга",
+          quote:
+            "«Вы подряд закончили три книги об институциональном провале. Я бы предложил дальше прочитать что-то, что спорит с этой рамкой. Для этого подойдёт The Origins of Political Order Фукуямы. Добавить?»",
+        },
+        {
+          label: "Паттерн библиотеки",
+          quote:
+            "«У вас 14 книг в списке к прочтению, добавленных больше двух лет назад. Статистически большую часть из них вы не прочитаете. Хотите пересмотреть список?»",
+        },
+        {
+          label: "Брошенное чтение",
+          quote:
+            "«Вы уже три недели на шестой главе. То же самое было с Leviathan в прошлом году. Хотите дожать книгу или закрыть её?»",
         },
       ],
     },
@@ -244,6 +339,18 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       title: "Присоединяйтесь к мобильной бете для чтения.",
       button: "Получить ранний доступ",
     },
+    footer: {
+      tagline: "Дом для читателей. Мобильное чтение, собранное заново с намерением.",
+      socialTitle: "Соцсети",
+      companyTitle: "Компания",
+      legalTitle: "Юридическое",
+      about: "О нас",
+      blog: "Блог",
+      contactUs: "Связаться с нами",
+      feedback: "Обратная связь",
+      terms: "Условия",
+      privacy: "Конфиденциальность",
+    },
     mobile: {
       label: "Мобильно",
       title: "Спокойное приложение для чтения, созданное для мобильного формата.",
@@ -255,7 +362,7 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
   },
   uz: {
     meta: {
-      homeTitle: "TheFalse · Mobil o‘qish mahsuloti, maqsad bilan qayta qurilgan",
+      homeTitle: "TheFalse · Kitobxonlar uchun makon.",
       homeDescription:
         "TheFalse mobil o‘qish mahsuloti sifatida qayta qurilmoqda: ilova ichida o‘qing, muhim joylarni belgilang, fikrlarni davom ettiring va beta uchun erta kirishga qo‘shiling.",
       mobileTitle: "TheFalse Mobile · Erta kirish",
@@ -268,9 +375,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Erta kirish olish",
     },
     home: {
-      title: "TheFalse mobil uchun qayta qurilmoqda va markazda o‘qish turadi.",
+      title: "Kitobxonlar uchun makon. Shu yerda o‘qing, shu yerda fikr qiling.",
       description:
-        "Ilova ichida o‘qing, muhim joylarni belgilang, kitob hali xotirada tirik paytda mulohaza qiling va ortiqcha shovqinsiz kuzatishga arzigulik kitobxonlarni toping.",
+        "O‘qiganlaringizni kuzating, ilova ichida o‘qing, muhim joylarni belgilang, kitob hali tirik paytda mulohaza qiling va tajribani shovqinga aylantirmasdan kuzatishga arziydigan kitobxonlarni toping.",
       primaryCta: "Erta kirish olish",
       secondaryCta: "Nimalar o‘zgarayotganini ko‘rish",
     },
@@ -303,6 +410,35 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
           title: "Agentdan kontekst bilan foydalaning",
           description:
             "Library Agent baland ovozda gapirgani uchun emas, balki kitoblaringiz, belgilaringiz va odatlaringizni tushungani uchun foydali bo‘lishi kerak.",
+        },
+      ],
+    },
+    beliefSection: {
+      quote: '"Bugun ishongan narsamiz ertaga yolg‘on bo‘lib chiqishi mumkin."',
+      description:
+        "Kitoblar buni sinovdan o‘tkazishning kam sonli yo‘llaridan biri. TheFalse intellektual kamtarlik amaliyot ekaniga, o‘qish esa aynan shu amaliyot sodir bo‘ladigan joy ekaniga tayanib qurilgan.",
+      cta: "Erta kirish olish",
+    },
+    libraryAgent: {
+      title:
+        "Library Agent kutubxonangizni biladi. U biror narsa aytish huquqini ishlab topgan.",
+      description:
+        "U shunchaki ro‘yxat qaytarmaydi. U haqiqiy o‘qish tarixingiz — tugatilgan har bir kitob, tashlab qo‘yilgan har bir kitob, har bir izoh — ustidan fikr yuritadi va sizga xos gap aytadi.",
+      cards: [
+        {
+          label: "Keyingi kitob",
+          quote:
+            "\"Siz ketma-ket institutlar muvaffaqiyatsizligi haqida uchta kitobni tugatdingiz. Davom etishdan oldin shu qarashga qarshi chiqadigan biror narsa o‘qishni tavsiya qilardim. Bunga Fukuyamaning The Origins of Political Order kitobi mos keladi. Qo‘shib qo‘yaymi?\"",
+        },
+        {
+          label: "Kutubxona namunasi",
+          quote:
+            "\"Sizda 2 yildan ko‘proq oldin qo‘shilgan 14 ta want-to-read kitob bor. Statistik jihatdan, ularning ko‘pini o‘qimaysiz. Ro‘yxatni ko‘rib chiqishni xohlaysizmi?\"",
+        },
+        {
+          label: "Tashlab qo‘yish",
+          quote:
+            "\"Uch haftadan beri 6-bobdasiz. O‘tgan yili Leviathan bilan ham xuddi shunday bo‘lgan edi. Oxirigacha borishni xohlaysizmi yoki yopamizmi?\"",
         },
       ],
     },
@@ -345,6 +481,18 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
     cta: {
       title: "Mobil o‘qish betasiga qo‘shiling.",
       button: "Erta kirish olish",
+    },
+    footer: {
+      tagline: "Kitobxonlar uchun makon. Mobil tajriba, niyat bilan qayta qurilgan.",
+      socialTitle: "Ijtimoiy tarmoqlar",
+      companyTitle: "Kompaniya",
+      legalTitle: "Huquqiy",
+      about: "Biz haqimizda",
+      blog: "Blog",
+      contactUs: "Bog‘lanish",
+      feedback: "Fikr-mulohaza",
+      terms: "Shartlar",
+      privacy: "Maxfiylik",
     },
     mobile: {
       label: "Mobil",
