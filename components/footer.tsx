@@ -6,6 +6,7 @@ import { Icons } from "./icons";
 import Link from "next/link";
 import CTASection from "./cta-section";
 import { siteConfig } from "@/config/site";
+import type { LandingDictionary } from "@/lib/i18n-shared";
 
 const socialLinks = [
   {
@@ -25,17 +26,24 @@ const socialLinks = [
   },
 ];
 
-export default function Footer() {
+interface FooterProps {
+  copy: LandingDictionary["footer"];
+}
+
+export default function Footer({ copy }: FooterProps) {
   const ref = useRef(null);
 
   return (
     <footer>
       <div className="w-full pt-10 pb-8 px-4 sm:px-8">
         <div className="hidden lg:grid lg:grid-cols-5 gap-x-8 gap-y-10">
-          <div className="col-span-2 pr-8">
+          <div className="col-span-2 pr-8 flex flex-col gap-3">
             <a href="/">
-              <Icons.logo className="size-7" />
+              <Icons.logo className="size-8" />
             </a>
+            <p className="max-w-[200px] text-xs tracking-[-0.03em] text-muted-foreground font-serif">
+              {copy.tagline}
+            </p>
           </div>
           <div className="space-y-4">
             <h3 className="font-medium text-sm">Social</h3>

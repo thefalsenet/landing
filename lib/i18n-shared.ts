@@ -52,6 +52,9 @@ export type LandingDictionary = {
     title: string;
     button: string;
   };
+  footer: {
+    tagline: string;
+  };
   mobile: {
     label: string;
     title: string;
@@ -184,6 +187,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       title: "Join the mobile reading beta.",
       button: "Join early access",
     },
+    footer: {
+      tagline: "A home for readers. Mobile, rebuilt with intention.",
+    },
     mobile: {
       label: "Mobile",
       title: "A calm reading app, built for mobile.",
@@ -315,6 +321,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       title: "Присоединяйтесь к мобильной бете для чтения.",
       button: "Получить ранний доступ",
     },
+    footer: {
+      tagline: "Дом для читателей. Мобильное чтение, собранное заново с намерением.",
+    },
     mobile: {
       label: "Мобильно",
       title: "Спокойное приложение для чтения, созданное для мобильного формата.",
@@ -445,6 +454,9 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
     cta: {
       title: "Mobil o‘qish betasiga qo‘shiling.",
       button: "Erta kirish olish",
+    },
+    footer: {
+      tagline: "Kitobxonlar uchun makon. Mobil tajriba, niyat bilan qayta qurilgan.",
     },
     mobile: {
       label: "Mobil",
