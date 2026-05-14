@@ -8,6 +8,8 @@ import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import Footer from "@/components/footer";
 import { getLandingCopy } from "@/lib/i18n";
+import BeliefSection from "@/components/belief-section";
+import LibraryAgentSection from "@/components/library-agent-section";
 
 export async function generateMetadata() {
   const { copy } = await getLandingCopy();
@@ -79,6 +81,8 @@ export default async function Home() {
       </section>
 
       <HowItWorks copy={copy.howItWorks} />
+      <BeliefSection copy={copy.beliefSection} />
+      <LibraryAgentSection copy={copy.libraryAgent} />
       <FAQSection copy={copy.faq} />
       <CTASection copy={copy.cta} />
       <Footer />

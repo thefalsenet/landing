@@ -27,6 +27,19 @@ export type LandingDictionary = {
       description: string;
     }>;
   };
+  beliefSection: {
+    quote: string;
+    description: string;
+    cta: string;
+  };
+  libraryAgent: {
+    title: string;
+    description: string;
+    cards: Array<{
+      label: string;
+      quote: string;
+    }>;
+  };
   faq: {
     title: string;
     intro: string;
@@ -99,6 +112,35 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
           title: "Use the agent with context",
           description:
             "The Library Agent is meant to become useful because it understands your books, highlights, and patterns, not because it talks loudly.",
+        },
+      ],
+    },
+    beliefSection: {
+      quote: '"What we believe today may turn out to be false tomorrow."',
+      description:
+        "Books are one of the few ways we stress-test that. TheFalse is built around the premise that intellectual humility is a practice, and reading is where it happens.",
+      cta: "Join early access",
+    },
+    libraryAgent: {
+      title:
+        "The Library Agent knows your library. It's earned the right to say something.",
+      description:
+        "It doesn't return a list. It reasons over your actual reading history — every book finished, abandoned, every note — and says something specific to you.",
+      cards: [
+        {
+          label: "Next book",
+          quote:
+            "\"You finished three books on institutional failure in a row. I'd read something that disagrees with that framing before continuing. Fukuyama's The Origins of Political Order would do it. Want me to add it?\"",
+        },
+        {
+          label: "Library pattern",
+          quote:
+            "\"You have 14 books marked want-to-read that were added more than 2 years ago. Statistically, you will not read most of them. Do you want to review the list?\"",
+        },
+        {
+          label: "Abandonment",
+          quote:
+            "\"You've been in chapter 6 for three weeks. The same thing happened with Leviathan last year. Do you want to push through or close it?\"",
         },
       ],
     },
@@ -204,6 +246,35 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
         },
       ],
     },
+    beliefSection: {
+      quote: "«То, во что мы верим сегодня, завтра может оказаться ложным.»",
+      description:
+        "Книги — один из немногих способов по-настоящему это проверять. TheFalse построен на идее, что интеллектуальная скромность — это практика, а чтение и есть место, где она формируется.",
+      cta: "Получить ранний доступ",
+    },
+    libraryAgent: {
+      title:
+        "Library Agent знает вашу библиотеку. Он заслужил право сказать что-то по делу.",
+      description:
+        "Он не возвращает просто список. Он рассуждает на основе вашей реальной истории чтения — каждой законченной книги, каждого отложенного чтения, каждой заметки — и говорит что-то конкретное именно вам.",
+      cards: [
+        {
+          label: "Следующая книга",
+          quote:
+            "«Вы подряд закончили три книги об институциональном провале. Я бы предложил дальше прочитать что-то, что спорит с этой рамкой. Для этого подойдёт The Origins of Political Order Фукуямы. Добавить?»",
+        },
+        {
+          label: "Паттерн библиотеки",
+          quote:
+            "«У вас 14 книг в списке к прочтению, добавленных больше двух лет назад. Статистически большую часть из них вы не прочитаете. Хотите пересмотреть список?»",
+        },
+        {
+          label: "Брошенное чтение",
+          quote:
+            "«Вы уже три недели на шестой главе. То же самое было с Leviathan в прошлом году. Хотите дожать книгу или закрыть её?»",
+        },
+      ],
+    },
     faq: {
       title: "FAQ",
       intro: "Вопросы от ранних читателей и тех, кто присматривается к TheFalse.",
@@ -303,6 +374,35 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
           title: "Agentdan kontekst bilan foydalaning",
           description:
             "Library Agent baland ovozda gapirgani uchun emas, balki kitoblaringiz, belgilaringiz va odatlaringizni tushungani uchun foydali bo‘lishi kerak.",
+        },
+      ],
+    },
+    beliefSection: {
+      quote: '"Bugun ishongan narsamiz ertaga yolg‘on bo‘lib chiqishi mumkin."',
+      description:
+        "Kitoblar buni sinovdan o‘tkazishning kam sonli yo‘llaridan biri. TheFalse intellektual kamtarlik amaliyot ekaniga, o‘qish esa aynan shu amaliyot sodir bo‘ladigan joy ekaniga tayanib qurilgan.",
+      cta: "Erta kirish olish",
+    },
+    libraryAgent: {
+      title:
+        "Library Agent kutubxonangizni biladi. U biror narsa aytish huquqini ishlab topgan.",
+      description:
+        "U shunchaki ro‘yxat qaytarmaydi. U haqiqiy o‘qish tarixingiz — tugatilgan har bir kitob, tashlab qo‘yilgan har bir kitob, har bir izoh — ustidan fikr yuritadi va sizga xos gap aytadi.",
+      cards: [
+        {
+          label: "Keyingi kitob",
+          quote:
+            "\"Siz ketma-ket institutlar muvaffaqiyatsizligi haqida uchta kitobni tugatdingiz. Davom etishdan oldin shu qarashga qarshi chiqadigan biror narsa o‘qishni tavsiya qilardim. Bunga Fukuyamaning The Origins of Political Order kitobi mos keladi. Qo‘shib qo‘yaymi?\"",
+        },
+        {
+          label: "Kutubxona namunasi",
+          quote:
+            "\"Sizda 2 yildan ko‘proq oldin qo‘shilgan 14 ta want-to-read kitob bor. Statistik jihatdan, ularning ko‘pini o‘qimaysiz. Ro‘yxatni ko‘rib chiqishni xohlaysizmi?\"",
+        },
+        {
+          label: "Tashlab qo‘yish",
+          quote:
+            "\"Uch haftadan beri 6-bobdasiz. O‘tgan yili Leviathan bilan ham xuddi shunday bo‘lgan edi. Oxirigacha borishni xohlaysizmi yoki yopamizmi?\"",
         },
       ],
     },
