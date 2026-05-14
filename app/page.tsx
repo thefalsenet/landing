@@ -63,7 +63,7 @@ export default async function Home() {
             <div className="relative w-full max-w-[900px] mx-auto">
               <div className="py-4">
                 <Image
-                  src={"/hero-img.png"}
+                  src={"/hero-img.svg"}
                   alt="TheFalse Demo"
                   loading="lazy"
                   decoding="async"
