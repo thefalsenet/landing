@@ -35,7 +35,7 @@ export default function Footer({ copy }: FooterProps) {
 
   return (
     <footer>
-      <div className="w-full pt-10 pb-8 px-4 sm:px-8">
+      <div className="relative overflow-hidden px-6 pt-20 pb-20 md:px-12 md:pt-[120px] md:pb-[120px]">
         <div className="hidden lg:grid lg:grid-cols-5 gap-x-8 gap-y-10">
           <div className="col-span-2 pr-8 flex flex-col gap-3">
             <a href="/">
@@ -46,7 +46,9 @@ export default function Footer({ copy }: FooterProps) {
             </p>
           </div>
           <div className="space-y-4">
-            <h3 className="font-medium text-sm">{copy.socialTitle}</h3>
+            <h3 className="font-medium text-sm font-serif">
+              {copy.socialTitle}
+            </h3>
             <ul className="space-y-2.5">
               {socialLinks.map((social) => (
                 <li key={social.name}>
@@ -63,7 +65,9 @@ export default function Footer({ copy }: FooterProps) {
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="font-medium text-sm">{copy.companyTitle}</h3>
+            <h3 className="font-medium text-sm font-serif">
+              {copy.companyTitle}
+            </h3>
             <ul className="space-y-2.5">
               <li>
                 <a
@@ -100,7 +104,9 @@ export default function Footer({ copy }: FooterProps) {
             </ul>
           </div>
           <div className="space-y-4">
-            <h3 className="font-medium text-sm">{copy.legalTitle}</h3>
+            <h3 className="font-medium text-sm font-serif">
+              {copy.legalTitle}
+            </h3>
             <ul className="space-y-2.5">
               <li>
                 <a
