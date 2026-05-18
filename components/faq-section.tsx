@@ -12,73 +12,36 @@ interface FAQSectionProps {
 
 export default function FAQSection({ copy }: FAQSectionProps) {
   return (
-    <section className="w-full px-4 sm:px-8 py-16 md:py-24">
-      <div className="mx-auto w-full max-w-[1360px] space-y-10">
-        <div className="space-y-3 text-left">
-          <h2 className="text-2xl tracking-[-0.01em] leading-[100%] text-foreground font-serif md:text-3xl">
-            {copy.title}
-          </h2>
-          <p className="text-sm text-muted-foreground md:text-base max-w-2xl">
-            {copy.intro}
-          </p>
-        </div>
-
-        <Accordion type="single" collapsible className="space-y-3">
-          <AccordionItem value="item-1" className="border">
-            <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              {copy.items[0].question}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              {copy.items[0].answer}
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-2" className="border">
-            <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              {copy.items[1].question}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              {copy.items[1].answer}
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-3" className="border">
-            <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              {copy.items[2].question}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              {copy.items[2].answer}
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-5" className="border">
-            <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              {copy.items[3].question}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              {copy.items[3].answer}
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-6" className="border">
-            <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              {copy.items[4].question}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              {copy.items[4].answer}
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-7" className="border">
-            <AccordionTrigger className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left cursor-pointer">
-              {copy.items[5].question}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground px-5 pb-4 text-sm leading-relaxed">
-              {copy.items[5].answer}
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+    <section className="flex flex-col items-center gap-12 px-6 py-32 md:py-48">
+      <div className="space-y-3 text-center flex flex-col items-center">
+        <h2 className="text-2xl text-foreground md:text-3xl text-center font-serif font-medium leading-[1.3] tracking-[-0.02em] text-ink text-[clamp(32px,5vw,48px)]">
+          {copy.title}
+        </h2>
+        <p className="text-sm text-muted-foreground md:text-base max-w-2xl text-center text-balance text-[clamp(32px,5vw,48px)]">
+          {copy.intro}
+        </p>
       </div>
+
+      <Accordion
+        type="single"
+        collapsible
+        className="flex w-full max-w-[960px] flex-col"
+      >
+        {copy.items.map((item) => (
+          <AccordionItem
+            value={item.question}
+            className="overflow-hidden transition-[background-color,box-shadow] duration-300 ease-out bg-transparent data-[state=open]:bg-muted/40 data-[state=open]:shadow-[0px_0px_16px_0px_rgba(0,0,0,0.02)] border-none"
+            key={item.question}
+          >
+            <AccordionTrigger className="py-4 font-medium leading-[1.5] flex w-full cursor-pointer items-center justify-between gap-6 rounded-3xl px-6 pt-4 text-left transition-[padding-bottom] duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 data-[state=open]:pb-2 pb-4 hover:no-underline">
+              {item.question}
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground text-sm px-6 pb-4 leading-[1.5]">
+              {item.answer}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </section>
   );
 }
