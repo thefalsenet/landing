@@ -14,6 +14,7 @@ export type LandingDictionary = {
     cta: string;
   };
   home: {
+    eyebrow: string;
     title: string;
     description: string;
     primaryCta: string;
@@ -89,16 +90,17 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Join early access",
     },
     home: {
-      title: "A home for readers. Read here, think here.",
+      eyebrow: "For serious readers",
+      title: "A reading life deserves a better home.",
       description:
-        "Track what you read, read inside the app, highlight what matters, reflect while a book is still alive — and find readers worth following without turning the experience into noise.",
+        "TheFalse is being rebuilt for serious readers: a calmer place to read, mark what matters, and stay in conversation with your books.",
       primaryCta: "Join early access",
-      secondaryCta: "See what's changing",
+      secondaryCta: "See how it works",
     },
     howItWorks: {
-      title: "What's changing",
+      title: "How reading changes here",
       description:
-        "TheFalse is narrowing into a mobile reading product: read here, highlight here, reflect here, and let community and AI support the reading loop instead of distracting from it.",
+        "TheFalse is taking a narrower shape on purpose: reading in the app, saving what matters, reflecting with continuity, and letting discovery support the reading life instead of interrupting it.",
       steps: [
         {
           title: "Read inside the app",
@@ -232,16 +234,17 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Получить ранний доступ",
     },
     home: {
-      title: "Дом для читателей. Читайте здесь, размышляйте здесь.",
+      eyebrow: "Для серьёзных читателей",
+      title: "Серьёзной читательской жизни нужен дом получше.",
       description:
-        "Отмечайте прочитанное, читайте внутри приложения, выделяйте важное, возвращайтесь к мыслям, пока книга ещё жива, и находите читателей, за которыми стоит следить, не превращая опыт в шум.",
+        "TheFalse переосмысливается для серьёзных читателей: более спокойное место, чтобы читать, выделять важное и сохранять разговор с книгами.",
       primaryCta: "Получить ранний доступ",
-      secondaryCta: "Посмотреть, что меняется",
+      secondaryCta: "Посмотреть, как это работает",
     },
     howItWorks: {
-      title: "Что меняется",
+      title: "Как здесь меняется чтение",
       description:
-        "TheFalse сужается до мобильного продукта для чтения: читать здесь, выделять здесь, размышлять здесь, а сообщество и ИИ должны поддерживать читательский цикл, а не отвлекать от него.",
+        "TheFalse намеренно становится более сфокусированным мобильным продуктом: чтение внутри приложения, важные выделения, связная рефлексия и такое открытие книг, которое поддерживает чтение, а не перебивает его.",
       steps: [
         {
           title: "Читайте внутри приложения",
@@ -375,16 +378,17 @@ export const landingCopy: Record<SupportedLocale, LandingDictionary> = {
       cta: "Erta kirish olish",
     },
     home: {
-      title: "Kitobxonlar uchun makon. Shu yerda o‘qing, shu yerda fikr qiling.",
+      eyebrow: "Jiddiy kitobxonlar uchun",
+      title: "Jiddiy o‘qish hayoti yaxshiroq makonga loyiq.",
       description:
-        "O‘qiganlaringizni kuzating, ilova ichida o‘qing, muhim joylarni belgilang, kitob hali tirik paytda mulohaza qiling va tajribani shovqinga aylantirmasdan kuzatishga arziydigan kitobxonlarni toping.",
+        "TheFalse jiddiy kitobxonlar uchun qayta qurilmoqda: o‘qish, muhim joylarni belgilash va kitoblaringiz bilan suhbatni davom ettirish uchun sokinroq makon.",
       primaryCta: "Erta kirish olish",
-      secondaryCta: "Nimalar o‘zgarayotganini ko‘rish",
+      secondaryCta: "Qanday ishlashini ko‘rish",
     },
     howItWorks: {
-      title: "Nima o‘zgarmoqda",
+      title: "Bu yerda o‘qish qanday o‘zgaradi",
       description:
-        "TheFalse mobil o‘qish mahsulotiga toraymoqda: shu yerda o‘qish, shu yerda belgilash, shu yerda mulohaza qilish, hamjamiyat va AI esa o‘qish siklini chalg‘itmasdan qo‘llab-quvvatlashi kerak.",
+        "TheFalse ataylab torroq va aniqroq mahsulotga aylanmoqda: ilova ichida o‘qish, muhim joylarni saqlash, uzluksiz mulohaza yuritish va o‘qish hayotiga xalaqit bermaydigan kashfiyot.",
       steps: [
         {
           title: "Ilova ichida o‘qing",

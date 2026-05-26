@@ -1,12 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { Icons } from "./icons";
-import Link from "next/link";
-import CTASection from "./cta-section";
-import { siteConfig } from "@/config/site";
 import type { LandingDictionary } from "@/lib/i18n-shared";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
 
 const socialLinks = [
   {
@@ -35,17 +31,25 @@ export default function Footer({ copy }: FooterProps) {
 
   return (
     <footer>
-      <div className="relative overflow-hidden px-6 pt-20 pb-20 md:px-12 md:pt-[120px] md:pb-[120px]">
-        <div className="hidden lg:grid lg:grid-cols-5 gap-x-8 gap-y-10">
-          <div className="col-span-2 pr-8 flex flex-col gap-3">
-            <a href="/">
+      <Reveal
+        className="relative overflow-hidden px-6 pt-20 pb-20 md:px-12 md:pt-[120px] md:pb-[120px]"
+        direction="up"
+        amount={0.1}
+      >
+        <StaggerGroup
+          className="hidden lg:grid lg:grid-cols-5 gap-x-8 gap-y-10"
+          delayChildren={0.05}
+          staggerChildren={0.08}
+        >
+          <StaggerItem className="col-span-2 pr-8 flex flex-col gap-3">
+            <a href="/" className="transition-transform duration-300 ease-out hover:-translate-y-1">
               <Icons.logo className="size-8" />
             </a>
             <p className="max-w-[200px] text-xs tracking-[-0.03em] text-muted-foreground font-serif">
               {copy.tagline}
             </p>
-          </div>
-          <div className="space-y-4">
+          </StaggerItem>
+          <StaggerItem className="space-y-4">
             <h3 className="font-medium text-sm font-serif">
               {copy.socialTitle}
             </h3>
@@ -63,8 +67,8 @@ export default function Footer({ copy }: FooterProps) {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="space-y-4">
+          </StaggerItem>
+          <StaggerItem className="space-y-4">
             <h3 className="font-medium text-sm font-serif">
               {copy.companyTitle}
             </h3>
@@ -102,8 +106,8 @@ export default function Footer({ copy }: FooterProps) {
                 </a>
               </li>
             </ul>
-          </div>
-          <div className="space-y-4">
+          </StaggerItem>
+          <StaggerItem className="space-y-4">
             <h3 className="font-medium text-sm font-serif">
               {copy.legalTitle}
             </h3>
@@ -125,9 +129,14 @@ export default function Footer({ copy }: FooterProps) {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
+          </StaggerItem>
+        </StaggerGroup>
+        <div
+          ref={ref}
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-0"
+        />
+      </Reveal>
     </footer>
   );
 }

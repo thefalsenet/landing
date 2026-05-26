@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import type { SupportedLocale } from "@/lib/i18n-shared";
+import { motion } from "framer-motion";
 
 interface SiteHeaderProps {
   ctaLabel?: string;
@@ -43,7 +44,10 @@ export function SiteHeader({
   }, [scrolled]);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md transition-[border-color] duration-200 border-b border-transparent`}
     >
       <nav className="w-full max-w-[1360px] mx-auto">
@@ -63,6 +67,6 @@ export function SiteHeader({
           </div>
         </div>
       </nav>
-    </div>
+    </motion.div>
   );
 }
