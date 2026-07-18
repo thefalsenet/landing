@@ -21,7 +21,6 @@
     "@react-three/fiber": "^9.3.0",
     "@tailwindcss/postcss": "^4.0.9",
     "@vercel/analytics": "^1.5.0",
-    "axios": "^1.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.24.0",
@@ -48,7 +47,7 @@
     "@types/react-dom": "^18",
     "@types/three": "^0.180.0",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4",
+    "eslint-config-next": "16.2.10",
     "postcss": "^8",
     "tailwindcss": "^4.0.9",
     "typescript": "^5"

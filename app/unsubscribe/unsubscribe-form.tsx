@@ -9,6 +9,7 @@ import { unsubscribeUser } from "@/lib/actions/unsubscribe";
 export function UnsubscribeForm() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
+  const token = searchParams.get("token");
   const [status, setStatus] = useState<{
     success?: boolean;
     message?: string;
@@ -16,7 +17,7 @@ export function UnsubscribeForm() {
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleUnsubscribe() {
-    if (!email) {
+    if (!email || !token) {
       setStatus({
         success: false,
         message: "Invalid unsubscribe link. Please check your email.",
@@ -26,7 +27,7 @@ export function UnsubscribeForm() {
 
     setIsLoading(true);
     try {
-      const result = await unsubscribeUser(email);
+      const result = await unsubscribeUser(email, token);
       setStatus(result);
     } catch (error) {
       setStatus({
@@ -51,7 +52,7 @@ export function UnsubscribeForm() {
   return (
     <div className="space-y-4">
       <p className="text-center text-sm text-muted-foreground">
-        {email ? (
+        {email && token ? (
           <>
             You’ll stop receiving emails from TheFalse for
             <br />
@@ -62,7 +63,7 @@ export function UnsubscribeForm() {
         )}
       </p>
       <div className="flex justify-center">
-        <Button onClick={handleUnsubscribe} disabled={isLoading || !email}>
+        <Button onClick={handleUnsubscribe} disabled={isLoading || !email || !token}>
           {isLoading ? "Updating…" : "Unsubscribe"}
         </Button>
       </div>

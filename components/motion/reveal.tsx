@@ -209,32 +209,32 @@ export function WordReveal({
   };
 
   const content = words.map((word, index) => (
-    <span
-      key={`${word}-${index}`}
-      className="inline-block overflow-hidden pr-[0.22em] pt-[0.08em] pb-[0.12em]"
-    >
-      <motion.span
-        className="inline-block will-change-transform"
-        variants={
-          reducedMotion
-            ? {
-                hidden: { opacity: 1, y: 0, filter: "blur(0px)" },
-                visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-              }
-            : {
-                hidden: { opacity: 0, y: "0.9em", filter: "blur(8px)" },
-                visible: { opacity: 1, y: "0em", filter: "blur(0px)" },
-              }
-        }
-        transition={
-          reducedMotion
-            ? { duration: 0 }
-            : { type: "spring", bounce: 0, duration: 0.7 }
-        }
-      >
-        {word}
-      </motion.span>
-    </span>
+    <React.Fragment key={`${word}-${index}`}>
+      <span className="inline-block overflow-hidden pt-[0.08em] pb-[0.12em]">
+        <motion.span
+          className="inline-block will-change-transform"
+          variants={
+            reducedMotion
+              ? {
+                  hidden: { opacity: 1, y: 0, filter: "blur(0px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+                }
+              : {
+                  hidden: { opacity: 0, y: "0.9em", filter: "blur(8px)" },
+                  visible: { opacity: 1, y: "0em", filter: "blur(0px)" },
+                }
+          }
+          transition={
+            reducedMotion
+              ? { duration: 0 }
+              : { type: "spring", bounce: 0, duration: 0.7 }
+          }
+        >
+          {word}
+        </motion.span>
+      </span>
+      {index < words.length - 1 ? " " : null}
+    </React.Fragment>
   ));
 
   switch (as) {

@@ -3,8 +3,9 @@ import { z } from "zod";
 import { Resend } from "resend";
 import FeedbackConfirmationEmail from "@/components/emails/feedbacks";
 import FeedbackAdminNotificationEmail from "@/components/emails/feedback-admin-notification-email";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "b.yusupoff001@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 
 const feedbackSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -17,6 +18,14 @@ const feedbackSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    const ip = getClientIp(request.headers);
+    if (!rateLimit(`feedback:${ip}`, { limit: 5, windowMs: 10 * 60_000 })) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again later." },
+        { status: 429 }
+      );
+    }
+
     // Initialize Resend client
     const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -73,20 +82,22 @@ export async function POST(request: Request) {
     }
 
     // Send notification email to admin
-    await resend.emails.send({
-      from: "thefalse <feedback@mail.thefalse.net>",
-      to: ADMIN_EMAIL,
-      subject: "New Feedback Received",
-      react: FeedbackAdminNotificationEmail({
-        allowPublicDisplay: validatedData.allowPublicDisplay,
-        email: validatedData.email,
-        name: validatedData.name,
-        rating: validatedData.rating,
-        role: validatedData.role,
-        testimonial: validatedData.testimonial,
-        submittedAt: new Date().toLocaleString(),
-      }),
-    });
+    if (ADMIN_EMAIL) {
+      await resend.emails.send({
+        from: "thefalse <feedback@mail.thefalse.net>",
+        to: ADMIN_EMAIL,
+        subject: "New Feedback Received",
+        react: FeedbackAdminNotificationEmail({
+          allowPublicDisplay: validatedData.allowPublicDisplay,
+          email: validatedData.email,
+          name: validatedData.name,
+          rating: validatedData.rating,
+          role: validatedData.role,
+          testimonial: validatedData.testimonial,
+          submittedAt: new Date().toLocaleString(),
+        }),
+      });
+    }
 
     return NextResponse.json(
       { message: "Feedback submitted successfully", data: result },
@@ -100,10 +111,9 @@ export async function POST(request: Request) {
       );
     }
 
+    console.error("[feedback] error:", error);
     return NextResponse.json(
-      {
-        error: error instanceof Error ? error.message : "Internal server error",
-      },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }
