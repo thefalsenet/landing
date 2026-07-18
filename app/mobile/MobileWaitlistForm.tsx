@@ -20,7 +20,7 @@ function SubmitButton() {
       type="submit"
       disabled={pending}
       tabIndex={0}
-      className="cursor-pointer sm:h-9 flex items-center justify-center bg-primary text-primary-foreground disabled:bg-muted dark:disabled:text-background transition-all duration-300 ease-out outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 z-10 w-[46px] sm:w-9 flex-shrink-0"
+      className="cursor-pointer h-[46px] sm:h-9 flex items-center justify-center rounded-l-none disabled:bg-primary/10 disabled:text-primary/55 disabled:opacity-100 z-10 w-[46px] sm:w-9 flex-shrink-0"
       aria-label="Submit email to join mobile waitlist"
     >
       {pending ? (
@@ -85,7 +85,7 @@ export function MobileWaitlistForm({
             name="email"
             required
             data-slot="input"
-            className="bg-border border shadow-none border-foreground !text-[16px] sm:!text-[14px] placeholder:text-muted-foreground pl-[15px] focus-visible:border-foreground focus-visible:ring-none focus-visible:ring-0 h-[46px] sm:h-9 w-full min-w-0 rounded-r-none"
+            className="shadow-none !text-[16px] sm:!text-[14px] pl-[15px] h-[46px] sm:h-9 w-full min-w-0 rounded-r-none border-r-0"
             placeholder={placeholder}
             autoCapitalize="off"
             spellCheck={false}

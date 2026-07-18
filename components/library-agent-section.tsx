@@ -26,7 +26,7 @@ export default function LibraryAgentSection({
               key={card.label}
               direction="right"
             >
-              <article className="section-hover-lift border bg-card px-5 py-4 text-card-foreground">
+              <article className="section-hover-lift rounded-lg border bg-card px-5 py-4 text-card-foreground">
                 <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
                   {card.label}
                 </p>

@@ -45,7 +45,7 @@ export default async function Home() {
                 <WordReveal
                   as="h1"
                   text={copy.home.title}
-                  className="mb-2 pb-3 text-[2.25rem] font-serif leading-[1.08] tracking-[-0.01em] wrap-break-word hyphens-auto text-foreground sm:text-[2.75rem] md:text-[3.25rem]"
+                  className="mb-2 pb-3 text-[2.25rem] font-serif leading-[1.08] tracking-[-0.02em] wrap-break-word hyphens-auto text-foreground sm:text-[2.75rem] md:text-[3.25rem]"
                 />
               </StaggerItem>
               <StaggerItem>
@@ -56,21 +56,22 @@ export default async function Home() {
             </header>
             <StaggerItem>
               <div className="flex items-center gap-3">
-                <Button asChild className="h-8 px-3 text-sm cursor-pointer">
+                <Button asChild className="cursor-pointer">
                   <Link href="/mobile">{copy.home.primaryCta}</Link>
                 </Button>
-                <Button
-                  variant={"ghost"}
-                  className="h-8 px-3 text-sm cursor-pointer"
-                  asChild
-                >
+                <Button variant={"ghost"} className="cursor-pointer" asChild>
                   <Link href={"#how-it-works"}>{copy.home.secondaryCta}</Link>
                 </Button>
               </div>
             </StaggerItem>
           </StaggerGroup>
-          <Reveal className="relative w-full" direction="scale" amount={0.15} duration={0.95}>
-            <div className="pointer-events-none select-none absolute inset-0 overflow-hidden">
+          <Reveal
+            className="relative w-full overflow-hidden rounded-lg border bg-card"
+            direction="scale"
+            amount={0.15}
+            duration={0.95}
+          >
+            <div className="pointer-events-none select-none absolute inset-0 overflow-hidden rounded-lg">
               <Image
                 src={"/hero-bg.png"}
                 alt="Hero image"
@@ -80,6 +81,8 @@ export default async function Home() {
                 sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover blur-xs pointer-events-none select-none ambient-drift"
               />
+              <div className="absolute inset-0 bg-background/25" />
+              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
               <div className="absolute inset-x-[8%] top-[12%] h-28 rounded-full bg-primary/10 blur-3xl ambient-shimmer" />
             </div>
             <div className="relative w-full max-w-[900px] mx-auto">

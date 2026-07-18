@@ -1,16 +1,11 @@
 import {
   JetBrains_Mono as FontMono,
-  Lato as FontSans,
   Lora as FontSerif,
 } from "next/font/google";
-import localFont from "next/font/local";
-// import { GeistMono } from "geist/font/mono"
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"],
-  variable: "--font-sans",
-});
+// Body text uses the platform system font (the iOS app's body token is
+// unset, which resolves to SF there); --font-sans in globals.css carries
+// the equivalent web stack, so no sans webfont is loaded.
 
 export const fontMono = FontMono({
   subsets: ["latin"],

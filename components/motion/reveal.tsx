@@ -92,11 +92,11 @@ export function Reveal({
       whileInView="visible"
       viewport={{ once, amount }}
       variants={variants}
-      transition={{
-        duration: reducedMotion ? 0 : duration,
-        delay: reducedMotion ? 0 : delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      transition={
+        reducedMotion
+          ? { duration: 0 }
+          : { type: "spring", bounce: 0, duration, delay }
+      }
     >
       {children}
     </motion.div>
@@ -167,10 +167,11 @@ export function StaggerItem({
     <motion.div
       className={className}
       variants={variants}
-      transition={{
-        duration: reducedMotion ? 0 : 0.7,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      transition={
+        reducedMotion
+          ? { duration: 0 }
+          : { type: "spring", bounce: 0, duration: 0.55 }
+      }
     >
       {children}
     </motion.div>
@@ -225,7 +226,11 @@ export function WordReveal({
                 visible: { opacity: 1, y: "0em", filter: "blur(0px)" },
               }
         }
-        transition={{ duration: reducedMotion ? 0 : 0.9, ease: [0.16, 1, 0.3, 1] }}
+        transition={
+          reducedMotion
+            ? { duration: 0 }
+            : { type: "spring", bounce: 0, duration: 0.7 }
+        }
       >
         {word}
       </motion.span>

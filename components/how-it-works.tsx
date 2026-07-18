@@ -130,7 +130,7 @@ function FeatureCard({
     <>
       <div className="group section-hover-lift flex h-full flex-col">
         <div
-          className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden"
+          className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden rounded-lg border"
           aria-label={title}
         >
           <div className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden">
@@ -143,6 +143,8 @@ function FeatureCard({
               sizes="(max-width: 768px) 100vw, 33vw"
               className="pointer-events-none select-none object-cover transition-transform duration-400 group-hover:scale-[1.03]"
             />
+            <div className="absolute inset-0 bg-background/25" />
+            <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
           </div>
           <div

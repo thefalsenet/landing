@@ -23,17 +23,10 @@ export function SiteHeader({
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const threshold = window.innerHeight * 0.6; // 60vh
-
-      if (scrollPosition > threshold && !scrolled) {
-        setScrolled(true);
-      } else if (scrollPosition <= threshold && scrolled) {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 16);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Initial check
     handleScroll();
@@ -41,14 +34,19 @@ export function SiteHeader({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [scrolled]);
+  }, []);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: -20, filter: "blur(8px)" }}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md transition-[border-color] duration-200 border-b border-transparent`}
+      transition={{ type: "spring", bounce: 0, duration: 0.7 }}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300",
+        scrolled
+          ? "header-material bg-background/75 backdrop-blur-md shadow-[0_12px_24px_-20px_rgba(31,26,23,0.25)]"
+          : "bg-transparent",
+      )}
     >
       <nav className="w-full max-w-[1360px] mx-auto">
         <div className="mx-auto flex w-full items-center justify-between px-4 sm:px-8 py-4">
@@ -57,11 +55,7 @@ export function SiteHeader({
           </Link>
           <div className="flex items-center gap-2">
             <LanguageSwitcher currentLocale={currentLocale} />
-            <Button
-              asChild
-              variant={"default"}
-              className={cn("h-8 px-3 text-sm")}
-            >
+            <Button asChild variant={"default"} size={"sm"}>
               <Link href="/mobile">{ctaLabel}</Link>
             </Button>
           </div>
