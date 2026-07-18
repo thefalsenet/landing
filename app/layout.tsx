@@ -4,7 +4,7 @@ import Script from "next/script";
 import { getPreferredLocale } from "@/lib/i18n";
 
 import { siteConfig } from "@/config/site";
-import { fontSans, fontSerif } from "@/lib/font";
+import { fontSerif } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/site-header";
@@ -64,8 +64,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f1e8" },
+    { media: "(prefers-color-scheme: dark)", color: "#1c1713" },
   ],
 };
 
@@ -102,7 +102,6 @@ a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable,
             fontSerif.variable,
           )}
         >

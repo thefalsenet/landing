@@ -1,9 +1,15 @@
 "use server";
 
+import { headers } from "next/headers";
+import { after } from "next/server";
 import WaitlistWelcomeEmail, { generateWaitlistEmailText } from "@/components/emails/waitlist";
 import WaitlistAdminNotificationEmail from "@/components/emails/waitlist-admin-notification-email";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
+import { buildUnsubscribeUrl } from "@/lib/unsubscribe-token";
 import { Resend } from "resend";
 import { z } from "zod";
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const subscribeSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -31,6 +37,10 @@ export async function subscribe(formData: FormData) {
   const source = (formData.get("source") as string) || "main";
 
   try {
+    const ip = getClientIp(await headers());
+    if (!rateLimit(`subscribe:${ip}`, { limit: 5, windowMs: 10 * 60_000 })) {
+      return { success: false, message: RATE_LIMIT_MSG };
+    }
     const { email: validatedEmail } = subscribeSchema.parse({ email });
 
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -48,13 +58,12 @@ export async function subscribe(formData: FormData) {
     // Opt in to waitlist topic when RESEND_TOPIC_ID is set (run after response to stay under 2 req/s)
     const topicId = process.env.RESEND_TOPIC_ID;
     if (topicId && !contactError) {
-      setTimeout(
-        () =>
-          resend.contacts.topics
-            .update({ email: validatedEmail, topics: [{ id: topicId, subscription: "opt_in" }] })
-            .catch((err) => console.error("[subscribe] topics.update error:", err)),
-        2000
-      );
+      after(async () => {
+        await sleep(2000);
+        await resend.contacts.topics
+          .update({ email: validatedEmail, topics: [{ id: topicId, subscription: "opt_in" }] })
+          .catch((err) => console.error("[subscribe] topics.update error:", err));
+      });
     }
 
     // If contact already exists in audience, show "already on list" and skip welcome email
@@ -70,16 +79,16 @@ export async function subscribe(formData: FormData) {
     }
 
     // Send welcome email to the user
+    const unsubscribeUrl = buildUnsubscribeUrl(validatedEmail);
     const { error: sendError } = await resend.emails.send({
       from: "TheFalse team <join@mail.thefalse.net>",
       to: validatedEmail,
       subject: "You’re on the waitlist",
 
-      react: WaitlistWelcomeEmail({ email: validatedEmail }),
-      text: generateWaitlistEmailText({ email: validatedEmail }),
+      react: WaitlistWelcomeEmail({ unsubscribeUrl }),
+      text: generateWaitlistEmailText({ unsubscribeUrl }),
       headers: {
-        Name: "X-Entity-Ref-ID",
-        Value: String(Date.now()),
+        "X-Entity-Ref-ID": String(Date.now()),
       },
     });
 
@@ -108,10 +117,12 @@ export async function subscribe(formData: FormData) {
           subscribedAt: new Date().toLocaleString(),
         }),
       };
-      setTimeout(
-        () => resend.emails.send(payload).catch((err) => console.error("[subscribe] Admin notify error:", err)),
-        1500
-      );
+      after(async () => {
+        await sleep(1500);
+        await resend.emails
+          .send(payload)
+          .catch((err) => console.error("[subscribe] Admin notify error:", err));
+      });
     }
 
     return { success: true, message: "You're on the list! Check your email." };

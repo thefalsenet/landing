@@ -13,11 +13,11 @@ import {
 } from "@react-email/components";
 
 interface WaitlistWelcomeEmailProps {
-  email: string;
+  unsubscribeUrl: string;
 }
 
 export default function WaitlistWelcomeEmail({
-  email,
+  unsubscribeUrl,
 }: WaitlistWelcomeEmailProps) {
   return (
     <Html>
@@ -62,10 +62,7 @@ export default function WaitlistWelcomeEmail({
 
           <Text style={companyInfo}>
             You’re receiving this because you joined the waitlist at thefalse.net.{" "}
-            <Link
-              href={`https://thefalse.net/unsubscribe?email=${encodeURIComponent(email)}`}
-              style={footerLink}
-            >
+            <Link href={unsubscribeUrl} style={footerLink}>
               Unsubscribe
             </Link>
           </Text>
@@ -82,9 +79,9 @@ export default function WaitlistWelcomeEmail({
 }
 
 export function generateWaitlistEmailText({
-  email,
+  unsubscribeUrl,
 }: {
-  email: string;
+  unsubscribeUrl: string;
 }) {
   return `Hi reader,
 
@@ -98,7 +95,7 @@ We’ll email you when a spot opens.
 If something’s unclear, you can reply to this email.
 
 Unsubscribe:
-https://thefalse.net/unsubscribe?email=${encodeURIComponent(email)}
+${unsubscribeUrl}
 
 — TheFalse team
 

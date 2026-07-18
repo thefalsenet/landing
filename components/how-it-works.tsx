@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Search, BookOpen, PenTool, Share2 } from "lucide-react";
 import Image from "next/image";
 import type { LandingDictionary } from "@/lib/i18n-shared";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
 
 interface StepProps {
   number: number;
@@ -76,20 +77,24 @@ export default function HowItWorks({ copy }: HowItWorksProps) {
   return (
     <section className="w-full px-4 sm:px-8 py-16 md:py-24" id="how-it-works">
       <div className="mx-auto w-full max-w-[1360px] space-y-10">
-        <div className="space-y-3 text-left">
+        <Reveal className="space-y-3 text-left max-w-2xl">
           <h2 className="text-2xl tracking-[-0.01em] leading-[100%] text-foreground font-serif md:text-3xl">
             {copy.title}
           </h2>
-          <p className="text-sm text-muted-foreground md:text-base max-w-2xl">
+          <p className="text-sm text-muted-foreground md:text-base">
             {copy.description}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <StaggerGroup
+          className="grid grid-cols-1 gap-4 md:grid-cols-3"
+          staggerChildren={0.12}
+        >
           {steps.map((step, i) => (
-            <div
+            <StaggerItem
               className={cn("md:col-span-1", i === 0 ? "md:col-span-2" : "")}
               key={i}
+              direction={i % 2 === 0 ? "up" : "scale"}
             >
               <FeatureCard
                 bgUrl={step.bgUrl!}
@@ -98,9 +103,9 @@ export default function HowItWorks({ copy }: HowItWorksProps) {
                 title={step.title}
                 onRight={step.onRight}
               />
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );
@@ -123,9 +128,9 @@ function FeatureCard({
 }: FeatureCardProps) {
   return (
     <>
-      <div className="group flex h-full flex-col">
+      <div className="group section-hover-lift flex h-full flex-col">
         <div
-          className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden"
+          className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden rounded-lg border"
           aria-label={title}
         >
           <div className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden">
@@ -136,8 +141,11 @@ function FeatureCard({
               decoding="async"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="pointer-events-none select-none object-cover transition-transform duration-500 group-hover:scale-105"
+              className="pointer-events-none select-none object-cover transition-transform duration-400 group-hover:scale-[1.03]"
             />
+            <div className="absolute inset-0 bg-background/25" />
+            <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
           </div>
           <div
             className={cn(
@@ -148,7 +156,7 @@ function FeatureCard({
             <img
               src={imageUrl}
               alt={title}
-              className="pointer-events-none select-none drop-shadow-lg max-h-[80%] w-auto"
+              className="pointer-events-none select-none drop-shadow-lg max-h-[80%] w-auto transition-transform duration-400 ease-out group-hover:-translate-y-1"
             />
           </div>
         </div>
