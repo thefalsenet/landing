@@ -5,23 +5,29 @@ import { Slot } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all duration-200 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 active:not-aria-[haspopup]:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all duration-200 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 active:not-aria-[haspopup]:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
+        /* The pressed fill is opaque (token: accentPressed), not a wash —
+           a translucent fill picks up whatever is behind it, so the same
+           button on a card and on the page would answer a press differently. */
+        /* Disabled keeps the shape and weakens both halves — 30% accent under
+           a `muted` label — rather than fading the whole button out. */
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/85",
+          "bg-primary text-primary-foreground hover:bg-primary-pressed active:bg-primary-pressed disabled:bg-primary/30 disabled:text-muted-foreground disabled:opacity-100",
         outline:
-          "border-foreground/25 bg-card hover:bg-accent hover:text-foreground aria-expanded:bg-accent aria-expanded:text-foreground dark:bg-transparent dark:hover:bg-input/30",
+          "border-border-strong bg-card hover:bg-accent hover:text-foreground aria-expanded:bg-accent aria-expanded:text-foreground dark:hover:bg-accent",
         outline2:
-          "border bg-primary/10 border-primary/35 text-primary dark:in-[.theme-violet]:text-primary-foreground shadow-xs hover:bg-accent hover:text-accent-foreground",
+          "border border-border-strong bg-card text-foreground shadow-xs hover:bg-accent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
           "hover:bg-accent hover:text-accent-foreground aria-expanded:bg-accent aria-expanded:text-foreground dark:hover:bg-accent/50",
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        link: "text-primary underline-offset-4 hover:underline",
+        /* Links take `info`, the page's cool voice — not the accent fill. */
+        link: "text-blue underline-offset-4 hover:underline",
       },
       size: {
         /* Explicit px metrics: the theme's --spacing is 0.2rem, so scale
