@@ -20,14 +20,17 @@ function SubmitButton() {
       type="submit"
       disabled={pending}
       tabIndex={0}
-      className="cursor-pointer h-[46px] sm:h-9 flex items-center justify-center rounded-l-none disabled:bg-primary/10 disabled:text-primary/55 disabled:opacity-100 z-10 w-[46px] sm:w-9 flex-shrink-0"
+      size="icon"
+      /* Inset in the field rather than welded to its edge: the app's search
+         bar is one capsule, and a send glyph lives inside it. Two half-pills
+         butted together read as a control that broke in half. */
+      className="absolute right-1 top-1 z-10 size-10 shrink-0 cursor-pointer rounded-full disabled:bg-primary/30 disabled:text-muted-foreground disabled:opacity-100"
       aria-label="Submit email to join mobile waitlist"
     >
       {pending ? (
         <Icons.spinner className="size-4 animate-spin" />
       ) : (
         <svg
-          data-testid="geist-icon"
           height="16"
           strokeLinejoin="round"
           style={{ color: "currentColor" }}
@@ -67,8 +70,8 @@ export function MobileWaitlistForm({
   return (
     <div
       id="waitlist"
-      className="w-full my-4 max-w-[340px] flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both"
-      style={{ animationDelay: "320ms" }}
+      className="w-full my-4 max-w-[360px] flex flex-col items-center animate-in fade-in slide-in-from-bottom-2 duration-450 fill-mode-both"
+      style={{ animationDelay: "180ms" }}
     >
       <form
         id="mobile-waitlist-form"
@@ -79,13 +82,15 @@ export function MobileWaitlistForm({
         <label htmlFor="agent-waitlist-form" className="sr-only">
           {ariaLabel}
         </label>
-        <div className="flex flex-row w-full">
+        {/* 48px, the app's control floor — `sm:h-9` put the desktop field at
+            36px, under it. 16px text at every width so iOS never zooms in. */}
+        <div className="relative w-full">
           <Input
             type="email"
             name="email"
             required
             data-slot="input"
-            className="shadow-none !text-[16px] sm:!text-[14px] pl-[15px] h-[46px] sm:h-9 w-full min-w-0 rounded-r-none border-r-0"
+            className="h-12 w-full min-w-0 rounded-full pl-5 pr-14 !text-[16px] shadow-none"
             placeholder={placeholder}
             autoCapitalize="off"
             spellCheck={false}
