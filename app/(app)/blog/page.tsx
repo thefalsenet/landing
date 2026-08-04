@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import Balancer from "react-wrap-balancer";
 import { blogPosts } from "@/lib/blog-posts";
 
 export const metadata: Metadata = {
@@ -39,11 +38,9 @@ export default function BlogPage() {
             <h1 className="font-serif text-[2.25rem] leading-[1.1] tracking-[-0.01em] text-foreground sm:text-[2.75rem] md:text-[3.25rem]">
               Blog
             </h1>
-            <p className="mt-4 text-sm text-muted-foreground md:text-base md:leading-normal">
-              <Balancer>
-                Deep dives, product updates, and notes on building a reading
-                network that puts books and people first.
-              </Balancer>
+            <p className="mt-4 text-sm text-balance text-muted-foreground md:text-base md:leading-normal">
+              Deep dives, product updates, and notes on building a reading
+              network that puts books and people first.
             </p>
           </header>
 

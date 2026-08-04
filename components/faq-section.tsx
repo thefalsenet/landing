@@ -27,13 +27,14 @@ export default function FAQSection({ copy }: FAQSectionProps) {
         <Accordion
           type="single"
           collapsible
+          defaultValue={copy.items[0].question}
           className="flex w-full flex-col"
         >
           {copy.items.map((item) => (
             <StaggerItem key={item.question}>
               <AccordionItem
                 value={item.question}
-                className="section-hover-lift overflow-hidden rounded-lg transition-[background-color,box-shadow] duration-300 ease-out bg-transparent data-[state=open]:bg-card data-[state=open]:shadow-[0px_0px_16px_0px_rgba(31,26,23,0.03)] border-none"
+                className="overflow-hidden rounded-3xl transition-[background-color,box-shadow] duration-300 ease-out bg-transparent data-[state=open]:bg-card data-[state=open]:shadow-[0px_0px_16px_0px_rgba(30,25,21,0.03)] border-none"
               >
                 <AccordionTrigger className="py-4 font-medium leading-[1.5] flex w-full cursor-pointer items-center justify-between gap-6 rounded-lg px-6 pt-4 text-left transition-[padding-bottom] duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 data-[state=open]:pb-2 pb-4 hover:no-underline text-lg">
                   {item.question}

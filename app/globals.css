@@ -7,9 +7,15 @@
 @layer base {
   /*
    * Token source: monorepo packages/design-tokens (the iOS app's palette).
-   * background/surface/foreground/accent/muted/danger map 1:1; everything
-   * else is derived the same way the app derives it (hairlines are
-   * muted @ 25%, washes are accent over paper).
+   * One warm family: every neutral is the same sand hue at a different
+   * lightness, and hierarchy comes from darkening the ink rather than from
+   * a second temperature. background / surface / surfaceAlt / foreground /
+   * accent / muted / subtle / divider / border / selection and the four
+   * semantics map 1:1; the shadcn slots below are named for those tokens.
+   *
+   * accent and foreground are one value (#1e1915) on purpose — a filled
+   * button is the text it sits under, not a coloured object. Links take
+   * `info`, the page's cool voice, not the fill.
    */
   :root {
     --font-sans:
@@ -19,64 +25,76 @@
     --font-mono: JetBrains Mono, "SFMono-Regular", ui-monospace, monospace;
     --font-cjk: "Manrope", "Inter", "Segoe UI", system-ui, sans-serif;
     --font-ara: "Noto Sans Arabic", "Tahoma", "Arial", sans-serif;
-    --background: #f6f1e8; /* token: background (paper) */
-    --foreground: #1f1a17; /* token: foreground (ink) */
-    --card: #fffaf2; /* token: surface */
-    --card-foreground: #1f1a17;
-    --popover: #fffaf2;
-    --popover-foreground: #1f1a17;
-    --primary: #8f3d2e; /* token: accent (brick) */
-    --primary-foreground: #fffaf2;
+    --background: #ebe2d7; /* token: background (toned ground) */
+    --foreground: #1e1915; /* token: foreground (ink) */
+    --card: #f5f0e8; /* token: surface — a sheet lifted off the page */
+    --card-foreground: #1e1915;
+    --popover: #f5f0e8;
+    --popover-foreground: #1e1915;
+    --primary: #1e1915; /* token: accent — the ink is the fill */
+    --primary-foreground: #ebe2d7; /* token: onAccent (page colour, not white) */
+    --primary-pressed: #33291f; /* token: accentPressed — opaque, not a wash */
 
-    --red: #a62e2e; /* token: danger */
-    --red-foreground: #fffaf2;
+    /*
+     * Semantics, straight from the app: desaturated to sit in the family.
+     * They are marks and fills, not text colours — anything that has to be
+     * read beside one takes --foreground or --muted-foreground.
+     */
+    --red: #cb5e73; /* token: danger */
+    --red-foreground: #1e1915;
 
-    --rose: oklch(0.55 0.14 15);
-    --rose-foreground: #fffaf2;
+    --rose: #cb5e73; /* token: danger / darkColors.rose — like */
+    --rose-foreground: #1e1915;
 
-    --orange: oklch(0.63 0.13 45);
-    --orange-foreground: #fffaf2;
+    --orange: #b8863f; /* token: warning */
+    --orange-foreground: #1e1915;
 
-    --green: oklch(0.55 0.09 145);
-    --green-foreground: #fffaf2;
+    --green: #629987; /* token: success / darkColors.green — renote */
+    --green-foreground: #1e1915;
 
-    --blue: oklch(0.55 0.08 240);
-    --blue-foreground: #fffaf2;
+    --blue: #5592bc; /* token: info / darkColors.blue — link, bookmark */
+    --blue-foreground: #1e1915;
 
-    --yellow: oklch(0.82 0.1 85);
-    --yellow-foreground: #1f1a17;
+    --yellow: #b8863f; /* token: warning */
+    --yellow-foreground: #1e1915;
 
-    --violet: oklch(0.55 0.09 300);
-    --violet-foreground: #fffaf2;
-    --secondary: #ede5d6; /* deeper paper for alternate surfaces */
-    --secondary-foreground: #443a32;
-    --muted: #ece3d3;
-    --muted-foreground: #7d7065; /* token: muted */
-    --accent: color-mix(in oklab, #8f3d2e 7%, #f6f1e8); /* brick wash */
-    --accent-foreground: #6f2f23;
-    --destructive: #a62e2e; /* token: danger */
-    --destructive-foreground: #fffaf2;
-    --border: color-mix(
-      in srgb,
-      #7d7065 25%,
-      transparent
-    ); /* muted @ 25%, the app's hairline */
-    --input: color-mix(in srgb, #7d7065 35%, transparent);
-    --ring: #8f3d2e;
-    --chart-1: #8f3d2e;
-    --chart-2: oklch(0.63 0.13 45);
-    --chart-3: oklch(0.55 0.09 145);
-    --chart-4: oklch(0.82 0.1 85);
-    --chart-5: oklch(0.55 0.08 240);
-    --sidebar: #f1ebdf;
-    --sidebar-foreground: #443a32;
-    --sidebar-primary: #8f3d2e;
-    --sidebar-primary-foreground: #fffaf2;
-    --sidebar-accent: color-mix(in oklab, #8f3d2e 7%, #f6f1e8);
-    --sidebar-accent-foreground: #6f2f23;
-    --sidebar-border: color-mix(in srgb, #7d7065 25%, transparent);
-    --sidebar-ring: #8f3d2e;
-    --color-link: var(--primary);
+    /* No violet in the app's palette — this is the only invented hue, built
+       at the same lightness and chroma band as the four that are tokens. */
+    --violet: #8a7fa8;
+    --violet-foreground: #1e1915;
+    --secondary: #e0d5c6; /* token: surfaceAlt — a recess, not a sheet */
+    --secondary-foreground: #1e1915;
+    --muted: #e0d5c6; /* token: surfaceAlt */
+    --muted-foreground: #5c5449; /* token: muted — 5.9:1, clears body text */
+    --subtle: #8a8073; /* token: subtle — placeholders, disabled labels */
+    --accent: #d9cbb4; /* token: selection — a tint of the page */
+    --accent-foreground: #1e1915;
+    --destructive: #cb5e73; /* token: danger */
+    --destructive-foreground: #1e1915; /* ink on danger, 4.6:1 — not the paper */
+    /*
+     * Two weights, as in the app: a divider says where one thing ends, a
+     * border says where you may type or press. The default `border-*` colour
+     * is the divider — controls opt into the heavier line via `border-input`.
+     */
+    --divider: #d6cab8; /* token: divider, 1.26:1 */
+    --border: var(--divider);
+    --border-strong: #c4b7a3; /* token: border, 1.54:1 */
+    --input: var(--border-strong);
+    --ring: #1e1915;
+    --chart-1: #1e1915;
+    --chart-2: #b8863f;
+    --chart-3: #629987;
+    --chart-4: #5592bc;
+    --chart-5: #cb5e73;
+    --sidebar: #f5f0e8;
+    --sidebar-foreground: #1e1915;
+    --sidebar-primary: #1e1915;
+    --sidebar-primary-foreground: #ebe2d7;
+    --sidebar-accent: #d9cbb4;
+    --sidebar-accent-foreground: #1e1915;
+    --sidebar-border: #c4b7a3;
+    --sidebar-ring: #1e1915;
+    --color-link: var(--blue); /* the page's cool voice, per the app */
 
     /* token: radii — 8 / 14 / 20 */
     --radius: 0.875rem;
@@ -150,40 +168,67 @@
     --font-serif: "Noto Naskh Arabic", "Lora", "Times New Roman", Times, serif;
   }
 
+  /*
+   * The same family after dark, built the same way: the ground is a warm
+   * near-black, `card` is a step up (a sheet) and `secondary` a step down
+   * (a recess), and the ink inverts to paper — so accent is again the same
+   * value as foreground. The four semantics do not change: the app's values
+   * are already tuned to sit on a dark field.
+   */
   .dark {
-    --background: #1c1713; /* paper, after dark */
-    --foreground: #ece4d8;
-    --card: #241e18;
-    --card-foreground: #ece4d8;
-    --popover: #241e18;
-    --popover-foreground: #ece4d8;
-    --primary: #c0604a; /* brick, lifted for contrast on dark */
-    --primary-foreground: #1c1713;
-    --secondary: #2c251f;
-    --secondary-foreground: #d8cec0;
-    --muted: #29221c;
+    --background: #17130f;
+    --foreground: #ebe2d7;
+    --card: #211c17;
+    --card-foreground: #ebe2d7;
+    --popover: #211c17;
+    --popover-foreground: #ebe2d7;
+    --primary: #ebe2d7; /* accent: the ink, inverted */
+    --primary-foreground: #17130f;
+    --primary-pressed: #d6cab8;
+
+    --red: #cb5e73;
+    --red-foreground: #17130f;
+    --rose: #cb5e73;
+    --rose-foreground: #17130f;
+    --orange: #b8863f;
+    --orange-foreground: #17130f;
+    --green: #629987;
+    --green-foreground: #17130f;
+    --blue: #5592bc;
+    --blue-foreground: #17130f;
+    --yellow: #b8863f;
+    --yellow-foreground: #17130f;
+    --violet: #8a7fa8;
+    --violet-foreground: #17130f;
+
+    --secondary: #100d0a;
+    --secondary-foreground: #ebe2d7;
+    --muted: #100d0a;
     --muted-foreground: #a3968a;
-    --accent: color-mix(in oklab, #c0604a 12%, #1c1713);
-    --accent-foreground: #dda08e;
-    --destructive: #c4514a;
-    --destructive-foreground: #1c1713;
-    --border: color-mix(in srgb, #a3968a 22%, transparent);
-    --input: color-mix(in srgb, #a3968a 32%, transparent);
-    --ring: #c0604a;
-    --chart-1: #c0604a;
-    --chart-2: oklch(0.7 0.12 45);
-    --chart-3: oklch(0.65 0.09 145);
-    --chart-4: oklch(0.82 0.1 85);
-    --chart-5: oklch(0.65 0.08 240);
-    --sidebar: #211b16;
-    --sidebar-foreground: #d8cec0;
-    --sidebar-primary: #c0604a;
-    --sidebar-primary-foreground: #1c1713;
-    --sidebar-accent: color-mix(in oklab, #c0604a 12%, #1c1713);
-    --sidebar-accent-foreground: #dda08e;
-    --sidebar-border: color-mix(in srgb, #a3968a 22%, transparent);
-    --sidebar-ring: #c0604a;
-    --color-link: var(--primary);
+    --subtle: #7a7064;
+    --accent: #2f2820; /* selection */
+    --accent-foreground: #ebe2d7;
+    --destructive: #cb5e73;
+    --destructive-foreground: #17130f;
+    --divider: #2b2520;
+    --border: var(--divider);
+    --border-strong: #3d362e;
+    --input: var(--border-strong);
+    --ring: #ebe2d7;
+    --chart-1: #ebe2d7;
+    --chart-2: #b8863f;
+    --chart-3: #629987;
+    --chart-4: #5592bc;
+    --chart-5: #cb5e73;
+    --sidebar: #211c17;
+    --sidebar-foreground: #ebe2d7;
+    --sidebar-primary: #ebe2d7;
+    --sidebar-primary-foreground: #17130f;
+    --sidebar-accent: #2f2820;
+    --sidebar-accent-foreground: #ebe2d7;
+    --sidebar-border: #3d362e;
+    --sidebar-ring: #ebe2d7;
+    --color-link: var(--blue);
 
     --radius: 0.875rem;
     --shadow-x: 0;
@@ -242,7 +287,11 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-subtle: var(--subtle);
+  --color-primary-pressed: var(--primary-pressed);
   --color-border: var(--border);
+  --color-divider: var(--divider);
+  --color-border-strong: var(--border-strong);
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-chart-1: var(--chart-1);
@@ -254,7 +303,9 @@
   --radius-sm: 0.5rem;
   --radius-md: 0.875rem;
   --radius-lg: 1.25rem;
-  --radius-xl: 1.25rem;
+  /* Framed media — hero, feature cards. Larger than a card corner because the
+     corner has to read at 400px wide, not at 40px. */
+  --radius-xl: 1.75rem;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -459,6 +510,15 @@ body {
   .ambient-drift,
   .ambient-shimmer {
     animation: none;
+  }
+
+  /* Entrances cross-fade in place instead of travelling. Reduced motion
+     asks for a gentler equivalent, not for the feedback to disappear. */
+  .animate-in {
+    --tw-enter-translate-x: 0;
+    --tw-enter-translate-y: 0;
+    --tw-enter-scale: 1;
+    animation-duration: 200ms;
   }
 
   .section-hover-lift,

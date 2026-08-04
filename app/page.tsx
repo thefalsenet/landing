@@ -1,4 +1,3 @@
-import Balancer from "react-wrap-balancer";
 import { Button } from "@/components/ui/button";
 import HowItWorks from "@/components/how-it-works";
 import FAQSection from "@/components/faq-section";
@@ -50,7 +49,7 @@ export default async function Home() {
               </StaggerItem>
               <StaggerItem>
                 <p className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word text-muted-foreground max-w-[760px]">
-                  <Balancer>{copy.home.description}</Balancer>
+                  {copy.home.description}
                 </p>
               </StaggerItem>
             </header>
@@ -66,12 +65,12 @@ export default async function Home() {
             </StaggerItem>
           </StaggerGroup>
           <Reveal
-            className="relative w-full overflow-hidden rounded-lg border bg-card"
+            className="relative w-full overflow-hidden rounded-xl border bg-card"
             direction="scale"
             amount={0.15}
             duration={0.95}
           >
-            <div className="pointer-events-none select-none absolute inset-0 overflow-hidden rounded-lg">
+            <div className="pointer-events-none select-none absolute inset-0 overflow-hidden rounded-xl">
               <Image
                 src={"/hero-bg.png"}
                 alt="Hero image"
@@ -90,7 +89,7 @@ export default async function Home() {
                 <Image
                   src={"/hero-img.svg"}
                   alt="TheFalse Demo"
-                  loading="lazy"
+                  priority
                   decoding="async"
                   width={1800}
                   height={1284}

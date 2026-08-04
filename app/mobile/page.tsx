@@ -22,28 +22,35 @@ export default async function Mobile() {
       <Toaster />
 
       <div className="absolute right-4 top-4 z-50 sm:right-8 sm:top-8">
-        <LanguageSwitcher currentLocale={locale} />
+        {/* Floating chrome is a translucent layer over the page, not an
+            opaque chip sitting on it. Goes solid under reduced transparency. */}
+        <LanguageSwitcher
+          currentLocale={locale}
+          className="header-material bg-card/70 backdrop-blur-md"
+        />
       </div>
 
       <div className="flex flex-col items-center gap-6 text-center max-w-lg w-full">
         <div
-          className="flex items-center gap-2 animate-in fade-in slide-in-from-bottom-4 duration-600 fill-mode-both"
-          style={{ animationDelay: "40ms" }}
+          className="flex items-center gap-2 animate-in fade-in slide-in-from-bottom-2 duration-450 fill-mode-both"
+          style={{ animationDelay: "0ms" }}
         >
-          <Icons.logo className="size-12" />
-          <span className="text-3xl font-medium font-serif">
+          <Icons.logo className="size-11" />
+          <span className="text-[1.75rem] font-medium font-serif tracking-[-0.01em]">
             {copy.mobile.label}
           </span>
         </div>
 
         <div
-          className="flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-4 duration-600 fill-mode-both"
-          style={{ animationDelay: "160ms" }}
+          className="flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-2 duration-450 fill-mode-both"
+          style={{ animationDelay: "90ms" }}
         >
-          <h1 className="text-4xl font-medium text-balance text-center font-serif">
+          {/* Tracking is size-specific: display serif tightens as it grows,
+              body stays at 0 and takes the looser leading instead. */}
+          <h1 className="text-[2.5rem] font-medium text-balance text-center font-serif leading-[1.08] tracking-[-0.022em]">
             {copy.mobile.title}
           </h1>
-          <p className="text-xl text-muted-foreground text-center text-balance">
+          <p className="text-lg text-muted-foreground text-center text-balance leading-[1.5]">
             {copy.mobile.description}
           </p>
         </div>

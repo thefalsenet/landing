@@ -26,7 +26,7 @@ export default function CTASection({ copy }: CTASectionProps) {
           className="object-cover object-center ambient-drift"
           sizes="(min-width: 1360px) 1360px, 100vw"
         />
-        <div className="absolute inset-0 bg-[#1f1a17]/35" />
+        <div className="absolute inset-0 bg-[#1e1915]/35" />
         <div className="absolute inset-x-[14%] bottom-[18%] h-24 rounded-full bg-white/10 blur-3xl ambient-shimmer" />
         <StaggerGroup
           className="relative z-10 flex flex-col items-center gap-8 px-6 text-center md:gap-10 md:px-12"
