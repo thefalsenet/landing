@@ -89,7 +89,7 @@ export default async function Home() {
                 <Image
                   src={"/hero-img.svg"}
                   alt="TheFalse Demo"
-                  loading="lazy"
+                  priority
                   decoding="async"
                   width={1800}
                   height={1284}
