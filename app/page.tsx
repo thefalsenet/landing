@@ -1,4 +1,3 @@
-import Balancer from "react-wrap-balancer";
 import { Button } from "@/components/ui/button";
 import HowItWorks from "@/components/how-it-works";
 import FAQSection from "@/components/faq-section";
@@ -50,7 +49,7 @@ export default async function Home() {
               </StaggerItem>
               <StaggerItem>
                 <p className="text-sm md:text-base md:leading-normal font-normal text-balance wrap-break-word text-muted-foreground max-w-[760px]">
-                  <Balancer>{copy.home.description}</Balancer>
+                  {copy.home.description}
                 </p>
               </StaggerItem>
             </header>
