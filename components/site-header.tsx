@@ -44,7 +44,7 @@ export function SiteHeader({
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300",
         scrolled
-          ? "header-material bg-background/75 backdrop-blur-md shadow-[0_12px_24px_-20px_rgba(31,26,23,0.25)]"
+          ? "header-material bg-background/75 backdrop-blur-md shadow-[0_12px_24px_-20px_rgba(30,25,21,0.25)]"
           : "bg-transparent",
       )}
     >

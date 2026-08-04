@@ -128,9 +128,9 @@ function FeatureCard({
 }: FeatureCardProps) {
   return (
     <>
-      <div className="group section-hover-lift flex h-full flex-col">
+      <div className="group flex h-full flex-col">
         <div
-          className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden rounded-lg border"
+          className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden rounded-xl border"
           aria-label={title}
         >
           <div className="relative h-[280px] sm:h-[360px] md:h-[440px] overflow-hidden">
@@ -156,7 +156,7 @@ function FeatureCard({
             <img
               src={imageUrl}
               alt={title}
-              className="pointer-events-none select-none drop-shadow-lg max-h-[80%] w-auto transition-transform duration-400 ease-out group-hover:-translate-y-1"
+              className="pointer-events-none select-none drop-shadow-lg max-h-[80%] w-auto transition-transform duration-400 ease-out"
             />
           </div>
         </div>

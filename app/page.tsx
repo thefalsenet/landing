@@ -66,12 +66,12 @@ export default async function Home() {
             </StaggerItem>
           </StaggerGroup>
           <Reveal
-            className="relative w-full overflow-hidden rounded-lg border bg-card"
+            className="relative w-full overflow-hidden rounded-xl border bg-card"
             direction="scale"
             amount={0.15}
             duration={0.95}
           >
-            <div className="pointer-events-none select-none absolute inset-0 overflow-hidden rounded-lg">
+            <div className="pointer-events-none select-none absolute inset-0 overflow-hidden rounded-xl">
               <Image
                 src={"/hero-bg.png"}
                 alt="Hero image"
